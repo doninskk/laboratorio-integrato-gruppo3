@@ -12,12 +12,4 @@ export class NewsComponent {
   wiewMore(){
     this.isButtonClick = !this.isButtonClick;
   }
-  
-
-  disableAccordion(){
-    if(this.isButtonClick = true){ 
-       
-        }
-    }
-
 }
