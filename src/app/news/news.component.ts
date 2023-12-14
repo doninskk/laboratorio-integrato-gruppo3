@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class NewsComponent {
 
+  isButtonClick = false; //per seconda e terza  variante
+
+  wiewMore(){
+    this.isButtonClick = !this.isButtonClick;
+  }
+  
+
+  disableAccordion(){
+    if(this.isButtonClick = true){ 
+       
+        }
+    }
+
 }

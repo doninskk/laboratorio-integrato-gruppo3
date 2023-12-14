@@ -1,1 +1,72 @@
-<p>news works!</p>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">logo volleynet</div>
+            <ul class="nav-list">
+                <li><a href="#risultati">Risultati</a></li>
+                <li><a href="#classifiche">Classifiche</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#gioca">Gioca</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="article-card">
+        <div class="article-img">
+            <img src="immagine.jpg" alt="Immagine dell'articolo">
+        </div>
+        <div class="article-content">
+            <h2>La Strategia Vincente</h2>
+            <p>Come vincere nella pallavolo</p>
+            <p>La pallavolo è uno sport dinamico che richiede una combinazione di abilità tecniche, tattiche funzionanti e una comunicazione efficace tra i membri della squadra.</p>
+            <a (click) = "wiewMore()" class="accordion-button" role="button">Leggi di più </a>
+
+            <div *ngIf="isButtonClick" class="accordion-body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel nostrum rem, iure quam perspiciatis architecto eaque, ipsa saepe velit provident placeat at tempore qui aut doloribus sapiente ut, corporis necessitatibus?</p>
+            </div>
+        </div>
+    </div>
+    <div class="article-card">
+        <div class="article-img">
+            <img src="immagine.jpg" alt="Immagine dell'articolo">
+        </div>
+        <div class="article-content">
+            <h2>I giganti del Volley</h2>
+            <p>I più Grandi Pallavolisti di sempre</p>
+            <p>Il mondo della pallavolo ha visto fiorire talenti straordinari che hanno scritto la storia dello sport grazie alle loro abilità eccezionali e con il contributo dei propri Team. In questo articolo, esploreremo alcuni dei più grandi pallavolisti di sempre, le loro vittorie, e ciò che hanno lasciato alla pallavolo.</p>
+            <a href="#">Leggi di più</a>
+        </div>
+    </div>
+    <div class="article-card">
+        <div class="article-img">
+            <img src="immagine.jpg" alt="Immagine dell'articolo">
+        </div>
+        <div class="article-content">
+            <h2>Semifinale Infuocata</h2>
+            <p>Tutta la Pallavolo in una partita da brividi</p>
+            <p>Semifinale di campionato, due squadre, i "Leoni del Mare" e i "Fulmini D'Argento", si preparano a darsi battaglia. Una partita di pallavolo che promette emozioni forti.</p>
+            <a href="#">Leggi di più</a>
+        </div>
+    </div>
+    <div class="article-card">
+        <div class="article-img">
+            <img src="immagine.jpg" alt="Immagine dell'articolo">
+        </div>
+        <div class="article-content">
+            <h2>Titolo dell'articolo</h2>
+            <p>Descrizione breve dell'articolo. Può essere abbastanza lunga.</p>
+            <a href="#">Leggi di più</a>
+        </div>
+    </div>
+</body>
+</html>
