@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NewsComponent {
 
-  isButtonClick = false; //per seconda e terza  variante
+  isButtonClick = false;
 
-  wiewMore(){
+  toggleArticle() {
     this.isButtonClick = !this.isButtonClick;
   }
 
