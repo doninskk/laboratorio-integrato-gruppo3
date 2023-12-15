@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 @Component({
@@ -9,9 +8,22 @@ import { Component } from '@angular/core';
 })
 export class NewsComponent {
 
-  isButtonClick = false; //per seconda e terza  variante
+  isButtonClick = false; 
 
   wiewMore(){
     this.isButtonClick = !this.isButtonClick;
+  }
+
+  wiewSecondNews(){
+    this.isButtonClick = !this.isButtonClick;
+  }
+  
+
+  disableAccordion(){
+    if(this.isButtonClick = true){ 
+
+      this.isButtonClick = false
+        
+    }
   }
 }

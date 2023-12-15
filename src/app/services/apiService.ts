@@ -14,8 +14,6 @@ import { HttpClient } from '@angular/common/http'; // importo qui quindi in seri
 
         getRisultatiPartite() {
             return this.http.get('')} 
-
-            
         
     /*    GetEpisodes( idSerie: number){
             return this.http.get('https://api.tvmaze.com/shows/'+idSerie+'/episodes')} // concateno l'URL con l'ID*/
