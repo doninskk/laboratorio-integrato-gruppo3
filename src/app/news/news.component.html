@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -24,20 +25,115 @@
         </nav>
     </header>
 
-    <div *ngFor="let article of articles; let i = index" class="article-card">
+    <div class="article-card">
         <div class="article-img">
-          <img [src]="article.img" alt="Immagine dell'articolo">
+            <img src="/assets/la-strategia-vincente.jpg" class="img-fluid" alt="Immagine dell'articolo">
         </div>
-        <div class="article-content" (click)="toggleArticle(i)" role="button">
-          <h2>{{ article.title }}</h2>
-          {{ article.content }}
-          <div *ngIf="selectedArticleIndex === i" class="accordion-body">
-            <div [innerHTML]="article.articleContent"></div>
+        <div class="article-content" (click)="toggleArticle()" role="button">
+            <h2>La Strategia Vincente</h2>
+            <p>Come vincere nella pallavolo</p>
+            <p>Vincere una partita a pallavolo non è solo questione di forza, ma soprattutto di strategia e coordinazione. In questo articolo, esploreremo alcune strategie chiave che ti aiuteranno a portare a casa la vittoria!</p>
+          
+            <div *ngIf="isButtonClick" class="accordion-body">
+                <p><b>Comunicazione e Coordinazione:</b></p>
+                <p>Una comunicazione chiara e una buona coordinazione sono fondamentali per una squadra vincente. Utilizza segnali veloci e precisi per indicare i tuoi movimenti e intenzioni ai tuoi compagni. Facendolo ridurrai gli errori e migliorerà la reattività della squadra alle situazioni di gioco in rapido cambiamento.</p>
+                <p><b>Studia gli Avversari:</b></p>
+                <p>Osservare le partite precedenti della squadra avversaria può fornire preziose informazioni tattiche che possono essere sfruttate durante la partita.</p>
+                <p>Studia i loro punti di forza e debolezza. Identifica i giocatori chiave avversari e sviluppa strategie per neutralizzarli.</p>
+                <p><b>Allenamento:</b></p>
+                <p>Un'adeguata preparazione è essenziale per affrontare una partita di pallavolo. Migliora la tua resistenza, forza e flessibilità attraverso un allenamento costante. Perfeziona le tue abilità tecniche come la battuta, la ricezione, la schiacciata e il palleggio. Un giocatore preparato fisicamente e tecnicamente saprà tenere il sangue freddo nei momenti importanti.</p>
+                <p><b>Tattiche:</b></p>
+                <p>Sviluppate tattiche specifiche per la tua squadra in base alle vostre qualità e ai punti deboli dell'avversario. Ad esempio, se hai un forte attaccante, organizza il gioco intorno a lui per sfruttare al meglio le sue capacità. Lavora su schemi di gioco che confondano l'avversario e creino opportunità di attacco.</p>
+                <p><b>Adattabilità:</b></p>
+                <p>Nessuna partita di pallavolo è identica, e le circostanze possono cambiare rapidamente. La capacità di adattarsi alle situazioni impreviste è cruciale. La tua squadra deve rimanere flessibile e modificare la strategia in base alle esigenze del momento. Essere pronti a cambiare tattica può fare la differenza tra la vittoria e la sconfitta.</p>
+                <p><b>Mentalità Positiva:</b></p>
+                <p>Mantenere una mentalità positiva è fondamentale per non lasciarsi scoraggiare quando si è in difficoltà. Gli errori possono verificarsi, ma è importante concentrarsi sulla prossima giocata al posto di farsi abbattere. Una squadra con una mentalità positiva lotterà fino alla fine, e anche se perdesse tornerebbe a casa ancora più motivato per la prossima partita. Questa mentalità è ciò che distingue i vinti dai vincenti.</p>
+                <p>Conclusione:</p>
+                <p>Vincere una partita a pallavolo richiede più di abilità fisiche e tecniche; è una combinazione di comunicazione, tattiche, adattabilità e una mentalità positiva. Preparati bene, studia i tuoi avversari, e ricorda che il successo è il risultato di una squadra unita, che lavora insieme verso un obiettivo comune. Con queste strategie in mente, sarai pronto a vincere la tua prossima partita di pallavolo con stile e determinazione.</p>
+            </div>
+        </div>
+    </div>
+    <div class="article-card">
+        <div class="article-img">
+            <img src="/assets/i-giganti-del-volley.png" class="img-fluid" alt="I giganti del volley">
+        </div>
+        <div class="article-content" (click)="toggleSecondArticle()" role="button">
+            <h2>I Giganti del Volley</h2>
+            <p>I più Grandi Pallavolisti di sempre</p>
+            <p>Il mondo della pallavolo ha visto fiorire talenti straordinari che hanno scritto la storia dello sport grazie alle loro abilità eccezionali e con il contributo dei propri Team. In questo articolo, esploreremo alcuni dei più grandi pallavolisti di sempre, le loro vittorie, e ciò che hanno lasciato alla pallavolo.</p> 
+            <div *ngIf="isButtonSecondArticleClick" class="accordion-body">
+              <p><b> Karch Kiraly (Stati Uniti): </b></p>
+              <p>Karch Kiraly è considerato uno dei migliori pallavolisti di tutti i tempi. L’unico che ha vinto medaglie d'oro sia nei Giochi Olimpici indoor che in quelli beach volley, un traguardo senza precedenti. Dopo il suo ritiro, Kiraly ha continuato a lasciare il segno come allenatore, guidando la femminile degli Stati Uniti alla vittoria nelle Olimpiadi del 2012. La sua versatilità, forza fisica e capacità di leadership lo collocano al vertice della lista dei grandi del volley.</p>
 
+              <p><b> Giba (Brasile): </b></p>
+              <p>Giba, il leggendario attaccante brasiliano, ha guidato la sua squadra all’oro in tre Olimpiadi consecutive, dal 2004 al 2012. Il suo stile di gioco spettacolare, caratterizzato da schiacciate potenti e difese acrobatiche, ha fatto di lui uno degli atleti più ammirati nella storia della pallavolo.
 
+                Giba ha lasciato il segno non solo per le sue abilità tecniche, ma anche per la sua umiltà e il suo impegno nel promuovere lo sport e ispirare giovani atleti</p>
+
+                <p><b> Sergey Tetyukhin (Russia): </b></p>
+                <p>Il russo Sergey Tetyukhin è stato un'icona del volley mondiale, vincendo quattro medaglie d'oro olimpiche (un record nel volley maschile) e aggiudicandosi innumerevoli altri titoli a livello mondiale ed europeo. La sua longevità e la costante ricerca dell’eccellenza nelle prestazioni lo rendono uno dei più grandi di tutti i tempi.</p>
+
+                <p><b> Gian Paolo Montali (Italia): </b></p>
+                <p>Di orgoglio nazionale, Gian Paolo Montali è stato uno degli allenatori più vincenti nella storia del volley. Ha guidato la nazionale italiana maschile alla vittoria nei Giochi Olimpici del 1996 e ha contribuito in modo significativo alla crescita e allo sviluppo del volley italiano.</p>
+
+                <p><b> Lang Ping (Cina): </b></p>
+
+                <p>Lang Ping è un'icona del volley cinese, sia come giocatrice che come allenatrice. Ha vinto una medaglia d'oro olimpica come giocatrice nel 1984 e ha poi guidato la squadra femminile cinese alla vittoria alle Olimpiadi del 2016. La sua carriera eccezionale in campo e in panchina la rende un'icona nel mondo del volley.</p>
+
+                <p>Conclusione:</p>
+                <p>Questi grandi pallavolisti sono solo alcuni dei giocatori che hanno lasciato un'impronta indelebile nella storia della pallavolo mondiale, attraverso le loro gesta straordinarie, la leadership e la dedizione al gioco. Ognuno di loro ha contribuito a trasformare la pallavolo in uno sport spettacolare e ha ispirato generazioni di atleti a perseguire l'eccellenza. Il loro lascito non vive solo nei trofei vinti, ma anche nell'ispirazione che continuano a fornire alla comunità del volley in tutto il mondo</p>
+                
+          </div>
+        </div>
+        
+    </div>
+    <div class="article-card">
+        <div class="article-img">
+            <img src="/assets/semifinale-infuocata-2.avif" class="img-fluid" alt="Immagine dell'articolo">
+        </div>
+        <div class="article-content" (click)="toggleThirdArticle()" role="button" >
+            <h2>Semifinale Infuocata</h2>
+            <p>Tutta la Pallavolo in una partita da brividi</p>
+            <p>Semifinale di campionato, due squadre, i "Leoni del Mare" e i "Fulmini D'Argento", si preparano a darsi battaglia. Una partita di pallavolo che promette emozioni   forti.</p>
+            <div *ngIf="isButtonThirdArticleClick" class="accordion-body">
+              <p><b> Sfida tra Giganti: </b></p>
+              <p>Le due squadre, con i "Leoni del Mare" noti per la loro potenza e i "Fulmini D'Argento" famosi per la velocità, entrano in campo. L'atmosfera è elettrica mentre gli spettatori si preparano per una partita di alto livello. </p>
+
+              <p><b> Riscaldamento determinato: </b></p>
+              
+              <p> I giocatori si riscaldano con smorzate e servizi impeccabili. L'obiettivo è chiaro: conquistare la vittoria. Il riscaldamento è un mix di concentrazione e qualche sorriso, creando un'anticipazione intensa per la partita.</p>
+
+              <p><b>  Primo Set - Schiacciate Spettacolari </b></p>
+              <p>La partita inizia con schiacciate potenti e difese agili. I punti si susseguono in una danza di destrezza e abilità. Ogni squadra vuole dimostrare di essere la migliore e il pubblico è incollato alle azioni sul campo.</p>
+
+              <p><b>  Primo Set - Schiacciate Spettacolari </b></p>
+
+              <p>La partita inizia con schiacciate potenti e difese agili. I punti si susseguono in una danza di destrezza e abilità. Ogni squadra vuole dimostrare di essere la migliore e il pubblico è incollato alle azioni sul campo.</p>
+
+              <p><b>Tattiche Sorprendenti e Svolte: </b></p>
+
+              <p>Con il punteggio in parità, entrambe le squadre tirano fuori tattiche sorprendenti. Dalle schiacciate ben studiate ai tocchi delicati, il campo è un terreno di gioco per ingegno e astuzia. La partita è imprevedibile e avvincente.</p>
+
+              <p><b> Il Set Finale e il Pubblico in Delirio: </b></p>
+
+              <p>Il set finale è un crescendo di emozioni. Entrambe le squadre danno il massimo, e ogni punto è un passo verso la vittoria. La folla è in delirio, incitando entrambe le squadre in un clima di competizione appassionante.</p>
+
+              <p>Conclusione: </p>
+
+              <p>La semifinale di questo campionato è stata un turbine di emozioni, dove l'energia, il talento e lo spirito sportivo hanno danzato sulla scena. Le squadre, con dedizione e abilità straordinarie, hanno regalato uno spettacolo indimenticabile. In definitiva, la vera vittoria è stata l'eccezionale esperienza di pallavolo che ha catturato gli spettatori, lasciando un'impronta indelebile nella loro memoria. Applausi a tutti coloro che hanno reso quella partita un momento magico!</p>
 
           </div>
         </div>
-      </div>
+    </div>
+    <div class="article-card">
+        <div class="article-img">
+            <img src="immagine.jpg" alt="Immagine dell'articolo">
+        </div>
+        <div class="article-content">
+            <h2>Titolo dell'articolo</h2>
+            <p>Descrizione breve dell'articolo. Può essere abbastanza lunga.</p>
+            <a href="#">Leggi di più</a>
+        </div>
+    </div>
 </body>
 </html>
