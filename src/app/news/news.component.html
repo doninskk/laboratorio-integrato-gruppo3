@@ -24,65 +24,20 @@
         </nav>
     </header>
 
-    <div class="article-card">
+    <div *ngFor="let article of articles; let i = index" class="article-card">
         <div class="article-img">
-            <img src="immagine.jpg" alt="Immagine dell'articolo">
+          <img src="immagine.jpg" alt="Immagine dell'articolo">
         </div>
-        <div class="article-content" (click)="toggleArticle()" role="button">
-            <h2>La Strategia Vincente</h2>
-            <p>Come vincere nella pallavolo</p>
-          
-            <div *ngIf="isButtonClick" class="accordion-body">
-                <p>Vincere una partita a pallavolo non è solo questione di forza, ma soprattutto di strategia e coordinazione. In questo articolo, esploreremo alcune strategie chiave che ti aiuteranno a portare a casa la vittoria!</p>
-                <p><b>Comunicazione e Coordinazione:</b></p>
-                <p>Una comunicazione chiara e una buona coordinazione sono fondamentali per una squadra vincente. Utilizza segnali veloci e precisi per indicare i tuoi movimenti e intenzioni ai tuoi compagni. Facendolo ridurrai gli errori e migliorerà la reattività della squadra alle situazioni di gioco in rapido cambiamento.</p>
-                <p><b>Studia gli Avversari:</b></p>
-                <p>Osservare le partite precedenti della squadra avversaria può fornire preziose informazioni tattiche che possono essere sfruttate durante la partita.</p>
-                <p>Studia i loro punti di forza e debolezza. Identifica i giocatori chiave avversari e sviluppa strategie per neutralizzarli.</p>
-                <p><b>Allenamento:</b></p>
-                <p>Un'adeguata preparazione è essenziale per affrontare una partita di pallavolo. Migliora la tua resistenza, forza e flessibilità attraverso un allenamento costante. Perfeziona le tue abilità tecniche come la battuta, la ricezione, la schiacciata e il palleggio. Un giocatore preparato fisicamente e tecnicamente saprà tenere il sangue freddo nei momenti importanti.</p>
-                <p><b>Tattiche:</b></p>
-                <p>Sviluppate tattiche specifiche per la tua squadra in base alle vostre qualità e ai punti deboli dell'avversario. Ad esempio, se hai un forte attaccante, organizza il gioco intorno a lui per sfruttare al meglio le sue capacità. Lavora su schemi di gioco che confondano l'avversario e creino opportunità di attacco.</p>
-                <p><b>Adattabilità:</b></p>
-                <p>Nessuna partita di pallavolo è identica, e le circostanze possono cambiare rapidamente. La capacità di adattarsi alle situazioni impreviste è cruciale. La tua squadra deve rimanere flessibile e modificare la strategia in base alle esigenze del momento. Essere pronti a cambiare tattica può fare la differenza tra la vittoria e la sconfitta.</p>
-                <p><b>Mentalità Positiva:</b></p>
-                <p>Mantenere una mentalità positiva è fondamentale per non lasciarsi scoraggiare quando si è in difficoltà. Gli errori possono verificarsi, ma è importante concentrarsi sulla prossima giocata al posto di farsi abbattere. Una squadra con una mentalità positiva lotterà fino alla fine, e anche se perdesse tornerebbe a casa ancora più motivato per la prossima partita. Questa mentalità è ciò che distingue i vinti dai vincenti.</p>
-                <p>Conclusione:</p>
-                <p>Vincere una partita a pallavolo richiede più di abilità fisiche e tecniche; è una combinazione di comunicazione, tattiche, adattabilità e una mentalità positiva. Preparati bene, studia i tuoi avversari, e ricorda che il successo è il risultato di una squadra unita, che lavora insieme verso un obiettivo comune. Con queste strategie in mente, sarai pronto a vincere la tua prossima partita di pallavolo con stile e determinazione.</p>
-            </div>
-        </div>
-    </div>
+        <div class="article-content" (click)="toggleArticle(i)" role="button">
+          <h2>{{ article.title }}</h2>
+          <p>{{ article.content }}</p>
+          <div *ngIf="selectedArticleIndex === i" class="accordion-body">
+            <div [innerHTML]="article.articleContent"></div>
 
-    <div class="article-content" (click)="toggleArticle()" role="button">
-        <div class="article-img">
-            <img src="immagine.jpg" alt="Immagine dell'articolo">
+
+
+          </div>
         </div>
-        <div class="article-content">
-            <h2>I giganti del Volley</h2>
-            <p>I più Grandi Pallavolisti di sempre</p>
-            <p>Il mondo della pallavolo ha visto fiorire talenti straordinari che hanno scritto la storia dello sport grazie alle loro abilità eccezionali e con il contributo dei propri Team. In questo articolo, esploreremo alcuni dei più grandi pallavolisti di sempre, le loro vittorie, e ciò che hanno lasciato alla pallavolo.</p>
-        </div>
-    </div>
-    <div class="article-card">
-        <div class="article-img">
-            <img src="immagine.jpg" alt="Immagine dell'articolo">
-        </div>
-        <div class="article-content">
-            <h2>Semifinale Infuocata</h2>
-            <p>Tutta la Pallavolo in una partita da brividi</p>
-            <p>Semifinale di campionato, due squadre, i "Leoni del Mare" e i "Fulmini D'Argento", si preparano a darsi battaglia. Una partita di pallavolo che promette emozioni forti.</p>
-            <a href="#">Leggi di più</a>
-        </div>
-    </div>
-    <div class="article-card">
-        <div class="article-img">
-            <img src="immagine.jpg" alt="Immagine dell'articolo">
-        </div>
-        <div class="article-content">
-            <h2>Titolo dell'articolo</h2>
-            <p>Descrizione breve dell'articolo. Può essere abbastanza lunga.</p>
-            <a href="#">Leggi di più</a>
-        </div>
-    </div>
+      </div>
 </body>
 </html>
