@@ -1,4 +1,34 @@
-
-
-
-<p>profilo works!</p>
+<main>
+    <div class="account">
+        <h1> Il tuo account </h1>
+        <div class="account-info">
+            <div class="account-info-left">
+                <p>
+                    <i class="fas fa-user"></i> <!-- Icona del profilo -->
+                    <span> nome profilo </span>
+                </p>
+            </div>
+            <div class="account-info-right">
+                <!-- zona monete-->
+                <span> {{ coins }}  <i class="fas fa-coins"></i> <!-- Icona delle monete --> </span>
+                <button class="increment-button" (click)="incrementCoins()"> + 10 </button>
+            </div>
+        </div>
+        <a class="other-prizes" href="">
+            <i class="fas fa-dice"></i>
+            vuoi ottenere più gettoni? Gioca!
+        </a>
+    </div>
+    <div class="prizes">
+        <h1> Premi </h1>
+        <p> Scegli come spendere i gettoni che hai guadagnato</p>
+        <ul>
+            <li *ngFor="let prize of prizes">
+                <img [src]="prize.img" alt="Immagine del premio">
+                <p>{{prize.description}}</p>
+                <p>Costo: {{prize.cost}}</p>
+                <p>Progresso: {{prize.progress}}</p>
+            </li>
+        </ul>
+    </div>
+</main>
