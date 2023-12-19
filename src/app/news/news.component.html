@@ -26,11 +26,11 @@
 
     <div *ngFor="let article of articles; let i = index" class="article-card">
         <div class="article-img">
-          <img src="immagine.jpg" alt="Immagine dell'articolo">
+          <img [src]="article.img" alt="Immagine dell'articolo">
         </div>
         <div class="article-content" (click)="toggleArticle(i)" role="button">
           <h2>{{ article.title }}</h2>
-          <p>{{ article.content }}</p>
+          {{ article.content }}
           <div *ngIf="selectedArticleIndex === i" class="accordion-body">
             <div [innerHTML]="article.articleContent"></div>
 
