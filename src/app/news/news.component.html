@@ -29,13 +29,13 @@
         <div class="article-img">
             <img src="/assets/la-strategia-vincente.jpg" class="img-fluid" alt="Immagine dell'articolo">
         </div>
-        <div class="article-content"  role="button">
+        <div class="article-content"(click)="toggleArticle()" role="button">
             <h2>La Strategia Vincente</h2>
             <p>Come vincere nella pallavolo</p>
 
             <p>Vincere una partita a pallavolo non è solo questione di forza, ma soprattutto di strategia e coordinazione. In questo articolo, esploreremo alcune strategie chiave che ti aiuteranno a portare a casa la vittoria!</p>
           
-            <div *ngIf="isButtonClick" class="accordion-body">
+            <div *ngIf=" isButtonClick" class="accordion-body">
                 <p><b>Comunicazione e Coordinazione:</b></p>
                 <p>Una comunicazione chiara e una buona coordinazione sono fondamentali per una squadra vincente. Utilizza segnali veloci e precisi per indicare i tuoi movimenti e intenzioni ai tuoi compagni. Facendolo ridurrai gli errori e migliorerà la reattività della squadra alle situazioni di gioco in rapido cambiamento.</p>
                 <p><b>Studia gli Avversari:</b></p>

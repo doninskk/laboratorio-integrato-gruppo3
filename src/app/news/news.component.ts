@@ -14,6 +14,9 @@ export class NewsComponent {
 
   //accordionStates: boolean[] = [false, false, false, false];
 
+  toggleArticle() {
+    this.isButtonClick = !this.isButtonClick;
+  }
   
   toggleSecondArticle() {
     this.isButtonSecondArticleClick = !this.isButtonSecondArticleClick;
