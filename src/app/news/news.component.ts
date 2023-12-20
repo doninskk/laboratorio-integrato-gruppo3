@@ -8,14 +8,11 @@ import { Component } from '@angular/core';
 export class NewsComponent {
 
   isButtonClick = false;
+
   isButtonSecondArticleClick = false;
   isButtonThirdArticleClick = false;
 
   //accordionStates: boolean[] = [false, false, false, false];
-
-  toggleArticle() {
-    this.isButtonClick = !this.isButtonClick;
-  }
 
   
   toggleSecondArticle() {
@@ -26,5 +23,5 @@ export class NewsComponent {
   toggleThirdArticle() {
     this.isButtonThirdArticleClick = !this.isButtonThirdArticleClick;
   }
-
 }
+
