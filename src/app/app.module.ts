@@ -10,6 +10,8 @@ import { GiocaComponent } from './gioca/gioca.component';
 import { ProfiloComponent } from './profilo/profilo.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
 import { ErrorComponent } from './error/error.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ErrorComponent } from './error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
