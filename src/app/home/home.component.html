@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
 <div class="container align-items-center">
-    <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center">
-       <!--  <div class="col-12 text-center"> <h2>  {{partita.league.name}}  </h2></div> -->
+    <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
+       <div class="col-12 text-center bg-secondary"> <h2>ORARIO:  {{partita.time}}  </h2></div>
       <div class="col-4">
         <!-- Logo della squadra casa -->
         <img src="{{ partita.teams[0].logo }}" class="img-fluid p-3" alt="logo squadra casa">
