@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-list li {
+    margin-right: 15px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Media query per la versione mobile */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 2;
+    }
+
+    .nav-list {
+        margin-top: 10px;
+        justify-content: space-around;
+    }
+
+    /* Aggiunta per il footer in versione mobile */
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .footer-columns {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer-column {
+        flex: 1;
+        text-align: left;
+        padding: 10px;
+        width: 100%;
+    }
+
+    /* Aggiunta per evitare che il footer venga coperto dalla navbar */
+    body {
+        margin-bottom: 80px; /* Altezza della navbar + margine di sicurezza */
+    }
+}
+
+/* Media query per dispositivi desktop */
+@media screen and (min-width: 601px) {
+    .navbar {
+        position: static; /* Rimuovi il posizionamento fisso */
+    }
+
+    /* Aggiunta per ripristinare il margine inferiore del corpo */
+    body {
+        margin-bottom: 0;
+    }
+}
