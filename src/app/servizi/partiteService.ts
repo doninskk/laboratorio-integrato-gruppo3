@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { apiService } from './apiService';
+import { ApiService } from './apiService';
 
     @Injectable({
 
@@ -9,9 +9,14 @@ import { apiService } from './apiService';
 
     export class partiteServices{
 
-        constructor(private apiService:apiService) {}
-        getStats(){
+        constructor(private apiService:ApiService ) {}
+        getDefault(){
             
-              return this.apiService.getRisultatiPartite();
+              return this.apiService.getRisultatiPartiteDefault();
+        }
+
+        getGames(requestBody:any){
+
+            return this.apiService.getRisultatiPartite(requestBody);
         }
         }

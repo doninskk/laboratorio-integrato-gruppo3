@@ -1,23 +1,19 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // importo qui quindi in serieService non serve perchè importo questo file
+import { HttpClient } from '@angular/common/http';
 
-    @Injectable({
+@Injectable({
+  providedIn: 'root',
+})
+export class ApiService {
 
-     providedIn: 'root',
+  constructor(private http: HttpClient) {}
 
-    })
+  getRisultatiPartiteDefault() {
+    return this.http.get('http://localhost:8080/game/default', { withCredentials: true })
+  }
 
-    export class apiService {
-
-        constructor(private http: HttpClient) {}
-
-        getRisultatiPartite() {
-            return this.http.get('')} 
-
-            
-        
-    /*    GetEpisodes( idSerie: number){
-            return this.http.get('https://api.tvmaze.com/shows/'+idSerie+'/episodes')} // concateno l'URL con l'ID*/
-        }
-    
+  getRisultatiPartite(requestBody: any) {
+    return this.http.post('http://localhost:8080/game/getGeneric', requestBody, { withCredentials: true });
+  }
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { partiteServices } from '../servizi/partiteService';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  
+
+  risultatiDefaultGame:any={};
 
 
-  risultatiPartite = [
+  risultatiPartite :any={} ;
+
+  requestBody = {
+    "week": 1,
+    "season": 2023,
+    "id_league": 97
+  };
+
+  /* = [
     {
       "id_game": 148403,
       "date": "2023-10-22",
@@ -85,7 +95,51 @@ export class HomeComponent {
         }
       ]
     }
-  ];
+  ];*/
+  
+  
+
+
+  /* defaultGame
+   ngOnInit() {
+    this.effettuaRicerca();
+  }
+  constructor(private partiteService: partiteServices) {}
+
+  effettuaRicerca() {
+    this.partiteService.getDefault().subscribe((response: any) => {
+      this.risultatiPartite = response;
+      console.log(response);
+    });
+
+  }
+  */
+
+  ngOnInit() {
+    this.defaultGameSuperLega()
+    //this.effettuaRicerca();
+  }
+  constructor(private partiteService: partiteServices) {}
+
+
+  defaultGameSuperLega(){
+    this.partiteService.getDefault().subscribe((response: any) => {
+      this.risultatiDefaultGame = response;
+      console.log("dati ricevuti",response);
+    },
+    );
+
+  }
+
+ /* effettuaRicerca() {
+    this.partiteService.getGames(this.requestBody).subscribe((response: any) => {
+      this.risultatiPartite = response;
+      console.log("dati ricevuti",response);
+    },
+    );
+
+  }*/
+  
 }
   
 
