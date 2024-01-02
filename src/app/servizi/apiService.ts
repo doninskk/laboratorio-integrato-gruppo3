@@ -10,10 +10,10 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getRisultatiPartiteDefault() {
-    return this.http.get('http://localhost:8080/game/default', { withCredentials: true })
+    return this.http.get('http://localhost:8080/game/default')
   }
 
   getRisultatiPartite(requestBody: any) {
-    return this.http.post('http://localhost:8080/game/getGeneric', requestBody, { withCredentials: true });
+    return this.http.post('http://localhost:8080/game/getGeneric', requestBody);
   }
 }
