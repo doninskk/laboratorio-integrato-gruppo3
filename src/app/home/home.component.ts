@@ -8,10 +8,14 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class HomeComponent {
 
-  risultatiDefaultGame:any={};
+  risultatiDefaultGame: any={};
 
 
+<<<<<<< Updated upstream
   risultatiPartite :any=[] ;
+=======
+  risultatiPartite: any={};
+>>>>>>> Stashed changes
 
   requestBody = {
     "week": 1,
