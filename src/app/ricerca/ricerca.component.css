@@ -1,0 +1,57 @@
+.search-container {
+    max-width: 600px;
+    margin: 20px 15px; /* Imposta il margine superiore e inferiore a 20px e il margine sinistro e destro a 0 */
+    font-family: 'Arial', sans-serif;
+    text-align: left; /* Allinea il testo a sinistra */
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    width: 70%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 8px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2d2a2a;
+  }
+  
+  h2, h3 {
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #004080;
+  }
+  
