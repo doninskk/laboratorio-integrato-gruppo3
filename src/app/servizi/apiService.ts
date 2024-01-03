@@ -16,4 +16,8 @@ export class ApiService {
   getRisultatiPartite(requestBody: any) {
     return this.http.post('http://localhost:8080/game/getGeneric', requestBody);
   }
+
+  getTeamsList( requestBodyTeams: any) {
+    return this.http.post('http://localhost:8080/team/getList',  requestBodyTeams);
+  }
 }

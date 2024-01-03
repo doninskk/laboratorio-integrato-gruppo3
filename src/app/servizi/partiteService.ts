@@ -19,4 +19,9 @@ import { ApiService } from './apiService';
 
             return this.apiService.getRisultatiPartite(requestBody);
         }
+
+        teamsList(requestBodyTeams: any){
+            return this.apiService.getTeamsList(requestBodyTeams);
+
+        }
         }
