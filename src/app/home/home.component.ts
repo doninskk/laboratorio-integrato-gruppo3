@@ -11,7 +11,7 @@ export class HomeComponent {
   risultatiDefaultGame:any={};
 
 
-  risultatiPartite :any={} ;
+  risultatiPartite :any=[] ;
 
   requestBody = {
     "week": 1,
@@ -117,7 +117,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.defaultGameSuperLega()
-    //this.effettuaRicerca();
+    this.gamesList();
   }
   constructor(private partiteService: partiteServices) {}
 
@@ -131,14 +131,14 @@ export class HomeComponent {
 
   }
 
- /* effettuaRicerca() {
+  gamesList() {
     this.partiteService.getGames(this.requestBody).subscribe((response: any) => {
       this.risultatiPartite = response;
       console.log("dati ricevuti",response);
     },
     );
 
-  }*/
+  }
   
 }
   

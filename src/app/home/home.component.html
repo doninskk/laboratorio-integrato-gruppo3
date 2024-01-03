@@ -8,7 +8,7 @@
 
   <div class="col-12 text-center bg-secondary"> <h2>LEGA: {{ risultatiDefaultGame.league_name }}</h2></div>
   
-  <!-- Itera attraverso le squadre -->
+  <!-- iterazione nell'array dell'oggetto teams -->
   <div *ngFor="let team of risultatiDefaultGame.teams">
     <div class="row d-flex align-items-center justify-content-center">
       <!-- Logo  squadre -->
@@ -33,39 +33,37 @@
 </div>
 
 
-<!-- 
+ 
 <div class="container align-items-center">
     <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
-       <div class="col-12 text-center bg-secondary"> <h2>ORARIO:  {{partita.ora}}  </h2></div>
+       <div class="col-12 text-center bg-secondary"> <h2>LEGA:  {{partita.league_name}}  </h2></div>
       <div class="col-4">
-       
-        <img src="{{ partita.teams[0].logo }}" class="img-fluid p-3" alt="logo squadra casa">
+       <!--Squadra casa -->
+        <img src="{{ partita.teams[0]?.logo }}" class="img-fluid p-3" alt="logo squadra casa">
       </div>
       <div class="col-4">
        
-        <h3 class="flex-column">{{ partita.teams[0].name }}</h3>
+        <h3 class="flex-column">{{ partita.teams[0]?.name }}</h3>
       </div>
       
       <div class="col-4">
         
-        <h3 class="flex-column">{{ partita.teams[0].set }}</h3>
+        <h3 class="flex-column">{{ partita?.teams[0]?.set }}</h3>
       
       </div>
   
       <div class="col-4">
-     
-        <img src="{{ partita.teams[1].logo }}" class="img-fluid p-3" alt="logo squadra trasferta">
+         <!--Squadra away -->
+        <img src="{{ partita?.teams[1]?.logo }}" class="img-fluid p-3" alt="logo squadra trasferta">
       </div>
         
       <div class="col-4">
-         
-        <h3 class="flex-column">{{ partita.teams[1].name }}</h3>
+        <h3 class="flex-column">{{ partita?.teams[1]?.name }}</h3>
+        <h4> orario:{{ partita.ora}}</h4>
       </div>
       <div class="col-4">
-         
-       
-        <h3>{{ partita.teams[1].set }}</h3>
+        <h3>{{ partita?.teams[1]?.set }}</h3>
       </div>
     </div>
-  </div> -->
+  </div> 
   
