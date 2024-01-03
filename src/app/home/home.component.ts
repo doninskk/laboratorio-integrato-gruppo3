@@ -9,13 +9,7 @@ import { partiteServices } from '../servizi/partiteService';
 export class HomeComponent {
 
   risultatiDefaultGame: any={};
-
-
-<<<<<<< Updated upstream
-  risultatiPartite :any=[] ;
-=======
-  risultatiPartite: any={};
->>>>>>> Stashed changes
+  risultatiPartite: any=[];
 
   requestBody = {
     "week": 1,

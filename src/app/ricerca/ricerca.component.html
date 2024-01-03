@@ -1,1 +1,30 @@
-<p>ricerca works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricerca</title>
+</head>
+<body>
+
+    
+<div class="search-container">
+    <h2>Ricerca Squadra</h2>
+  
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Cerca squadra...">
+      <button (click)="search()">Cerca</button>
+    </div>
+  
+    <div class="popular-teams">
+      <h3>Squadre Popolari</h3>
+      <ul>
+        <li *ngFor="let team of popularTeams">
+          <a (click)="redirectToTeamPage(team)">{{ team.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    
+</body>
+</html>
