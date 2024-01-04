@@ -36,6 +36,7 @@
  
 <div class="container align-items-center">
     <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
+      <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
        <div class="col-12 text-center bg-secondary"> <h2>LEGA:  {{partita.league_name}}  </h2></div>
       <div class="col-4">
        <!--Squadra casa -->
@@ -65,6 +66,8 @@
       <div class="col-4">
         <h3>{{ partita?.teams[1]?.set }}</h3>
       </div>
+      </ng-container>
     </div>
-  </div> 
+  </div>
+  
   

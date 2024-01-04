@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-ricerca',
   templateUrl: './ricerca.component.html',
@@ -9,6 +8,7 @@ import { Router } from '@angular/router';
 export class RicercaComponent implements OnInit{
   popularTeams: any[] = []; // Assuming each team has a 'name' and 'id' property
   searchQuery: string = '';
+
 
   constructor(private router: Router) {}
 
@@ -39,3 +39,4 @@ export class RicercaComponent implements OnInit{
     this.router.navigate(['/team', team.id]);
   }
 }
+
