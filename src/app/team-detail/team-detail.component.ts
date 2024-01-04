@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'; 
 import { partiteServices } from '../servizi/partiteService';
 
 @Component({
@@ -8,25 +9,33 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class TeamDetailComponent {
 
-  teamDetail: any=[];
-  
+  teamDetail: any = {};
+  teamId: number | null = null;  // Dichiara una variabile per memorizzare l'ID del team
 
-  requestBodyId = {
-    "id_team":689
-  };
+  constructor(
+    private partiteService: partiteServices,
+    private route: ActivatedRoute  // Inietta ActivatedRoute nel costruttore
+  ) { }
 
   ngOnInit() {
-    this.detailOfTeam()
+    //  l'ID del team dalla route e dall'URL
+    const idParam = this.route.snapshot.paramMap.get('id');
+    this.teamId = idParam ? +idParam : null;  
+
+    // precauzione  si invoca solo se l'id è presente
+    if (this.teamId !== null) {
+      this.detailOfTeam();
+    } else {
+      console.error("ID del team non valido");
+      
+    }
   }
-  constructor(private partiteService: partiteServices) {}
 
-
-  detailOfTeam(){
-    this.partiteService.detailTeam(this.requestBodyId).subscribe((response: any) => {
+  detailOfTeam() {
+    // id team nella richiesta
+    this.partiteService.detailTeam({ "id_team": this.teamId }).subscribe((response: any) => {
       this.teamDetail = response;
-      console.log("dati ricevuti",response);
-    },
-    );
-
-}
+      console.log("dati ricevuti", response);
+    });
+  }
 }
