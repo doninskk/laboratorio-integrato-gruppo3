@@ -11,7 +11,8 @@ import { ProfiloComponent } from './profilo/profilo.component';
 import { RicercaComponent } from './ricerca/ricerca.component';
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { TeamDetailComponent } from './team-detail/team-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,14 @@ import { HttpClientModule } from '@angular/common/http';
     GiocaComponent,
     ProfiloComponent,
     RicercaComponent,
-    ErrorComponent
+    ErrorComponent,
+    TeamDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

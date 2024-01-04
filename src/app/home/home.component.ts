@@ -8,10 +8,8 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class HomeComponent {
 
-  risultatiDefaultGame:any={};
-
-
-  risultatiPartite :any=[] ;
+  risultatiDefaultGame: any={};
+  risultatiPartite: any=[];
 
   requestBody = {
     "week": 1,
