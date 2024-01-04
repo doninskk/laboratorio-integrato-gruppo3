@@ -20,4 +20,9 @@ export class ApiService {
   getTeamsList( requestBodyTeams: any) {
     return this.http.post('http://localhost:8080/team/getList',  requestBodyTeams);
   }
+
+  getTeamsDetail( requestBodyId: any) {
+    return this.http.post('http://localhost:8080/team/getTeam',  requestBodyId);
+  }
+
 }
