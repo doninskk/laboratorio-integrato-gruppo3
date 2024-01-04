@@ -12,7 +12,7 @@ export class HomeComponent {
   risultatiPartite: any=[];
 
   requestBody = {
-    "week": 1,
+    "week": 3,
     "season": 2023,
     "id_league": 97
   };
