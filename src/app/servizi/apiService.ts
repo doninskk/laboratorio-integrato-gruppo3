@@ -22,7 +22,7 @@ export class ApiService {
   }
 
   getTeamsDetail( requestBodyId: any) {
-    return this.http.post('http://localhost:8080/team/getTeam',  requestBodyId);
+    return this.http.post('http://localhost:8080/team/statistics',  requestBodyId);
   }
 
 }

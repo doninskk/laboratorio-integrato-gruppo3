@@ -9,7 +9,7 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class TeamDetailComponent {
 
-  teamDetail: any = {};
+  teamDetails: any[] = [];
   teamId: number | null = null;  // Dichiara una variabile per memorizzare l'ID del team
 
   constructor(
@@ -27,14 +27,13 @@ export class TeamDetailComponent {
       this.detailOfTeam();
     } else {
       console.error("ID del team non valido");
-      
     }
   }
 
   detailOfTeam() {
     // id team nella richiesta
     this.partiteService.detailTeam({ "id_team": this.teamId }).subscribe((response: any) => {
-      this.teamDetail = response;
+      this.teamDetails = response;  // Ora assegno l'array di team
       console.log("dati ricevuti", response);
     });
   }
