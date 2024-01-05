@@ -137,6 +137,15 @@ export class HomeComponent {
     );
 
   }
+
+
+  weekFilterResults() {
+    // Chiamata al servizio per ottenere i dati in base alla week di campionato selezionata
+    this.partiteService.getGames(this.requestBody).subscribe((response: any) => {
+      this.risultatiPartite = response;
+      console.log("dati ricevuti", response);
+    });
+  }
   
 }
   
