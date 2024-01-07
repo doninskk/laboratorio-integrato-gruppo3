@@ -32,12 +32,16 @@
   
 </div>
 
-
+<div class="form-group"> <!--FUNZIONAAA!! grafica da migliorare; filtro per Week -->
+  <label for="weekInput">Giornata di campionato:</label>
+  <input type="number" id="weekInput" [(ngModel)]="requestBody.week" name="weekInput" class="form-control">
+  <button (click)="weekFilterResults()">Cerca</button>
+</div>
  
 <div class="container align-items-center">
     <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
       <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
-       <div class="col-12 text-center bg-secondary"> <h2>LEGA:  {{partita.league_name}}  </h2></div>
+       <div class="col-12 text-center bg-secondary"> <h2>LEGA:  {{partita.league_name}}  </h2> <h3>giornata: {{partita.week}}</h3></div>
       <div class="col-4">
        <!--Squadra casa -->
         <img src="{{ partita.teams[0]?.logo }}" class="img-fluid p-3" alt="logo squadra casa">
