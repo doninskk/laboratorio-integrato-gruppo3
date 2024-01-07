@@ -1,6 +1,16 @@
-<p>team-detail works!</p>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Detail</title>
+</head>
+<body>
+  <div *ngFor="let team of teamDetails">
+    <h2>{{team.name}}</h2>
+    <img src="{{ team.logo }}" class="img-fluid p-3" alt="logo squadra">
+  </div>
+</body>
+</html>
 
-<div *ngFor="let team of teamDetails">
-  <h2>{{team.name}}</h2>
-  <img src="{{ team.logo }}" class="img-fluid p-3" alt="logo squadra">
-</div>
+

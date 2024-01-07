@@ -10,6 +10,8 @@ export class HomeComponent {
 
   risultatiDefaultGame: any={};
   risultatiPartite: any=[];
+  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Sostituisci con le settimane disponibili nel tuo contesto
+
 
   requestBody = {
     "week": 10,
