@@ -20,7 +20,7 @@ export class TeamDetailComponent {
   ngOnInit() {
     //  l'ID del team dalla route e dall'URL
     const idParam = this.route.snapshot.paramMap.get('id');
-    this.teamId = idParam ? +idParam : null;  
+    this.teamId = idParam ? +idParam : null;
 
     // precauzione  si invoca solo se l'id è presente
     if (this.teamId !== null) {
