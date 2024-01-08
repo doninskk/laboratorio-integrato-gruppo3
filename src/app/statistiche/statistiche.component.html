@@ -12,32 +12,33 @@
 <body>
   
 <div class="container align-items-center">
-    <div *ngFor="let classifica of classifica" class="row align-items-center">
+    <div *ngFor="let classifica of classifica" class="row align-items-center text-center">
      
         <div class="col-2">
           
           <h2>{{ classifica.position }}</h2>
         </div>
+        
         <div class="col-2">
-          <img class="img-fluid" src="{{ classifica.team.logo }}" >
+          <img class="img-fluid" src="{{ classifica.logo }}" >
           
         </div>
-        <div class="col-2"> <!-- serve + spazio per il nome se è troppo lungo!!!!-->
-            <h4>{{ classifica.team.name }}</h4>
+        <div class="col-2 p-2"> <!-- serve + spazio per il nome se è troppo lungo!!!!-->
+            <h4>{{classifica.team}}</h4>
          </div>
 
-         <div class="col-2 p-4"> 
-            <h2> {{classifica.games.win.total}}</h2>
+         <div class="col-2 p-5"> 
+          <h4>{{classifica.points}}</h4>
          </div>
 
          
-         <div class="col-2 p-3"> 
-            <h2> {{classifica.games.lose.total}}</h2>
+         <div class="col-2 "> 
+            <h5>{{classifica.form}}</h5>
           </div>
 
-          <div class="col-2"> 
+          <div class="col-lg--2"> 
            
-            <h4>{{classifica.form}}</h4>
+            <h5>{{classifica.zona}}</h5>
           </div>
     </div>
   </div>

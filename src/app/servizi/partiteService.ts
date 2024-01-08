@@ -29,4 +29,15 @@ import { ApiService } from './apiService';
             return this.apiService.getTeamsDetail(requestBodyId);
 
         }
+
+        standings(requestBodyStandings:any){
+            return this.apiService.getStandings(requestBodyStandings);
+
+        }
+          betPageResults(){
+
+            return this.apiService.betPage();
+
+          }  
+
         }

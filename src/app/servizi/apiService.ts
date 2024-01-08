@@ -25,4 +25,13 @@ export class ApiService {
     return this.http.post('http://localhost:8080/team/statistics',  requestBodyId);
   }
 
+  getStandings( requestStandingBody: any) {
+    return this.http.post('http://localhost:8080/league/standings',  requestStandingBody);
+  }
+
+  betPage() {
+    return this.http.get('http://localhost:8080/game/betPage');
+  }
+
+
 }
