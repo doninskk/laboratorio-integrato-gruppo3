@@ -34,4 +34,10 @@ import { ApiService } from './apiService';
             return this.apiService.getStandings(requestBodyStandings);
 
         }
+          betPageResults(){
+
+            return this.apiService.betPage();
+
+          }  
+
         }
