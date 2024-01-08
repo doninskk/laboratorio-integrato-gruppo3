@@ -1,4 +1,6 @@
-  /* Aggiungi stili CSS per migliorare l'aspetto delle squadre */
+body{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
   .team-logo {
     max-height: 100px; /* Imposta l'altezza massima delle immagini delle squadre */
   }
@@ -22,10 +24,15 @@
     margin-bottom: 20px;
   }
 
-.tendine row-1{
+
+
+.filtri{
   display: flex;
-  justify-content:center;
+  justify-content: center;
+  align-items: center;
+  text-align: center
 }
+
   /* Aggiungi stile CSS per controllare la lunghezza della linea */
 .separator {
   width: 70%; /* Puoi regolare la larghezza come desideri */
@@ -33,7 +40,8 @@
   border-color: #c72525; /* Colore della linea */
 }
 
-  
+
+
   .form-label {
     display: block;
     margin-bottom: 8px;
@@ -69,6 +77,15 @@
     background-color: #1e1e1e; /* Cambia colore durante l'hover */
   }
   
+@media screen and (min-width: 601px) {
+  .cerca{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 180px;
+  }
+}
+
 
 /* Stili per la versione mobile */
 @media screen and (max-width: 600px) {

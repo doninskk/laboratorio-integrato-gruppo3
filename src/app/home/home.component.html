@@ -13,7 +13,7 @@
 <body>
   
 <div class="container-fluid align-items-center text-center justify-content-between">
-  <div class="col-12 text-center bg-warning separator"> <h3>{{ risultatiDefaultGame.league_name }}</h3></div>
+  <div class="col-12 text-center separator"> <h3>{{ risultatiDefaultGame.league_name }}</h3></div>
   
   <!-- iterazione nell'array dell'oggetto teams -->
   <div *ngFor="let team of risultatiDefaultGame.teams">
@@ -24,27 +24,29 @@
       </div>
       <!-- Nome  squadre -->
       <div class="col-4 text-center">
-        <h3 class="team-name">{{ team.name }}</h3>
+        <p class="team-name">{{ team.name }}</p>
       </div>
       <!-- Risultato finale -->
       <div class="col-4 text-center">
-        <h3 class="team-set">{{ team.set }}</h3>
+        <p class="team-set">{{ team.set }}</p>
       </div>
       
     </div>
       <hr /> <!-- separatore tra le due squadre-->
     </div>
 
-  <div class="col-4 text-center mt-3"> <h3><i class="bi bi-clock"></i> {{ risultatiDefaultGame.ora }}</h3></div> <!-- fuori dal ngFor -->
+    <div class="col-4 text-center mt-3"> 
+      <p><i class="bi bi-clock"></i> {{ risultatiDefaultGame.ora }}</p>
+    </div> <!-- fuori dal ngFor -->
 </div>
 
-<div class="tendine">
+<div class="container tendine">
   <!-- Prima row con i 3 menu a tendina -->
-  <div class="row-1 d-flex align-items-center justify-content-center">
-    <div class="col-md-4">
+  <div class="row filtri text-center">
+    <div class="col-md-4 col-md-offset-4">
       <div class="form-group">
         <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
-        <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select">
+        <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select mx-auto">
           <option value="" disabled selected>Seleziona il campionato</option>
           <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
         </select>
@@ -54,7 +56,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="seasonSelect" class="form-label pt-2">Seleziona la stagione:</label>
-        <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select">
+        <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select mx-auto">
           <option value="" disabled selected>Seleziona la stagione</option>
           <option *ngFor="let season of seasons" [value]="season.value">{{ season.period }}</option>
         </select>
@@ -64,7 +66,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <label for="weekSelect" class="form-label pt-2">Seleziona la giornata di campionato:</label>
-        <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select">
+        <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select mx-auto">
           <option value="" disabled selected>Seleziona la giornata</option>
           <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
         </select>
@@ -73,7 +75,7 @@
   </div>
 
   <!-- Seconda row con il pulsante "Cerca" al centro -->
-  <div class="row mt-2 d-flex align-items-center justify-content-center">
+  <div class="row cerca mt-2">
     <div class="col-md-4 text-center">
       <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
     </div>
@@ -82,12 +84,15 @@
 
 
 <div class="container align-items-center">
-    <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
+    <div *ngFor="let partita of risultatiPartite" class="row bg-warning align-items-center p-3 text-center justify-content-between">
       <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
-       <div class="col-12 text-center bg-warning"> <h2>{{partita.league_name}}  </h2> <h3>giornata: {{partita.week}}</h3></div>
+       <div class="col-12 text-center"> 
+        <h3>{{partita.league_name}}</h3> 
+        <p>giornata: {{partita.week}}</p>
+      </div>
       <div class="col-4">
        <!--Squadra casa -->
-        <img src="{{ partita.teams[0]?.logo }}" class="img-fluid p-3" alt="logo squadra casa">
+        <img src="{{ partita.teams[0]?.logo }}" class="img-fluid w-10" alt="logo squadra casa">
       </div>
       <div class="col-4">
         <h3 class="flex-column">{{ partita.teams[0]?.name }}</h3>
