@@ -10,12 +10,13 @@ export class HomeComponent {
 
   risultatiDefaultGame: any={};
   risultatiPartite: any=[];
+  
   selectedSeason: string = '';
   seasons = [
     { period: '2023/2024', value: '2023/2024' },
     { period: '2022/2023', value: '2022/2023' },
   ];
-  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Sostituisci con le settimane disponibili 
+ 
   selectedLeague: string = '';
   leagues = [
     { name: 'SuperLega', value: 'SuperLega' },
@@ -23,6 +24,7 @@ export class HomeComponent {
     { name: 'A1 Femminile', value: 'A1_Femminile' }
   ];
   
+  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Sostituisci con le settimane disponibili 
 
 
   requestBody = {

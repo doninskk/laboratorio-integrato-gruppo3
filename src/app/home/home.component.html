@@ -39,34 +39,47 @@
 </div>
 
 <div class="tendine">
-  <div class="form-group">
-    <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
-    <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select">
-      <option value="" disabled selected>Seleziona il campionato</option>
-      <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
-    </select>
-    <!--<button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
-    </div>-->
-  </div>
-  
-  <div class="form-group">
-    <label for="seasonSelect" class="form-label pt-2">Seleziona la stagione:</label>
-    <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select">
-      <option value="" disabled selected>Seleziona la stagione</option>
-      <option *ngFor="let season of seasons" [value]="season.value">{{ season.period }}</option>
-    </select>
-    <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
-  </div>
-  
+  <!-- Prima row con i 3 menu a tendina -->
+  <div class="row-1 d-flex align-items-center justify-content-center">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
+        <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select">
+          <option value="" disabled selected>Seleziona il campionato</option>
+          <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
+        </select>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <label for="weekSelect" class="form-label pt-2">Seleziona la giornata di campionato:</label>
-    <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select">
-      <option value="" disabled selected>Seleziona la giornata</option>
-      <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
-    </select>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="seasonSelect" class="form-label pt-2">Seleziona la stagione:</label>
+        <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select">
+          <option value="" disabled selected>Seleziona la stagione</option>
+          <option *ngFor="let season of seasons" [value]="season.value">{{ season.period }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="weekSelect" class="form-label pt-2">Seleziona la giornata di campionato:</label>
+        <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select">
+          <option value="" disabled selected>Seleziona la giornata</option>
+          <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seconda row con il pulsante "Cerca" al centro -->
+  <div class="row mt-2 d-flex align-items-center justify-content-center">
+    <div class="col-md-4 text-center">
+      <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
+    </div>
   </div>
 </div>
+
 
 <div class="container align-items-center">
     <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
