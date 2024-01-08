@@ -16,7 +16,7 @@ export class HomeComponent {
   requestBody = {
     "week": 10,
     "season": 2023,
-    "id_league": 97
+    "id_league": 97 // 89 id league A1 Femminile
   };
 
   /* = [
