@@ -84,7 +84,7 @@
 
 
 <div class="container align-items-center">
-    <div *ngFor="let partita of risultatiPartite" class="row bg-warning align-items-center p-3 text-center justify-content-between">
+    <div *ngFor="let partita of risultatiPartite" class="row bg-warning align-items-center p-3 text-center justify-content-between" (click)="showGameDetail(partita.id_game)">
       <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
        <div class="col-12 text-center"> 
         <h3>{{partita.league_name}}</h3> 
@@ -115,6 +115,7 @@
         </div>
 
         <h3> <i class="bi bi-clock"></i> {{ partita.ora}}</h3>
+        <button class="btn btn-primary" (click)="showGameDetail(partita.id_game)" *ngIf="partita.id_game">Dettagli</button>
       </div>
 
       <div class="col-4">

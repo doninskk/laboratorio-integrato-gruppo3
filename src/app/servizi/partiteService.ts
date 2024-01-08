@@ -38,6 +38,11 @@ import { ApiService } from './apiService';
 
             return this.apiService.betPage();
 
-          }  
+          }
+          
+          
+          getGameDetail(id:any){
+            return this.apiService.gameDetail(id);
+          }
 
         }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,9 @@ export class HomeComponent {
     "season": 2023,
     "id_league": 97 // 89 id league A1 Femminile
   };
+
+  selectedGameId: number | null = null;
+
 
   /* = [
     {
@@ -133,7 +137,8 @@ export class HomeComponent {
     this.defaultGameSuperLega()
     this.gamesList();
   }
-  constructor(private partiteService: partiteServices) {}
+  constructor(private partiteService: partiteServices,
+              private router: Router) {}
 
 
   defaultGameSuperLega(){
@@ -162,7 +167,13 @@ export class HomeComponent {
       console.log("dati ricevuti", response);
     });
   }
-  
+
+
+  showGameDetail(gameId: number) {
+    console.log("ID della partita selezionata:", gameId);
+    this.selectedGameId = gameId;
+    this.router.navigate(['/game', gameId]);
+  }
 }
   
 
