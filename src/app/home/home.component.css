@@ -1,7 +1,38 @@
+  /* Aggiungi stili CSS per migliorare l'aspetto delle squadre */
+  .team-logo {
+    max-height: 100px; /* Imposta l'altezza massima delle immagini delle squadre */
+  }
+  
+  .team-name, .team-set {
+    margin: 0; /* Rimuovi il margine per una presentazione più pulita */
+  }
+  
+  /* Aggiungi spazio tra le squadre e l'orario */
+  .mb-3 {
+    margin-bottom: 20px;
+  }
+  
+  /* Aggiungi spazio sopra l'orario */
+  .mt-3 {
+    margin-top: 20px;
+  }
+
 /* Aggiorna stili CSS per personalizzare ulteriormente il menu a tendina e il pulsante */
 .form-group {
     margin-bottom: 20px;
   }
+
+.tendine{
+  display: flex;
+  justify-content:center;
+}
+  /* Aggiungi stile CSS per controllare la lunghezza della linea */
+.separator {
+  width: 70%; /* Puoi regolare la larghezza come desideri */
+  margin: 10px auto; /* Aggiunge spazio sopra e sotto la linea */
+  border-color: #c72525; /* Colore della linea */
+}
+
   
   .form-label {
     display: block;
@@ -17,7 +48,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    margin-left: 10px;
+    margin: 10px;
   }
   
   .btn-search {
@@ -29,9 +60,13 @@
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .btn-search:hover {
-    background-color: #333; /* Cambia colore durante l'hover */
+    background-color: #1e1e1e; /* Cambia colore durante l'hover */
   }
   
+

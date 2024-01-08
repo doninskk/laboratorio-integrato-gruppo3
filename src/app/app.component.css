@@ -23,6 +23,10 @@ header {
     max-height: 50px;
   }
 
+.logo-short img.img-fluid {
+   max-height: 80px;
+}
+
 .nav-list {
     list-style: none;
     margin: 0;

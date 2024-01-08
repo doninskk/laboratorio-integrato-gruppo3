@@ -13,6 +13,7 @@ import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     ProfiloComponent,
     RicercaComponent,
     ErrorComponent,
-    TeamDetailComponent
+    TeamDetailComponent,
+    GameDetailComponent
   ],
   imports: [
     BrowserModule,

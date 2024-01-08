@@ -8,6 +8,7 @@ import { ProfiloComponent } from './profilo/profilo.component';
 import { GiocaComponent } from './gioca/gioca.component';
 import { ErrorComponent } from './error/error.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'profilo', component: ProfiloComponent},
   { path: 'gioca', component: GiocaComponent},
   { path: 'team/:id', component: TeamDetailComponent },
+  { path: 'game/:id', component: GameDetailComponent},
   { path: '**', component: ErrorComponent}, //Wildcard route for a 404 page
 ];
 

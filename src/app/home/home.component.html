@@ -1,71 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
 </head>
 <body>
   
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-
 <div class="container-fluid align-items-center text-center justify-content-between">
-
-  <div class="col-12 text-center bg-secondary"> <h3>{{ risultatiDefaultGame.league_name }}</h3></div>
+  <div class="col-12 text-center bg-warning separator"> <h3>{{ risultatiDefaultGame.league_name }}</h3></div>
   
   <!-- iterazione nell'array dell'oggetto teams -->
   <div *ngFor="let team of risultatiDefaultGame.teams">
     <div class="row d-flex align-items-center justify-content-center">
       <!-- Logo  squadre -->
       <div class="col-4">
-        <img src="{{ team.logo }}" class="img-fluid p-3" alt="logo squadra">
+        <img src="{{ team.logo }}" class="img-fluid p-2 team-logo" alt="logo squadra">
       </div>
       <!-- Nome  squadre -->
-      <div class="col-4">
-        <h3 class="flex-column">{{ team.name }}</h3>
+      <div class="col-4 text-center">
+        <h3 class="team-name">{{ team.name }}</h3>
       </div>
       <!-- Risultato finale -->
-      <div class="col-4">
-        <h3>{{ team.set }}</h3>
+      <div class="col-4 text-center">
+        <h3 class="team-set">{{ team.set }}</h3>
       </div>
       
     </div>
-    <hr /> <!-- separatore tra le due squadre-->
+      <hr /> <!-- separatore tra le due squadre-->
+    </div>
+
+  <div class="col-4 text-center mt-3"> <h3><i class="bi bi-clock"></i> {{ risultatiDefaultGame.ora }}</h3></div> <!-- fuori dal ngFor -->
+</div>
+
+<div class="tendine">
+  <div class="form-group">
+    <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
+    <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select">
+      <option value="" disabled selected>Seleziona il campionato</option>
+      <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
+    </select>
+    <!--<button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
+    </div>-->
   </div>
-
-  <div class="col-4"> <h3>orario: {{ risultatiDefaultGame.ora }}</h3></div> <!-- fuori dal ngFor -->
   
+  <div class="form-group">
+    <label for="seasonSelect" class="form-label pt-2">Seleziona la stagione:</label>
+    <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select">
+      <option value="" disabled selected>Seleziona la stagione</option>
+      <option *ngFor="let season of seasons" [value]="season.value">{{ season.period }}</option>
+    </select>
+    <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
+  </div>
+  
+
+  <div class="form-group">
+    <label for="weekSelect" class="form-label pt-2">Seleziona la giornata di campionato:</label>
+    <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select">
+      <option value="" disabled selected>Seleziona la giornata</option>
+      <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+    </select>
+  </div>
 </div>
 
-<div class="form-group">
-  <label for="weekSelect" class="form-label pt-2">Seleziona la giornata di campionato:</label>
-  <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select">
-    <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
-  </select>
-  <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
-</div>
-
- 
 <div class="container align-items-center">
     <div *ngFor="let partita of risultatiPartite" class="row align-items-center p-3 text-center justify-content-between">
       <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
-       <div class="col-12 text-center bg-secondary"> <h2>{{partita.league_name}}  </h2> <h3>giornata: {{partita.week}}</h3></div>
+       <div class="col-12 text-center bg-warning"> <h2>{{partita.league_name}}  </h2> <h3>giornata: {{partita.week}}</h3></div>
       <div class="col-4">
        <!--Squadra casa -->
         <img src="{{ partita.teams[0]?.logo }}" class="img-fluid p-3" alt="logo squadra casa">
       </div>
       <div class="col-4">
-       
         <h3 class="flex-column">{{ partita.teams[0]?.name }}</h3>
-        
       </div>
       
       <div class="col-4">
-        
-        <h3 class="flex-column">{{ partita?.teams[0]?.set }}</h3>
-      
+        <h3 class="flex-column">{{ partita?.teams[0]?.set }}</h3> 
       </div>
   
       <div class="col-4">
@@ -75,8 +91,14 @@
         
       <div class="col-4">
         <h3 class="flex-column">{{ partita?.teams[1]?.name }}</h3>
-        <h4> orario: {{ partita.ora}}</h4>
+      
+        <div>
+          <hr /> <!-- separatore tra le due squadre-->
+        </div>
+
+        <h3> <i class="bi bi-clock"></i> {{ partita.ora}}</h3>
       </div>
+
       <div class="col-4">
         <h3>{{ partita?.teams[1]?.set }}</h3>
       </div>
