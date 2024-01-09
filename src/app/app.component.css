@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #4497a8;
+    background-color: #064887;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -45,7 +45,7 @@ header {
 }
 
 .footer {
-    background-color: #6b4949;
+    background-color: #e2aa00b8;
     color: white;
     padding: 20px;
     text-align: center;
@@ -73,7 +73,7 @@ header {
         bottom: 0;
         left: 0; /* Aggiunto per ancorare al margine sinistro */
         width: 100%;
-        background-color: #333;
+        background-color: #064887;
         z-index: 1;
     }
 
