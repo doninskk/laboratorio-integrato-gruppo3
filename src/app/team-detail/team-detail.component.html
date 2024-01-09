@@ -8,8 +8,8 @@
 </head>
 <body>
   <div *ngFor="let team of teamDetails" >
-    <div class="row justify-content-center text-center">
-    <div class="col-6 ">
+    <div class="row justify-content-center text-center align-items-center">
+    <div class="col-6">
       <h2>{{team.name}}</h2>
     </div>
     <div class="col-6">
@@ -17,7 +17,7 @@
     </div>
     <div class="col-lg-4">
       <!-- Risultati ottenuti a casa -->
-      <h3>Risultati Casa:</h3>
+      <h3 class="p-3">Risultati Casa:</h3>
       <h4>Giocate : {{team.played_home}}</h4>
       <h4>Vinte : {{team.wins_home}}</h4>
       <h4>Perse : {{team.losses_home}}</h4>
@@ -26,7 +26,7 @@
     </div>
     <div class="col-lg-4">
       <!-- Risultati ottenuti fuori casa -->
-      <h3>Risultati Fuori Casa:</h3>
+      <h3 class="p-3">Risultati Fuori Casa:</h3>
       <h4>Giocate : {{team.played_away}}</h4>
       <h4>Vinte : {{team.wins_away}}</h4>
       <h4>Perse : {{team.losses_away}}</h4>
