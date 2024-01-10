@@ -19,6 +19,7 @@ export class StatisticheComponent {
   standingA1Femminile: any = [
     {
       "position": 1,
+
       "team": {
         "id": 704,
         "name": "Conegliano W",
@@ -65,18 +66,15 @@ export class StatisticheComponent {
   constructor(private partiteService: partiteServices) {}
 
   standingsLeague() {
-    console.log('Selected League:', this.selectedLeague);
-  
+    // Verifica se la lega selezionata è femminile (id 89) e imposta i dati di mock appropriati
     if (this.selectedLeague === 'A1_Femminile') {
-      console.log('Using mock for A1 Femminile');
       this.classifica = this.standingA1Femminile;
     } else {
-      console.log('Calling API for selected league');
+      // Altrimenti, chiamare l'API per ottenere i dati della lega selezionata
       this.partiteService.standings(this.bodyClassifica).subscribe((response: any) => {
         this.classifica = response;
-        console.log('Data received:', response);
+        console.log("dati ricevuti", response);
       });
     }
   }
-  
 }
