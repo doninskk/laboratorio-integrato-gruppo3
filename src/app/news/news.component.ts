@@ -11,6 +11,7 @@ export class NewsComponent {
 
   isButtonSecondArticleClick = false;
   isButtonThirdArticleClick = false;
+  isButtonForthArticleClick = false;
 
   //accordionStates: boolean[] = [false, false, false, false];
 
@@ -22,9 +23,12 @@ export class NewsComponent {
     this.isButtonSecondArticleClick = !this.isButtonSecondArticleClick;
   }
 
-  
   toggleThirdArticle() {
     this.isButtonThirdArticleClick = !this.isButtonThirdArticleClick;
+  }
+
+  toggleForthArticle() {
+    this.isButtonForthArticleClick = !this.isButtonForthArticleClick;
   }
 }
 
