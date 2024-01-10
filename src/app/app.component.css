@@ -106,7 +106,7 @@ header {
 
     /* Aggiunta per evitare che il footer venga coperto dalla navbar */
     body {
-        margin-bottom: 80px; /* Altezza della navbar + margine di sicurezza */
+        margin-bottom: 90px; /* Altezza della navbar + margine di sicurezza */
     }
 }
 

@@ -1,4 +1,21 @@
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .linea{
     padding: 1rem;
-    border-bottom: 3px solid black;
+    border-bottom: 3px groove rgba(6, 73, 135, 0.377);
+    margin-bottom: 8px;
+}
+
+.legenda p{
+    display: flex;
+    justify-content: end;
+    margin: -1px;
+}
+
+.legenda .titolo{
+    color: darkred;
+    font-size: large;
+    font: bold
 }
