@@ -8,10 +8,18 @@ body{
     margin-bottom: 8px;
 }
 
+.legenda {
+    padding: 10px 0 15px 0;
+}
+
 .legenda p{
     display: flex;
     justify-content: end;
     margin: -1px;
+}
+
+.legenda h2 {
+    padding-left: 20px;
 }
 
 .legenda .titolo{
