@@ -1,0 +1,9 @@
+.team-logo {
+    max-height: 100px; /* Imposta l'altezza massima delle immagini delle squadre */
+    min-height: 80px;
+
+  }
+
+  .team-name, .team-set{
+    font-size: 23px;
+  }
