@@ -25,7 +25,7 @@ export class HomeComponent {
     { name: 'A1 Femminile', value: 'A1_Femminile',id:89 }
   ];
   
-  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Sostituisci con le settimane disponibili 
+  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14]; // 10 max SuperLega 14 max  A1 femminile
 
 
   requestBody = {

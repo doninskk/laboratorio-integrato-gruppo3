@@ -16,8 +16,28 @@ bodyClassifica=
    "id_league":97,
     "id_group":3
 }
-
-
+  standingA1Femminile: any= [
+  [
+    {
+      "position": 1,
+      "stage": "Serie A1 Women",
+      "group": {
+        "name": "Regular Season"
+      },
+      "team": {
+        "id": 704,
+        "name": "Conegliano W",
+        "logo": "https://media.api-sports.io/volley/teams/704.png"
+      },
+      "games": {
+        "played": 15,
+      "points": 44,
+      "form": "WWWWW",
+      "description": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+    }
+  }
+  ]
+]
 ngOnInit() {
 
 
