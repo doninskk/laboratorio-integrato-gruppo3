@@ -83,6 +83,7 @@
             <h2>Semifinale Infuocata</h2>
             <p>Tutta la Pallavolo in una partita da brividi</p>
             <p>Semifinale di campionato, due squadre, i "Leoni del Mare" e i "Fulmini D'Argento", si preparano a darsi battaglia. Una partita di pallavolo che promette emozioni   forti.</p>
+            
             <div *ngIf="isButtonThirdArticleClick" class="accordion-body">
               <p><b> Sfida tra Giganti: </b></p>
               <p>Le due squadre, con i "Leoni del Mare" noti per la loro potenza e i "Fulmini D'Argento" famosi per la velocità, entrano in campo. L'atmosfera è elettrica mentre gli spettatori si preparano per una partita di alto livello. </p>
@@ -115,12 +116,40 @@
     </div>
     <div class="article-card">
         <div class="article-img">
-            <img src="immagine.jpg" alt="Immagine dell'articolo">
+            <img src="\assets\regole-e-fondamenta.jpg" class="img-fluid" alt="Immagine dell'articolo">
         </div>
-        <div class="article-content">
-            <h2>Titolo dell'articolo</h2>
-            <p>Descrizione breve dell'articolo. Può essere abbastanza lunga.</p>
-            <a href="#">Leggi di più</a>
+        <div class="article-content" (click)="toggleForthArticle()" role="button" >
+            <h2>Regole e Fondamenta</h2>
+            <p>Per godersi appieno la pallavolo, e qualsiasi sport in generale , bisogna avere una solida comprensione delle regole di base. In questo articolo, esploreremo le fondamenta del regolamento della pallavolo, dando una linea guida per giocatori e appassionati.</p>
+            <div *ngIf="isButtonForthArticleClick" class="accordion-body">
+            
+            <p><b> 1. Squadre e Tocchi:</b></p>
+
+            <p>In una partita di pallavolo le squadre sono formate da 6 giocatori titolari e altrettanti panchinari che si affrontano sul campo diviso da una rete.</p> 
+            <p><b>1.Rotazione dei Giocatori:</b></p>
+                
+            <p>Le squadre ruotano in senso orario quando guadagnano devono servire (in battuta). I giocatori devono seguire una sequenza di rotazione in modo che ogni membro della squadra abbia l'opportunità di servire.</p>
+                
+            <p><b>1.Set e Vittoria: </b></p>
+                
+            <p>Un set è vinto dalla prima squadra che raggiunge 25 punti, con almeno due punti di vantaggio. Se il set si prolunga, la partita può arrivare ad un massimo di cinque set. La squadra che vince tre set porta a casa la coppa.</p>
+                
+            <p><b>1.Ricezione e Palleggio:</b></p>
+                
+            <p>La ricezione è il primo contatto con la palla dopo il servizio, mentre il palleggio è il secondo. Ogni squadra può toccare la palla fino a tre volte prima di spedirla nell’altro campo.</p>    
+                
+            <p><b>1. Attacco e Blocco: </b></p>
+                
+            <p>L'attacco è il colpo che cerca di superare la difesa avversaria, generalmente eseguito con una schiacciata. Il blocco, eseguito dalla difesa vicino alla rete, mira a impedire il passaggio dell'attacco avversario. Il contatto con la palla durante il blocco non è considerato uno dei tre colpi consentiti.</p>
+                
+            <p><b>1. Rotazione del Servizio: </b></p>
+                
+            <p>I giocatori devono eseguire il servizio dietro la linea di fondo. Durante il servizio, il giocatore deve colpire la palla sotto la linea della cintura e sopra la rete.</p>
+                
+            <p><b>Conclusione:</b></p>
+                
+            <p>La pallavolo è uno sport ricco di azione e strategia, e la comprensione delle sue regole fondamentali è essenziale per un gioco pulito. Che tu sia un giocatore alle prime armi o un appassionato spettatore, la padronanza delle regole della pallavolo contribuirà a rendere l'esperienza di gioco più coinvolgente. Nel prossimo articolo parleremo dei falli che si possono fare nella pallavolo.</p>
+        </div>
         </div>
     </div>
 </body>
