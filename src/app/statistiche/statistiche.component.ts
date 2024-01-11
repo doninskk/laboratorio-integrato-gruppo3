@@ -31,6 +31,7 @@ export class StatisticheComponent {
       "team": "Vero Volley W",
       "id": 704,
       "logo": "https://media.api-sports.io/volley/teams/3604.png",
+      "points": 40,
       "form": "WWWWW",
       "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
     }
@@ -50,11 +51,11 @@ export class StatisticheComponent {
   constructor(private partiteService: partiteServices) {}
 
   standingsLeague() {
-    // Verifica se la lega selezionata è femminile (id 89) e imposta i dati di mock appropriati
+    // Verifica se la lega selezionata è femminile (id 89) e visualizzo il JSON
     if (this.selectedLeague === 'A1_Femminile') {
       this.classifica = this.standingA1Femminile;
     } else {
-      // Altrimenti, chiamare l'API per ottenere i dati della lega selezionata
+      // Altrimenti, chiamo l'API per ottenere i dati della lega selezionata
       this.partiteService.standings(this.bodyClassifica).subscribe((response: any) => {
         this.classifica = response;
         console.log("dati ricevuti", response);

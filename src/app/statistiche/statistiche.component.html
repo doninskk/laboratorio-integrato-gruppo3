@@ -16,6 +16,20 @@
       <h2>Classifica</h2>
     </div>
 
+
+    <div class="row justify-content-center mt-2">
+      <div class="form-group">
+        <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
+        <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select mx-auto">
+          <option value="" disabled selected>Seleziona il campionato</option>
+          <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
+        </select>
+      </div>
+      <div class="col-md-6 text-center m-2">
+        <button class="btn btn-search" (click)=" standingsLeague()">Cerca</button>
+      </div>
+    </div>
+    
     <div class="row legenda d-flex text-center">
         <p class="titolo">LEGENDA</p>
         <p>POS = posizione in classifica</p>
@@ -25,6 +39,11 @@
         <p>L = match perso</p>
       </div>
     </div>
+
+   
+  
+    
+
 <div class="container rating pr-4">
     <div *ngFor="let classifica of classifica" class="row d-flex align-items-center text-center linea">
      
