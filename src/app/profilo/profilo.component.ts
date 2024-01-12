@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { partiteServices } from '../servizi/partiteService';
 class Prize {
   img: string;
   description: string;
@@ -25,7 +25,27 @@ export class ProfiloComponent {
   ];
   coins: number = 100; // Inizializza le monete a 100
 
+    
+  
+ loginBodyJson = {
+  "mail":"vale@mail.com",
+  "password":"ciccio"
+}
+
+ngOnInit() {
+
+  
+ 
+}
+
+constructor(private partiteService: partiteServices) {}
+
   incrementCoins() {
     this.coins += 10;
   }
+
+
+  
+
+  
 }

@@ -8,14 +8,22 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class GiocaComponent {
 
-  bets: any=[]
+  bets: any = []
+  users: any = []
   
   
+ betBodyJson = {
+    "week":11,
+    "season":2023,
+    "id_league":97
+};
 
   ngOnInit() {
 
 
     this.betsData()
+    this.betFilterForWeeks()
+    this.userRank()
   }
 
   constructor(private partiteService: partiteServices) {}
@@ -28,6 +36,23 @@ betsData(){
   },
   );
 
+}
+betFilterForWeeks(){
+
+  this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
+    this.bets = response;
+    console.log("dati ricevuti",response);
+  },
+  );
+}
+
+
+userRank(){
+  this.partiteService.getUsersPositions().subscribe((response: any) => {
+    this.users = response;
+    console.log("dati ricevuti",response);
+  },
+  ); 
 }
 
 }
