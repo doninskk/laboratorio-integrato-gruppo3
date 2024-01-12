@@ -34,6 +34,11 @@ import { ApiService } from './apiService';
             return this.apiService.getStandings(requestBodyStandings);
 
         }
+
+        userLogin(requestLogBody:any){
+          return this.apiService.login(requestLogBody)
+        }
+
           betPageResults(){
 
             return this.apiService.betPage();
