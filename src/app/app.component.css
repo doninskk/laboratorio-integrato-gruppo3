@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: #064887;
-    color: #fff;
+    background-color: white;
+    color: #064887;
     padding: 10px;
     text-align: center;
     margin-bottom: 10px;
@@ -40,7 +40,7 @@ header {
 
 .nav-list a {
     text-decoration: none;
-    color: #fff;
+    color: #064887;
     font-weight: bold;
 }
 

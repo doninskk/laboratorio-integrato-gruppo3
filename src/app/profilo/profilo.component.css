@@ -1,16 +1,17 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 
-main {
+body {
     display: flex;
     flex-direction: column;
     padding: 10px;
     box-sizing: border-box;
 }
 
-main>* {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.account h1{
+    font-size:xx-large
 }
+
 
 .account {
     display: flex;
@@ -19,7 +20,7 @@ main>* {
     margin: 0 0 20px 0;
 }
 
-.account>h1 {
+.account h1 {
     margin: 0 0 5px 0;
     font-size: large;
 }
