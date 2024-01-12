@@ -33,8 +33,16 @@ export class ApiService {
     return this.http.get('http://localhost:8080/game/betPage');
   }
 
+  filterBet(requestBetBody:any){
+    return this.http.post('http://localhost:8080/bet/betList',requestBetBody);
+  }
+
   gameDetail(id:any) {
     return this.http.post('http://localhost:8080/game/getSpecific', id);
+  }
+
+  getUsersRank(){
+    return this.http.get('http://localhost:8080/user/getRank')
   }
 
 

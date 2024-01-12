@@ -39,10 +39,18 @@ import { ApiService } from './apiService';
             return this.apiService.betPage();
 
           }
+
+          filterForBets(requestBetBody:any){
+            return this.apiService.filterBet(requestBetBody)
+          }
           
           
           getGameDetail(id:any){
             return this.apiService.gameDetail(id);
+          }
+
+          getUsersPositions(){
+            return this.apiService.getUsersRank();
           }
 
         }
