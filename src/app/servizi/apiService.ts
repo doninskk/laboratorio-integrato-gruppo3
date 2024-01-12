@@ -29,6 +29,14 @@ export class ApiService {
     return this.http.post('http://localhost:8080/league/standings',  requestStandingBody);
   }
 
+  userRegister(requestRegisterBody:any) {
+    return this.http.post('http://localhost:8080/user/signup', requestRegisterBody);
+  }
+
+  login(requestLoginBody:any) {
+    return this.http.post('http://localhost:8080/user/login', requestLoginBody);
+  }
+
   betPage() {
     return this.http.get('http://localhost:8080/game/betPage');
   }

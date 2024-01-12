@@ -1,0 +1,37 @@
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.titolo-team{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-squadra{
+    max-width: 100px;
+}
+
+.casa, .fuori {
+    padding: 50px 0 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.casa h3 {
+    padding: 2px;
+}
+
+.casa p, .fuori p{
+    padding: -200px;
+}
+
+.fuori h3 {
+    padding: 2px;
+}
+
+.card-header{
+    background-color: #064887;
+    color: whitesmoke;
+}
