@@ -35,6 +35,10 @@ import { ApiService } from './apiService';
 
         }
 
+        subscribeUser(requestSubBody:any){
+          return this.apiService.userRegister(requestSubBody)
+        }
+
         userLogin(requestLogBody:any){
           return this.apiService.login(requestLogBody)
         }
