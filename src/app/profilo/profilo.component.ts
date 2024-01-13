@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
 
+
 class Prize {
   img: string;
   description: string;
@@ -31,9 +32,10 @@ export class ProfiloComponent {
     new Prize("https://www.ikea.com/it/it/images/products/ektorp-divano-letto-a-3-posti-vittaryd-bianco__0734968_PE739647_S5.JPG?f=xs", "Divano", 100, 100),
   ];
   coins: number = 100; // Inizializza le monete a 100
+   userName: string = ""; // Inizializza il nome utente
   
 
-  /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente JSON già esiste
+  /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
     "mail":"pippo@mail.com",
     "password":"12345",
@@ -42,8 +44,11 @@ subscribeBody = {
 }
 */
   loginBodyJson = { /* form per login su nuovo componente + gestire l'errore se l'utente non esiste o se la psw è sbagliata */
-    "mail":"pippo@mail.com",
-    "password":"12345"
+   /* "mail":"pippo@mail.com",
+    "password":"12345",*/
+
+    "mail":"vale@mail.com", /* secondo utente pass corretta */
+    "password":"ciccio"
   }
   
   ngOnInit() {
@@ -64,14 +69,39 @@ subscribeBody = {
     );    
 
   }*/
-    userLogin(){
-
-      this.partiteService.userLogin(this.loginBodyJson).subscribe((response: any) => {
-        this.loginBodyJson = response;
-        console.log("dati ricevuti",response);
+  userLogin() {
+    this.partiteService.userLogin(this.loginBodyJson).subscribe(
+      (response: any) => {
+        console.log("dati ricevuti", response);
+  
+        // Controlla se la risposta contiene il token (o eventualmente altre informazioni che indicano un login valido)
+        if (response.token) {
+          this.userName = response.username;
+          this.loginBodyJson.mail;
+        } else {
+          console.error("Errore durante il login: login non riuscito");
+          this.userName = "";
+          this.loginBodyJson.mail = "";
+        }
       },
-      );
-    }
+      (error: any) => {
+        console.error("Errore durante il login", error);
+  
+        // Controlla il codice di risposta HTTP per gestire gli errori specifici
+        if (error.status === 401) {
+          console.error("Errore: password errata");
+        } else {
+          console.error("Errore sconosciuto durante il login");
+        }
+  
+        this.userName = "";
+        this.loginBodyJson.mail = "";
+      }
+    );
+  }
+  
+  
+  
 
   incrementCoins() {
     this.coins += 10;
