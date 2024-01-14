@@ -62,4 +62,8 @@ import { ApiService } from './apiService';
             return this.apiService.getUsersRank();
           }
 
+          getSaveBets(user:any){
+            return this.apiService.saveBet(user)
+          }
+
         }
