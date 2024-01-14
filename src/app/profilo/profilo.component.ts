@@ -33,7 +33,7 @@ export class ProfiloComponent {
   ];
   coins: number = 100; // Inizializza le monete a 100
    userName: string = ""; // Inizializza il nome utente
-  
+  bets: any = {};
 
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
@@ -50,11 +50,18 @@ subscribeBody = {
     "mail":"vale@mail.com", /* secondo utente pass corretta */
     "password":"ciccio"
   }
+  betBodyJson = { /*  Fare nella pag profilo una sezione le tue bet con il filtro per week  */
+    "week":15,
+    "season":2023,
+    "id_league":97
+};
+
   
   ngOnInit() {
   
     //this.userSubscribe()
     this.userLogin()
+    this.betFilterForWeeks()
   
   }
 
@@ -99,10 +106,16 @@ subscribeBody = {
       }
     );
   }
-  
-  
-  
 
+  betFilterForWeeks(){
+
+    this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
+      this.bets = response;
+      console.log("dati ricevuti",response);
+    },
+    );
+  }
+  
   incrementCoins() {
     this.coins += 10;
   }

@@ -53,5 +53,9 @@ export class ApiService {
     return this.http.get('http://localhost:8080/user/getRank')
   }
 
+  saveBet(userBody:any) {
+    return this.http.post('http://localhost:8080/bet/save', userBody);
+  }
+
 
 }
