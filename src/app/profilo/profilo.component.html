@@ -15,20 +15,21 @@
 </head>
 <body>
     <div class="container">
-        <div class="account">
-            <h1> Il mio account </h1>
-            <div class="account-info">
-                <div class="account-info-left">
-                    <p>
-                        <i class="bi bi-person"></i> <!-- Icona del profilo -->
-                        <span> nome profilo </span>
-                    </p>
-                </div>
-                <div class="account-info-right">
-                    <!-- zona monete-->
-                    <span> {{ coins }}  <i class="bi bi-cash"></i> <!-- Icona delle monete --> </span>
-                    <button class="increment-button" (click)="incrementCoins()"> + 10 </button>
-                </div>
+
+    <div class="account">
+        <h1> Il mio account </h1>
+        <div class="account-info">
+            <div class="account-info-left">
+                <p>
+                    <i class="bi bi-person"></i> <!-- Icona del profilo -->
+                    <span>  {{loginBodyJson.mail}} </span>
+                </p>
+            </div>
+            <div class="account-info-right">
+                <!-- zona monete-->
+                <span> {{ coins }}  <i class="bi bi-cash"></i> <!-- Icona delle monete --> </span>
+                <button class="increment-button" (click)="incrementCoins()"> + 10 </button>
+
             </div>
             <a class="other-prizes" href="">
                 <i class="fas fa-dice"></i>
