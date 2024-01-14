@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
 
 class Prize {
@@ -17,8 +17,6 @@ class Prize {
   }
 }
 
-
-
 @Component({
   selector: 'app-profilo',
   templateUrl: './profilo.component.html',
@@ -26,7 +24,7 @@ class Prize {
 })
 
 
-export class ProfiloComponent {
+export class ProfiloComponent{
   prizes: Prize[] = [
     new Prize("https://www.ikea.com/it/it/images/products/ektorp-divano-letto-a-3-posti-vittaryd-bianco__0734968_PE739647_S5.JPG?f=xs", "Divano", 100, 100),
   ];
@@ -76,4 +74,6 @@ subscribeBody = {
   incrementCoins() {
     this.coins += 10;
   }
+
+  
 }

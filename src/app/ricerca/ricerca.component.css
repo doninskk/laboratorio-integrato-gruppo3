@@ -19,7 +19,7 @@
   
   button {
     padding: 8px;
-    background-color: #000000;
+    background-color: #064887;
     color: white;
     border: none;
     border-radius: 5px;
@@ -27,7 +27,7 @@
   }
   
   button:hover {
-    background-color: #2d2a2a;
+    background-color: #055198;
   }
   
   h2, h3 {

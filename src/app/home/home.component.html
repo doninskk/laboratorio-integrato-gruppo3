@@ -120,7 +120,7 @@
         </div>
 
         <p> <i class="bi bi-clock"></i> {{partita.ora?.split(':').slice(0, 2).join(':')}}</p>
-        <button class="btn text-light"  [routerLink]="['/game', partita.id_game]" *ngIf="partita.id_game">Dettagli</button>
+        <button class="btn "  [routerLink]="['/game', partita.id_game]" *ngIf="partita.id_game">Dettagli</button>
       </div>
 
       <div class="col-4">
