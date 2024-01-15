@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     padding: 10px;
     box-sizing: border-box;
+    font-family: 'Poppins';
 }
 
 .account h1{
