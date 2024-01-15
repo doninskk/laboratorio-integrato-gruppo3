@@ -15,6 +15,12 @@ class Prize {
   }
 }
 
+interface Card {
+  image: string;
+  title: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-profilo',
   templateUrl: './profilo.component.html',
@@ -24,6 +30,13 @@ export class ProfiloComponent implements OnInit {
   prizes: Prize[] = [
     new Prize("https://www.ikea.com/it/it/images/products/ektorp-divano-letto-a-3-posti-vittaryd-bianco__0734968_PE739647_S5.JPG?f=xs", "Divano", 100, 100),
   ];
+
+
+  cards: Card[] = [
+    { image: '/assets/img1.jpg', title: 'Card 1', description: 'Descrizione per la card 1' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    // Aggiungi altre carte secondo necessità
+  ]
   coins: number = 100;
   userName: string = "";
   bets: any = {};
