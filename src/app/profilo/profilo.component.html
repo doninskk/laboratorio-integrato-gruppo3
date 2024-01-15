@@ -8,135 +8,148 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
-    
-
-
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
-    <div class="container">
+<body>
 
-    <div class="account">
-        <h1> Il mio account </h1>
-        <div class="account-info">
-            <div class="account-info-left">
-                <p>
-                    <i class="bi bi-person"></i> <!-- Icona del profilo -->
-                    <span>  {{loginBodyJson.mail}} </span>
-                </p>
-            </div>
-            <div class="account-info-right">
-                <!-- zona monete-->
-                <span> {{ coins }}  <i class="bi bi-cash"></i> <!-- Icona delle monete --> </span>
-                <button class="increment-button" (click)="incrementCoins()"> + 10 </button>
-
-            </div>
-            <a class="other-prizes" href="">
-                <i class="fas fa-dice"></i>
-                vuoi ottenere più gettoni? Gioca!
-            </a>
-        </div>
-        <div class="prizes">
-            <h1> Premi </h1>
-            <p> Scegli come spendere i gettoni che hai guadagnato</p>
-            <ul>
-                <li *ngFor="let prize of prizes">
-                    <img [src]="prize.img" alt="Immagine del premio">
-                    <p>{{prize.description}}</p>
-                    <p>Costo: {{prize.cost}}</p>
-                    <p>Progresso: {{prize.progress}}</p>
-                </li>
-            </ul>
-        </div>
+  <div class="container">
+    <div class="row pb-4">
+      <h1> Il mio account </h1>
     </div>
-
-    < class="container">
-      <div class="row mb-3">
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      
+      <div class="col-5">
+        <i class="bi bi-person pr-5"></i> {{loginBodyJson.mail}} 
       </div>
-
-      <div class="row mb-3">
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card 1</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
+      
+      <div class="col-3">
+        {{ coins }}  <i class="bi bi-cash"></i> 
+        <br>
+        <button class="increment-button" (click)="incrementCoins()"> + 10 </button>
+      </div>
+      
+      <div class="col-4">
+        <a class="other-prizes" href=""><i class="fas fa-dice"></i>vuoi ottenere più gettoni? Gioca!</a>
       </div>
     
+    </div>
+    <div class="prizes">
+      <h1> Premi </h1>
+      <p> Scegli come spendere i gettoni che hai guadagnato</p>
+      <!--<ul>
+          <li *ngFor="let prize of prizes">
+              <img [src]="prize.img" alt="Immagine del premio">
+              <p>{{prize.description}}</p>
+              <p>Costo: {{prize.cost}}</p>
+              <p>Progresso: {{prize.progress}}</p>
+          </li>
+      </ul>-->
+      </div>  
+    </div>
+       
+<!-- card -->
+  <div class="container">
+    <div class="card-container">
+      <div *ngFor="let card of cards" class="card">
+        <img [src]="card.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ card.title }}</h5>
+          <p class="card-text">{{ card.description }}</p>
+          <a href="#" class="btn ottieni">Ottieni</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <img src="/assets/regole-e-fondamenta.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn ottieni">Ottieni</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    -->

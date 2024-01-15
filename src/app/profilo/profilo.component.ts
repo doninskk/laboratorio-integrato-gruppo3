@@ -32,20 +32,24 @@ export class ProfiloComponent implements OnInit {
   ];
 
 
-  cards: Card[] = [
+    cards: Card[] = [
     { image: '/assets/img1.jpg', title: 'Card 1', description: 'Descrizione per la card 1' },
     { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    // Aggiungi altre carte secondo necessità
-  ]
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+  ];
+
   coins: number = 100;
   userName: string = "";
   bets: any = {};
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
 
-  // Aggiungi un oggetto per memorizzare le informazioni di login
   private loginInfo: any = {};
 
-  
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
     "mail":"pippo@mail.com",
@@ -139,3 +143,4 @@ subscribeBody = {
     return this.token;
   }
 }
+

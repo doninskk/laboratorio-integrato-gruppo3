@@ -1,7 +1,10 @@
+body{
+  font-family: 'Poppins';
+}
+
 .search-container {
     max-width: 600px;
     margin: 20px 15px; /* Imposta il margine superiore e inferiore a 20px e il margine sinistro e destro a 0 */
-    font-family: 'Arial', sans-serif;
     text-align: left; /* Allinea il testo a sinistra */
   }
   
