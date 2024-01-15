@@ -13,10 +13,15 @@ class Prize {
     this.description = description;
     this.cost = cost;
     this.progress = progress;
-
-    
   }
 }
+
+interface Card {
+  image: string;
+  title: string;
+  description: string;
+}
+
 
 @Component({
   selector: 'app-profilo',
@@ -32,6 +37,17 @@ export class ProfiloComponent{
   coins: number = 100; // Inizializza le monete a 100
    userName: string = ""; // Inizializza il nome utente
   bets: any = {};
+
+  cards: Card[] = [
+    { image: '/assets/img1.jpg', title: 'Card 1', description: 'Descrizione per la card 1' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+  ];
 
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
