@@ -1,6 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
-
 
 class Prize {
   img: string;
@@ -13,9 +12,13 @@ class Prize {
     this.description = description;
     this.cost = cost;
     this.progress = progress;
-
-    
   }
+}
+
+interface Card {
+  image: string;
+  title: string;
+  description: string;
 }
 
 @Component({
@@ -23,16 +26,26 @@ class Prize {
   templateUrl: './profilo.component.html',
   styleUrls: ['./profilo.component.css']
 })
-
-
-export class ProfiloComponent{
+export class ProfiloComponent implements OnInit {
   prizes: Prize[] = [
     new Prize("https://www.ikea.com/it/it/images/products/ektorp-divano-letto-a-3-posti-vittaryd-bianco__0734968_PE739647_S5.JPG?f=xs", "Divano", 100, 100),
   ];
-  coins: number = 100; // Inizializza le monete a 100
-   userName: string = ""; // Inizializza il nome utente
-  bets: any = {};
 
+
+  cards: Card[] = [
+    { image: '/assets/img1.jpg', title: 'Card 1', description: 'Descrizione per la card 1' },
+    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    // Aggiungi altre carte secondo necessità
+  ]
+  coins: number = 100;
+  userName: string = "";
+  bets: any = {};
+  private tokenKey: string = 'token'; // Chiave per il token nel localStorage
+
+  // Aggiungi un oggetto per memorizzare le informazioni di login
+  private loginInfo: any = {};
+
+  
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
     "mail":"pippo@mail.com",
@@ -41,30 +54,32 @@ subscribeBody = {
     "admin":0
 }
 */
-  loginBodyJson = { /* form per login su nuovo componente + gestire l'errore se l'utente non esiste o se la psw è sbagliata */
-   /* "mail":"pippo@mail.com",
-    "password":"12345",*/
 
-    "mail":"vale@mail.com", /* secondo utente pass corretta */
-    "password":"ciccio"
-  }
-  betBodyJson = { /*  Fare nella pag profilo una sezione le tue bet con il filtro per week  */
-    "week":15,
-    "season":2023,
-    "id_league":97
-};
+  loginBodyJson = {
+    "mail": "vale@mail.com",
+    "password": "ciccio"
+  };
 
-  
+  betBodyJson = {
+    "week": 15,
+    "season": 2023,
+    "id_league": 97
+  };
+
   ngOnInit() {
-  
+
     //this.userSubscribe()
-    this.userLogin()
-    this.betFilterForWeeks()
-  
+    //  recupero il token e le informazioni di login dal localStorage all'avvio del componente
+    this.token = localStorage.getItem(this.tokenKey);
+    this.loginInfo = JSON.parse(localStorage.getItem('loginInfo') || '{}');
+
+    this.userLogin();
+    this.betFilterForWeeks();
   }
 
   constructor(private partiteService: partiteServices) {}
-/*
+
+  /*
   userSubscribe(){
 
     this.partiteService.subscribeUser(this.subscribeBody).subscribe((response: any) => {
@@ -74,49 +89,53 @@ subscribeBody = {
     );    
 
   }*/
+
   userLogin() {
     this.partiteService.userLogin(this.loginBodyJson).subscribe(
       (response: any) => {
         console.log("dati ricevuti", response);
-  
-        // Controlla se la risposta contiene il token (o eventualmente altre informazioni che indicano un login valido)
+
         if (response.token) {
           this.userName = response.username;
-          this.loginBodyJson.mail;
+          
+          // Salvo il token e le informazioni di login nel localStorage per salvarle
+          localStorage.setItem(this.tokenKey, response.token);
+          localStorage.setItem('loginInfo', JSON.stringify(response));
         } else {
           console.error("Errore durante il login: login non riuscito");
           this.userName = "";
-          this.loginBodyJson.mail = "";
         }
       },
       (error: any) => {
         console.error("Errore durante il login", error);
-  
-        // Controlla il codice di risposta HTTP per gestire gli errori specifici
+
         if (error.status === 401) {
           console.error("Errore: password errata");
         } else {
           console.error("Errore sconosciuto durante il login");
         }
-  
+
         this.userName = "";
-        this.loginBodyJson.mail = "";
       }
     );
   }
 
-  betFilterForWeeks(){
-
+  betFilterForWeeks() {
     this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
       this.bets = response;
-      console.log("dati ricevuti",response);
-    },
-    );
+      console.log("dati ricevuti", response);
+    });
   }
-  
+
   incrementCoins() {
     this.coins += 10;
   }
 
-  
+  //  proprietà per salvare e recuperare il token
+  private token: string | null = null;
+
+  // metodo per ottenere il token nel resto del componente
+  getToken(): string | null {
+    return this.token;
+  }
 }
