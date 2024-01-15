@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -26,11 +26,11 @@
       <div class="col-3">
         {{ coins }}  <i class="bi bi-cash"></i> 
         <br>
-        <button class="increment-button" (click)="incrementCoins()"> + 10 </button>
+        <button class="increment-button" (click)="incrementCoins()" [disabled]="isButtonDisabled"> + 10 </button>
       </div>
       
       <div class="col-4">
-        <a class="other-prizes" href=""><i class="fas fa-dice"></i>vuoi ottenere più gettoni? Gioca!</a>
+        <a class="other-prizes" [routerLink]="['/gioca']"><i class="fas fa-dice"></i>vuoi ottenere più gettoni? Gioca!</a>
       </div>
     
     </div>

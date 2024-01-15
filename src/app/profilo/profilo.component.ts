@@ -44,6 +44,22 @@ export class ProfiloComponent implements OnInit {
   ];
 
   coins: number = 100;
+  isButtonDisabled: boolean = false;
+
+  incrementCoins() {
+    // Verifica se il pulsante è già disabilitato
+    if (!this.isButtonDisabled) {
+      // Incrementa le monete e disabilita il pulsante
+      this.coins += 10;
+      this.isButtonDisabled = true;
+
+      // Imposta un timeout per riabilitare il pulsante dopo un giorno
+      setTimeout(() => {
+        this.isButtonDisabled = false;
+      }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
+    }
+  }
+
   userName: string = "";
   bets: any = {};
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
@@ -131,9 +147,6 @@ subscribeBody = {
     });
   }
 
-  incrementCoins() {
-    this.coins += 10;
-  }
 
   //  proprietà per salvare e recuperare il token
   private token: string | null = null;
