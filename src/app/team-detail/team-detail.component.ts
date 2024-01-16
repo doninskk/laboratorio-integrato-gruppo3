@@ -10,24 +10,23 @@ import { partiteServices } from '../servizi/partiteService';
 export class TeamDetailComponent {
 
   teamDetails: any[] = [];
-  teamId: number | null = null;  // Dichiara una variabile per memorizzare l'ID del team
-
-  teamDetail={
-    "id_lega":97,
-    "id_season":2023
-}
+  teamId: number | null = null;
+  id_lega: number | null = null;
+  id_season: number | null = null;
 
   constructor(
     private partiteService: partiteServices,
-    private route: ActivatedRoute  // Inietta ActivatedRoute nel costruttore
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    //  l'ID del team dalla route e dall'URL
-    const idParam = this.route.snapshot.paramMap.get('id');
-    this.teamId = idParam ? +idParam : null;
+    // Estrai i parametri dalla route e assegnali alle variabili del componente
+    const params = this.route.snapshot.params;
+    this.teamId = params['id'] ? +params['id'] : null;
+    this.id_lega = params['id_lega'] ? +params['id_lega'] : null;
+    this.id_season = params['id_season'] ? +params['id_season'] : null;
 
-    // precauzione  si invoca solo se l'id è presente
+    // Verifica che l'ID del team sia presente prima di chiamare il servizio
     if (this.teamId !== null) {
       this.detailOfTeam();
     } else {
@@ -36,9 +35,16 @@ export class TeamDetailComponent {
   }
 
   detailOfTeam() {
-    // id team nella richiesta
-    this.partiteService.detailTeam({ "id_team": this.teamId }).subscribe((response: any) => {
-      this.teamDetails = response;  // Ora assegno l'array di team
+    // Aggiorna la richiesta includendo i nuovi parametri
+    const request = {
+      "id_team": this.teamId,
+      "id_lega": this.id_lega,
+      "id_season": this.id_season
+    };
+
+    // Effettua la chiamata al servizio con la nuova richiesta
+    this.partiteService.detailTeam(request).subscribe((response: any) => {
+      this.teamDetails = response;
       console.log("dati ricevuti", response);
     });
   }

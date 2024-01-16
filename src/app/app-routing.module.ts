@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'ricerca', component: RicercaComponent},
   { path: 'profilo', component: ProfiloComponent},
   { path: 'gioca', component: GiocaComponent},
-  { path: 'team/:id', component: TeamDetailComponent },
+  { path: 'team/:id/:id_lega/:id_season', component: TeamDetailComponent },
   { path: 'game/:id', component: GameDetailComponent},
   { path: '**', component: ErrorComponent}, //Wildcard route for a 404 page
 ];
