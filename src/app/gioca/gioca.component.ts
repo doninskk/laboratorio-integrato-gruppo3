@@ -10,13 +10,6 @@ export class GiocaComponent {
   bets: any = [];
   users: any = [];
   savedBets: any = [];
-  
-
-  betBodyJson = {
-    "week": 15,
-    "season": 2023,
-    "id_league": 97
-  };
 
   betBodySave = {
     "token": "",
@@ -32,7 +25,6 @@ export class GiocaComponent {
       this.betBodySave.token = token;
     }
     this.betsData();
-    this.betFilterForWeeks();
     this.userRank();
     this.savedUserBets();
   }
@@ -41,24 +33,28 @@ export class GiocaComponent {
 
   // Al click sull'icona, chiamata questa funzione con i nuovi valori dell'id_team e id_game
   setBetBody(teamId: number, gameId: number) {
+    // Modifica il corpo della scommessa corrente
     this.betBodySave = {
       ...this.betBodySave,
       "id_team": teamId,
       "id_game": gameId
     };
-    console.log(this.betBodySave)
-    // Esegui qui eventuali altre operazioni o chiamate di servizio necessarie
+
+    // Chiamata API per salvare la scommessa
+    this.partiteService.getSaveBets(this.betBodySave).subscribe(
+      (response: any) => {
+        console.log("Scommessa salvata con successo", response);
+        // Aggiorna la lista delle scommesse fatte
+        this.savedUserBets();
+      },
+      (error: any) => {
+        console.error("Errore durante il salvataggio della scommessa", error);
+      }
+    );
   }
 
   betsData() {
     this.partiteService.betPageResults().subscribe((response: any) => {
-      this.bets = response;
-      console.log("dati ricevuti", response);
-    });
-  }
-
-  betFilterForWeeks() {
-    this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
       this.bets = response;
       console.log("dati ricevuti", response);
     });
