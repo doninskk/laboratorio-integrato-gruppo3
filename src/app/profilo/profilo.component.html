@@ -52,11 +52,12 @@
   <div class="container">
     <div class="card-container">
       <div *ngFor="let card of cards" class="card">
-        <img [src]="card.image" class="card-img-top" alt="...">
-        <div class="card-body">
+        <img [src]="card.image" class="img-fluid card-img-top" alt="...">
+        <div class="card-body ">
           <h5 class="card-title">{{ card.title }}</h5>
           <p class="card-text">{{ card.description }}</p>
-          <a href="#" class="btn ottieni">Ottieni</a>
+          <p class="card-text">{{ card.prezzo }}</p>
+            <a href="#" class="btn ottieni ">Ottieni</a>
         </div>
       </div>
     </div>

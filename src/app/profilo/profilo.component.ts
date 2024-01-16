@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
 
 class Prize {
@@ -19,6 +19,7 @@ interface Card {
   image: string;
   title: string;
   description: string;
+  prezzo: number;
 }
 
 @Component({
@@ -28,19 +29,19 @@ interface Card {
 })
 export class ProfiloComponent implements OnInit {
   prizes: Prize[] = [
-    new Prize("https://www.ikea.com/it/it/images/products/ektorp-divano-letto-a-3-posti-vittaryd-bianco__0734968_PE739647_S5.JPG?f=xs", "Divano", 100, 100),
+
   ];
 
 
     cards: Card[] = [
-    { image: '/assets/img1.jpg', title: 'Card 1', description: 'Descrizione per la card 1' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
-    { image: '/assets/img2.jpg', title: 'Card 2', description: 'Descrizione per la card 2' },
+    { image: '/assets/biglietto.png', title: 'Sconto Biglietti 10% ', description: 'Ottieni il 10% di sconto su una partita a tua scelta!', prezzo: 500 },
+    { image: '/assets/biglietto.png', title: 'Sconto Biglietti 20%', description: 'Ottieni il 20% di sconto su una partita a tua scelta!', prezzo: 1000 },
+    { image: '/assets/biglietto.png', title: 'Sconto Biglietti 40%', description: 'Ottieni il 30% di sconto su una partita a tua scelta!', prezzo: 1800 },
+    { image: '/assets/biglietto.png', title: 'Sconto Biglietti 40%', description: 'Ottieni il 40% di sconto su una partita a tua scelta!', prezzo: 3000 },
+    { image: '/assets/attrezzatura-pallavolo.avif', title: 'Sconto Articoli 10%', description: 'Ottieni il 10% di sconto su una articolo sportivo a tua scelta!', prezzo: 500 },
+    { image: '/assets/set-pallavolo.avif', title: 'Sconto Articoli 20%', description: 'Ottieni il 20% di sconto su una articolo sportivo a tua scelta!', prezzo: 1000 },
+    { image: '/assets/rete-pallavolo.avif', title: 'Sconto Articoli 30%', description: 'Ottieni il 30% di sconto su una articolo sportivo a tua scelta!', prezzo: 1800 },
+    { image: '/assets/pallone-pallavolo.avif', title: 'Sconto Articoli 40%', description: 'Ottieni il 40% di sconto su una articolo sportivo a tua scelta!', prezzo: 3000 },
   ];
 
   coins: number = 100;
@@ -70,7 +71,7 @@ subscribeBody = {
   };
 
   betBodyJson = {
-    "week": 18,
+    "week": 15,
     "season": 2023,
     "id_league": 97
   };
