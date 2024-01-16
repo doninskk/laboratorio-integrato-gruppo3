@@ -1,20 +1,12 @@
+/*
+* Questo componente gestisce il profilo dell'utente, inclusi premi, monete, scommesse e informazioni di login.
+* Al suo avvio, recupera il token e le informazioni di login dal localStorage e chiama i servizi per ottenere i dati necessari.
+*/
+
 import { Component, OnInit } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
 
-class Prize {
-  img: string;
-  description: string;
-  cost: number;
-  progress: number;
-
-  constructor(img: string, description: string, cost: number, progress: number) {
-    this.img = img;
-    this.description = description;
-    this.cost = cost;
-    this.progress = progress;
-  }
-}
-
+// Interfaccia per la struttura delle carte
 interface Card {
   image: string;
   title: string;
@@ -28,12 +20,8 @@ interface Card {
   styleUrls: ['./profilo.component.css']
 })
 export class ProfiloComponent implements OnInit {
-  prizes: Prize[] = [
 
-  ];
-
-
-    cards: Card[] = [
+    cards: Card[] = [ // Array di carte con informazioni sui premi disponibili
     { image: '/assets/biglietto.png', title: 'Sconto Biglietti 10% ', description: 'Ottieni il 10% di sconto su una partita a tua scelta!', prezzo: 500 },
     { image: '/assets/biglietto.png', title: 'Sconto Biglietti 20%', description: 'Ottieni il 20% di sconto su una partita a tua scelta!', prezzo: 1000 },
     { image: '/assets/biglietto.png', title: 'Sconto Biglietti 40%', description: 'Ottieni il 30% di sconto su una partita a tua scelta!', prezzo: 1800 },
@@ -44,17 +32,14 @@ export class ProfiloComponent implements OnInit {
     { image: '/assets/pallone-pallavolo.avif', title: 'Sconto Articoli 40%', description: 'Ottieni il 40% di sconto su una articolo sportivo a tua scelta!', prezzo: 3000 },
   ];
 
-  coins: number = 100;
-  isButtonDisabled: boolean = false;
-
-
-
-  userName: string = "";
-  bets: any = [];
-  coinsUpdate: any = []
+  coins: number = 100; // Saldo iniziale di monete
+  isButtonDisabled: boolean = false; // Flag per disabilitare il pulsante di incremento monete
+  userName: string = ""; // Nome utente visualizzato nel profilo
+  bets: any = []; // Array per memorizzare le scommesse dell'utente
+  coinsUpdate: any = [] // Array per memorizzare l'aggiornamento del saldo monete
+  
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
-
-  private loginInfo: any = {};
+  private loginInfo: any = {}; // Oggetto per memorizzare le informazioni di login
 
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
@@ -76,10 +61,8 @@ subscribeBody = {
     "id_league": 97
   };
 
-
-
   ngOnInit() {
-
+    // Dati di esempio per la registrazione e il login
     //this.userSubscribe()
     //  recupero il token e le informazioni di login dal localStorage all'avvio del componente
     this.token = localStorage.getItem(this.tokenKey);
@@ -103,6 +86,7 @@ subscribeBody = {
 
   }*/
 
+  // Metodo per il login dell'utente
   userLogin() {
     this.partiteService.userLogin(this.loginBodyJson).subscribe(
       (response: any) => {
@@ -111,7 +95,7 @@ subscribeBody = {
         if (response.token) {
           this.userName = response.username;
           
-          // Salvo il token e le informazioni di login nel localStorage per salvarle
+          // Salva il token e le informazioni di login nel localStorage per salvarle
           localStorage.setItem(this.tokenKey, response.token);
           localStorage.setItem('loginInfo', JSON.stringify(response));
         } else {
@@ -133,6 +117,7 @@ subscribeBody = {
     );
   }
 
+  // Metodo per ottenere le scommesse filtrate per settimane
   betFilterForWeeks() {
     this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
       this.bets = response;
@@ -141,14 +126,15 @@ subscribeBody = {
   }
 
 
-  //  proprietà per salvare e recuperare il token
+  // Proprietà per salvare e recuperare il token
   private token: string | null = null;
 
-  // metodo per ottenere il token nel resto del componente
+  // Metodo per ottenere il token nel resto del componente
   getToken(): string | null {
     return this.token;
   }
 
+  // Metodo per aggiornare le monete dell'utente
   updateCoins() {
     // Verifica se hai un token salvato
     const token = this.getToken();
@@ -183,6 +169,7 @@ subscribeBody = {
     
   }
 
+  // Metodo per incrementare le monete dell'utente
   incrementCoins() {
     // Verifica se il pulsante è già disabilitato
     if (!this.isButtonDisabled) {
@@ -208,7 +195,4 @@ subscribeBody = {
       }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
     }
   }
-  
-  
-
 }
