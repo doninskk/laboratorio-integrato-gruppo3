@@ -1,3 +1,8 @@
+/*
+* Questo componente gestisce la visualizzazione delle classifiche delle squadre di pallavolo.
+* Include la possibilità di selezionare la lega (maschile o femminile) per visualizzare la classifica corrispondente.
+*/
+
 import { Component } from '@angular/core';
 import { partiteServices } from '../servizi/partiteService';
 
@@ -8,14 +13,17 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class StatisticheComponent {
 
+  // Array contenente la classifica delle squadre
   classifica: any=[];
 
+  // Corpo della richiesta per ottenere i dati della classifica
   bodyClassifica = {
     "id_season": 2023,
     "id_league": 97,
     "id_group": 3
   };
 
+  // Classifica della Serie A Femminile (A1 Femminile)
   standingA1Femminile: any = [
     {
         "position": 1,
@@ -157,6 +165,7 @@ export class StatisticheComponent {
 
   ];
 
+  // Opzioni per la selezione della lega
   selectedLeague: string = '';
   leagues = [
     { name: 'SuperLega', value: 'SuperLega', id: 97 },
@@ -170,6 +179,7 @@ export class StatisticheComponent {
 
   constructor(private partiteService: partiteServices) {}
 
+  // Ottiene e visualizza la classifica in base alla lega selezionata
   standingsLeague() {
     // Verifica se la lega selezionata è femminile (id 89) e visualizzo il JSON
     if (this.selectedLeague === 'A1_Femminile') {
