@@ -66,4 +66,9 @@ import { ApiService } from './apiService';
             return this.apiService.saveBet(user)
           }
 
+          getCoins(coins:any){
+            return this.apiService.updateCoins(coins)
+
+          }
+
         }

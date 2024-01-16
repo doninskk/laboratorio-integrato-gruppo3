@@ -57,5 +57,9 @@ export class ApiService {
     return this.http.post('http://localhost:8080/bet/save', userBody);
   }
 
+  updateCoins(coinsJson:any) {
+    return this.http.post('http://localhost:8080/user/updateMoney', coinsJson);
+  }
+
 
 }

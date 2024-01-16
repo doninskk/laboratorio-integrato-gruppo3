@@ -46,22 +46,11 @@ export class ProfiloComponent implements OnInit {
   coins: number = 100;
   isButtonDisabled: boolean = false;
 
-  incrementCoins() {
-    // Verifica se il pulsante è già disabilitato
-    if (!this.isButtonDisabled) {
-      // Incrementa le monete e disabilita il pulsante
-      this.coins += 10;
-      this.isButtonDisabled = true;
 
-      // Imposta un timeout per riabilitare il pulsante dopo un giorno
-      setTimeout(() => {
-        this.isButtonDisabled = false;
-      }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
-    }
-  }
 
   userName: string = "";
   bets: any = {};
+  coinsUpdate: any = []
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
 
   private loginInfo: any = {};
@@ -86,6 +75,8 @@ subscribeBody = {
     "id_league": 97
   };
 
+
+
   ngOnInit() {
 
     //this.userSubscribe()
@@ -95,6 +86,7 @@ subscribeBody = {
 
     this.userLogin();
     this.betFilterForWeeks();
+    this.updateCoins()
   }
 
   constructor(private partiteService: partiteServices) {}
@@ -155,5 +147,67 @@ subscribeBody = {
   getToken(): string | null {
     return this.token;
   }
-}
 
+  updateCoins() {
+    // Verifica se hai un token salvato
+    const token = this.getToken();
+  
+    if (token) {
+      // Crea il corpo della richiesta con il token
+      const coinsRequestBody = {
+        "token": token,
+        "num": 0
+      };
+  
+      // Visualizza i dati prima della chiamata
+      console.log("Prima della chiamata - Dati della richiesta:", coinsRequestBody);
+  
+      // Effettua la richiesta con il corpo contenente il token
+      this.partiteService.getCoins(coinsRequestBody).subscribe(
+        (response: any) => {
+          // Visualizza i dati ricevuti dopo la risposta
+          console.log("Dopo la risposta - Dati ricevuti:", response);
+  
+          this.coinsUpdate = response;
+          console.log("Dati ricevuti", response);
+        },
+        (error: any) => {
+          console.error("Errore durante l'aggiornamento del saldo", error);
+        }
+      );
+    } else {
+      console.error("Token non disponibile. L'utente potrebbe non essere autenticato correttamente.");
+    }
+
+    
+  }
+
+  incrementCoins() {
+    // Verifica se il pulsante è già disabilitato
+    if (!this.isButtonDisabled) {
+      // Incrementa le monete e disabilita il pulsante
+      this.coinsUpdate.money += 10;
+      this.isButtonDisabled = true;
+  
+      // Chiama l'API per aggiornare il saldo utente
+      this.partiteService.getCoins(10).subscribe(
+        (response: any) => {
+          console.log("Aggiornamento del saldo riuscito", response);
+          // Puoi aggiungere ulteriori azioni qui, se necessario
+        },
+        (error: any) => {
+          console.error("Errore durante l'aggiornamento del saldo", error);
+          // Puoi gestire gli errori o aggiungere ulteriori azioni qui
+        }
+      );
+  
+      // Imposta un timeout per riabilitare il pulsante dopo un giorno
+      setTimeout(() => {
+        this.isButtonDisabled = false;
+      }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
+    }
+  }
+  
+  
+
+}
