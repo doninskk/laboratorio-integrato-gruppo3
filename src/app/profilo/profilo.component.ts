@@ -49,7 +49,7 @@ export class ProfiloComponent implements OnInit {
 
 
   userName: string = "";
-  bets: any = {};
+  bets: any = [];
   coinsUpdate: any = []
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
 
@@ -70,7 +70,7 @@ subscribeBody = {
   };
 
   betBodyJson = {
-    "week": 15,
+    "week": 18,
     "season": 2023,
     "id_league": 97
   };
