@@ -71,7 +71,7 @@
 
     <div class="col-md-4">
       <div class="form-group">
-        <label for="weekSelect" class="form-label pt-2">Seleziona la giornata di campionato:</label>
+        <label for="weekSelect" class="form-label pt-2">Seleziona la giornata:</label>
         <select id="weekSelect" [(ngModel)]="requestBody.week" name="weekSelect" class="form-select mx-auto">
           <option value="" disabled selected>Seleziona la giornata</option>
           <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
@@ -82,7 +82,7 @@
 
   <!-- Seconda row con il pulsante "Cerca" al centro -->
   <div class="row cerca mt-2">
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-center pb-5">
       <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
     </div>
   </div>
@@ -90,7 +90,7 @@
 
 
 <div class="container align-items-center">
-    <div *ngFor="let partita of risultatiPartite" class="row p-5 align-items-center p-3 text-center justify-content-between">
+    <div *ngFor="let partita of risultatiPartite" class="row pb-5 pt-5 align-items-center p-3 text-center justify-content-between">
       <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
        <div class="col-12 text-center"> 
         <h3>{{partita.league_name}}</h3> 
@@ -121,7 +121,7 @@
         </div>
 
         <p> <i class="bi bi-clock"></i> {{partita.ora?.split(':').slice(0, 2).join(':')}}</p>
-        <button class="btn "  [routerLink]="['/game', partita.id_game]" *ngIf="partita.id_game">Dettagli</button>
+        <button class="btn"  [routerLink]="['/game', partita.id_game]" *ngIf="partita.id_game">Dettagli</button>
       </div>
 
       <div class="col-4">

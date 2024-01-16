@@ -61,14 +61,14 @@ body{
   }
   
   .btn-search {
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     font-size: 16px;
     background-color: #064887;
     color: #fff;
     border: 1px solid #000;
     border-radius: 5px;
     transition: background-color 0.1s ease;
-    margin: 10px;
+    /*margin: 10px;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,6 +101,11 @@ body{
 .btn{
   background-color: #064887;
   color: whitesmoke;
+}
+
+.btn:hover{
+  background-color: #0967be;
+  color: #fff;
 }
 
 .team-name, .team-set{
