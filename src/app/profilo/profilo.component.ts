@@ -46,19 +46,7 @@ export class ProfiloComponent implements OnInit {
   coins: number = 100;
   isButtonDisabled: boolean = false;
 
-  incrementCoins() {
-    // Verifica se il pulsante è già disabilitato
-    if (!this.isButtonDisabled) {
-      // Incrementa le monete e disabilita il pulsante
-      this.coinsUpdate.money += 10;
-      this.isButtonDisabled = true;
 
-      // Imposta un timeout per riabilitare il pulsante dopo un giorno
-      setTimeout(() => {
-        this.isButtonDisabled = false;
-      }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
-    }
-  }
 
   userName: string = "";
   bets: any = {};
@@ -82,7 +70,7 @@ subscribeBody = {
   };
 
   betBodyJson = {
-    "week": 18,
+    "week": 15,
     "season": 2023,
     "id_league": 97
   };
@@ -168,7 +156,7 @@ subscribeBody = {
       // Crea il corpo della richiesta con il token
       const coinsRequestBody = {
         "token": token,
-        "num": 200
+        "num": 0
       };
   
       // Visualizza i dati prima della chiamata
@@ -190,8 +178,36 @@ subscribeBody = {
     } else {
       console.error("Token non disponibile. L'utente potrebbe non essere autenticato correttamente.");
     }
+
+    
   }
+
+  incrementCoins() {
+    // Verifica se il pulsante è già disabilitato
+    if (!this.isButtonDisabled) {
+      // Incrementa le monete e disabilita il pulsante
+      this.coinsUpdate.money += 10;
+      this.isButtonDisabled = true;
+  
+      // Chiama l'API per aggiornare il saldo utente
+      this.partiteService.getCoins(10).subscribe(
+        (response: any) => {
+          console.log("Aggiornamento del saldo riuscito", response);
+          // Puoi aggiungere ulteriori azioni qui, se necessario
+        },
+        (error: any) => {
+          console.error("Errore durante l'aggiornamento del saldo", error);
+          // Puoi gestire gli errori o aggiungere ulteriori azioni qui
+        }
+      );
+  
+      // Imposta un timeout per riabilitare il pulsante dopo un giorno
+      setTimeout(() => {
+        this.isButtonDisabled = false;
+      }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
+    }
+  }
+  
   
 
 }
-
