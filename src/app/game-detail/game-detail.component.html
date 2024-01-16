@@ -14,12 +14,15 @@
 
 <body>
 
-<div class="row titolo-class d-flex text-center"> <!-- qui legenda dei campi della classifica-->
+<div class="row titolo-class d-flex text-center "> <!-- qui legenda dei campi della classifica-->
   <h2>Game</h2>
 </div>
 
 <div class="container-fluid align-items-center text-center justify-content-between">
-  <div class="col-12 text-center separator"> <h3>{{ gameDetail.date }}</h3></div>
+  <div class="row text-center separator pb-4"> 
+    <p>Informazioni della partita del giorno:</p>
+    <h3>{{ gameDetail.date }}</h3>
+  </div>
   
   <!-- iterazione nell'array dell'oggetto teams -->
   <div *ngFor="let team of gameDetail.teams">
@@ -29,17 +32,16 @@
         <img src="{{ team.logo }}" class="img-fluid p-2 team-logo" alt="logo squadra">
       </div>
       <!-- Nome  squadre -->
-      <div class="col-3 text-center">
+      <div class="col-4 text-center">
         <p class="team-name">{{ team.name }}</p>
       </div>
 
       <div class="col-3">
-          
           <p > {{ team.periods?.join(' | ') }}</p>
         </div>
 
       <!-- Risultato finale -->
-      <div class="col-3 text-center">
+      <div class="col-2 text-center">
         <p class="team-set">{{ team.set }}</p>
       </div>
       
