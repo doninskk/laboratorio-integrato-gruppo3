@@ -11,12 +11,12 @@ export class GiocaComponent {
   users: any = [];
   savedBets: any = [];
   
-
+/*
   betBodyJson = {
     "week": 15,
     "season": 2023,
     "id_league": 97
-  };
+  };*/
 
   betBodySave = {
     "token": "",
@@ -32,7 +32,7 @@ export class GiocaComponent {
       this.betBodySave.token = token;
     }
     this.betsData();
-    this.betFilterForWeeks();
+    //this.betFilterForWeeks();
     this.userRank();
     this.savedUserBets();
   }
@@ -56,13 +56,13 @@ export class GiocaComponent {
       console.log("dati ricevuti", response);
     });
   }
-
+/*
   betFilterForWeeks() {
     this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
       this.bets = response;
       console.log("dati ricevuti", response);
     });
-  }
+  }*/
 
   userRank() {
     this.partiteService.getUsersPositions().subscribe((response: any) => {
