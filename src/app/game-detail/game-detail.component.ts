@@ -1,3 +1,8 @@
+/*
+* Questo componente gestisce la visualizzazione dei dettagli di una partita specifica.
+* Recupera l'ID della partita dalla route e chiama il servizio per ottenere i dettagli corrispondenti.
+*/
+
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
 import { partiteServices } from '../servizi/partiteService';
@@ -19,9 +24,13 @@ export class GameDetailComponent {
   ) { }
 
   ngOnInit() {
+    
+    // Recupera l'ID della partita dalla route
     this.route.params.subscribe(params => {
       const idParam = params['id'];
       this.gameId = idParam ? +idParam : null;
+      
+      // Se l'ID è valido, recupera i dettagli della partita
       if (this.gameId !== null) {
         this.detailOfGame();
       } else {
@@ -30,6 +39,7 @@ export class GameDetailComponent {
     });
   }
 
+  // Chiama il servizio per ottenere i dettagli della partita
   detailOfGame() {
     this.partiteService.getGameDetail({ "id_game": this.gameId }).subscribe((response: any) => {
       this.gameDetail = response;
