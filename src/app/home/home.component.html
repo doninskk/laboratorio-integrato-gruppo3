@@ -59,15 +59,17 @@
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="seasonSelect" class="form-label pt-2">Seleziona la stagione:</label>
-        <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select mx-auto">
-          <option value="" disabled selected>Seleziona la stagione</option>
-          <option *ngFor="let season of seasons" [value]="season.value">{{ season.period }}</option>
-        </select>
-      </div>
-    </div>
+    <!-- Stagione -->
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="seasonSelect" class="form-label pt-2">Seleziona la stagione:</label>
+    <select id="seasonSelect" [(ngModel)]="selectedSeason" name="seasonSelect" class="form-select mx-auto">
+      <option value="-1" disabled selected>Seleziona la stagione</option>
+      <option *ngFor="let season of seasons" [value]="season.value">{{ season.period }}</option>
+    </select>
+  </div>
+</div>
+
 
     <div class="col-md-4">
       <div class="form-group">

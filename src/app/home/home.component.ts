@@ -12,16 +12,16 @@ export class HomeComponent {
   risultatiDefaultGame: any={};
   risultatiPartite: any=[];
   
-  selectedSeason: string = '';
+  selectedSeason: number = -1;
   seasons = [
-    { period: '2023/2024', value: '2023/2024' },
-    { period: '2022/2023', value: '2022/2023' },
+    { period: '2023/2024', value: 2023 },
+    { period: '2022/2023', value: 2022 },
   ];
  
   selectedLeague: string = '';
   leagues = [
     { name: 'SuperLega', value: 'SuperLega',id:97 },
-    { name: 'A1 Maschile', value: 'A1_Maschile' },
+    { name: 'A2 Femminile', value: 'A2 Femminile', id:90 },
     { name: 'A1 Femminile', value: 'A1_Femminile',id:89 }
   ];
   
@@ -29,16 +29,18 @@ export class HomeComponent {
 
 
   requestBody = {
-    "week": 10,
+    "week": 13,
     "season": 2023,
-    "id_league": 97 // 89 id league A1 Femminile
+    "id_league": 97 // 89 id league A1 Femminile 90 id league a2 Femminile
   };
 
   selectedGameId: number | null = null;
 
   ngOnInit() {
     this.defaultGameSuperLega()
+    this.selectedSeason = 2023;
     this.gamesList();
+
   }
   constructor(private partiteService: partiteServices,
               private router: Router) {}
@@ -72,12 +74,18 @@ export class HomeComponent {
       this.requestBody.id_league = selectedLeagueObj.id; // Assicurati che ci sia una proprietà id nell'oggetto league
     }
   
-    // Chiamata al servizio per ottenere i dati in base alla week e id_league selezionati
-    this.partiteService.getGames(this.requestBody).subscribe((response: any) => {
-      this.risultatiPartite = response;
-      console.log("dati ricevuti", response);
-    });
+    // Verifica se è stata selezionata una stagione
+    if (this.selectedSeason !== 0) {
+      this.requestBody.season = this.selectedSeason;
+  
+      // Chiamata al servizio per ottenere i dati in base alla week, id_league e season selezionati
+      this.partiteService.getGames(this.requestBody).subscribe((response: any) => {
+        this.risultatiPartite = response;
+        console.log("dati ricevuti", response);
+      });
+    }
   }
+  
   
 
 

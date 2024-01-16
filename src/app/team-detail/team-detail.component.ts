@@ -12,6 +12,11 @@ export class TeamDetailComponent {
   teamDetails: any[] = [];
   teamId: number | null = null;  // Dichiara una variabile per memorizzare l'ID del team
 
+  teamDetail={
+    "id_lega":97,
+    "id_season":2023
+}
+
   constructor(
     private partiteService: partiteServices,
     private route: ActivatedRoute  // Inietta ActivatedRoute nel costruttore
