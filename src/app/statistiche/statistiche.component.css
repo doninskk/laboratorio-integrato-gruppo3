@@ -9,10 +9,6 @@ body{
     color: whitesmoke;
 }
 
-.titolo-class{
-
-}
-
 .linea{
     padding: 1rem;
     border-bottom: 3px groove rgba(6, 73, 135, 0.377);
@@ -41,4 +37,16 @@ body{
 .btn{
     background-color: #064887;
     color: whitesmoke;
-  }
+    margin: 4px;
+    padding-top: 5px;
+}
+
+.btn:hover{
+    background-color: #08549c;
+    color: whitesmoke;
+}
+
+.btn:active, .btn:focus {
+    background-color: #064887;
+    color: whitesmoke;
+}

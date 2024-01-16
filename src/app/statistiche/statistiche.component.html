@@ -9,17 +9,17 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  
 </head>
 
 <body>
 
-  <div class="row titolo-class d-flex text-center"> <!-- qui legenda dei campi della classifica-->
+  <div class="row titolo-class d-flex text-center pt-5"> <!-- qui legenda dei campi della classifica-->
     <h2>Classifiche</h2>
   </div>
   
 <div class="container">
     <div class="row justify-content-center mt-2">
+      <div class="col-6">
       <div class="form-group">
         <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
         <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select mx-auto">
@@ -27,10 +27,13 @@
           <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
         </select>
       </div>
-      <div class="col-md-6 text-center m-2">
-        <button class="btn btn-search" (click)=" standingsLeague()">Cerca</button>
+    </div>
+    <div class="row justify-content-center mt-2">
+      <div class="col-md-6 text-center">
+        <button class="btn" (click)=" standingsLeague()">Cerca</button>
       </div>
     </div>
+  </div>
     
     <div class="row legenda d-flex text-center">
         <p class="titolo">LEGENDA</p>
@@ -65,7 +68,6 @@
           <p>{{classifica.points}}</p>
          </div>
 
-         
          <div class="col-3"> 
           <p class="text-center">FORM</p>
             <p>{{classifica.form}}</p>
