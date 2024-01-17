@@ -21,17 +21,18 @@ export class HomeComponent {
   selectedLeague: string = '';
   leagues = [
     { name: 'SuperLega', value: 'SuperLega',id:97 },
+    { name: 'A2 Maschile', value: 'A2 Maschile',id:88 },
     { name: 'A2 Femminile', value: 'A2 Femminile', id:90 },
     { name: 'A1 Femminile', value: 'A1_Femminile',id:89 }
   ];
   
-  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14]; // 10 max SuperLega 14 max  A1 femminile
+  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14,15,16]; // 14 max SuperLega 16 max  A1 femminile
 
 
   requestBody = {
-    "week": 13,
+    "week": 14,
     "season": 2023,
-    "id_league": 97 // 89 id league A1 Femminile 90 id league a2 Femminile
+    "id_league": 97 // 89 id league A1 Femminile 90 id league a2 Femminile 88 seria A1 Maschile
   };
 
   selectedGameId: number | null = null;
