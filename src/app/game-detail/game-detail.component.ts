@@ -5,7 +5,7 @@
 
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 
 @Component({
   selector: 'app-game-detail',
@@ -19,7 +19,7 @@ export class GameDetailComponent {
 
 
   constructor(
-    private partiteService: partiteServices,
+    private partiteService: PartiteServices,
     private route: ActivatedRoute 
   ) { }
 

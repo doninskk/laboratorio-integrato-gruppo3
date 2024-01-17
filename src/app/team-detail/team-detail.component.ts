@@ -5,7 +5,7 @@
 
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 
 @Component({
   selector: 'app-team-detail',
@@ -18,7 +18,7 @@ export class TeamDetailComponent {
   teamId: number | null = null;  // Variabile per memorizzare l'ID della squadra
 
   constructor(
-    private partiteService: partiteServices,
+    private partiteService: PartiteServices,
     private route: ActivatedRoute  // Inietta ActivatedRoute nel costruttore
   ) { }
 
