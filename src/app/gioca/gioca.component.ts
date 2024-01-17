@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 
 @Component({
   selector: 'app-gioca',
@@ -37,7 +37,7 @@ export class GiocaComponent {
     this.savedUserBets();
   }
 
-  constructor(private partiteService: partiteServices) {}
+  constructor(private partiteService: PartiteServices) {}
 
   // Al click sull'icona, chiamata questa funzione con i nuovi valori dell'id_team e id_game
   setBetBody(teamId: number, gameId: number) {

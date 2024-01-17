@@ -10,8 +10,8 @@ body {
     width: 100%;
     height: 100%;
     color: whitesmoke;
-    padding-bottom: 5px;
-  }
+    padding: 5px 0 5px 0;
+}
   
 .article-card {
     display: flex;

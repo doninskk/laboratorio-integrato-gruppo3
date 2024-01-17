@@ -1,6 +1,11 @@
+/*
+* Questo componente gestisce la visualizzazione dettagliata di una squadra. 
+* Ottiene l'ID della squadra dalla route e recupera i dettagli della squadra chiamando il servizio partiteService.
+*/
+
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; 
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 
 @Component({
   selector: 'app-team-detail',
@@ -9,13 +14,14 @@ import { partiteServices } from '../servizi/partiteService';
 })
 export class TeamDetailComponent {
 
-  teamDetails: any[] = [];
-  teamId: number | null = null;
+
+  teamDetails: any[] = []; // Array per memorizzare i dettagli della squadra
+  teamId: number | null = null; // Variabile per memorizzare l'ID della squadra
   id_lega: number | null = null;
   id_season: number | null = null;
 
   constructor(
-    private partiteService: partiteServices,
+    private partiteService: PartiteServices,
     private route: ActivatedRoute
   ) { }
 
@@ -27,6 +33,7 @@ export class TeamDetailComponent {
     this.id_season = params['id_season'] ? +params['id_season'] : null;
 
     // Verifica che l'ID del team sia presente prima di chiamare il servizio
+
     if (this.teamId !== null) {
       this.detailOfTeam();
     } else {
@@ -34,7 +41,9 @@ export class TeamDetailComponent {
     }
   }
 
+  // Funzione per ottenere i dettagli della squadra
   detailOfTeam() {
+
     // Aggiorna la richiesta includendo i nuovi parametri
     const request = {
       "id_team": this.teamId,
@@ -45,6 +54,7 @@ export class TeamDetailComponent {
     // Effettua la chiamata al servizio con la nuova richiesta
     this.partiteService.detailTeam(request).subscribe((response: any) => {
       this.teamDetails = response;
+
       console.log("dati ricevuti", response);
     });
   }
