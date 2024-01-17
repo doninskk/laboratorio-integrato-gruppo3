@@ -14,20 +14,26 @@ import { PartiteServices } from '../servizi/partiteService';
 })
 export class TeamDetailComponent {
 
+
   teamDetails: any[] = []; // Array per memorizzare i dettagli della squadra
-  teamId: number | null = null;  // Variabile per memorizzare l'ID della squadra
+  teamId: number | null = null; // Variabile per memorizzare l'ID della squadra
+  id_lega: number | null = null;
+  id_season: number | null = null;
 
   constructor(
     private partiteService: PartiteServices,
-    private route: ActivatedRoute  // Inietta ActivatedRoute nel costruttore
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    // Ottiene l'ID della squadra dalla route e dall'URL
-    const idParam = this.route.snapshot.paramMap.get('id');
-    this.teamId = idParam ? +idParam : null;
+    // Estrai i parametri dalla route e assegnali alle variabili del componente
+    const params = this.route.snapshot.params;
+    this.teamId = params['id'] ? +params['id'] : null;
+    this.id_lega = params['id_lega'] ? +params['id_lega'] : null;
+    this.id_season = params['id_season'] ? +params['id_season'] : null;
 
-    // Verifica se l'ID della squadra è presente e chiama la funzione per ottenere i dettagli della squadra
+    // Verifica che l'ID del team sia presente prima di chiamare il servizio
+
     if (this.teamId !== null) {
       this.detailOfTeam();
     } else {
@@ -37,9 +43,18 @@ export class TeamDetailComponent {
 
   // Funzione per ottenere i dettagli della squadra
   detailOfTeam() {
-    // Effettua la chiamata al servizio partiteService per ottenere i dettagli della squadra con l'ID corrente
-    this.partiteService.detailTeam({ "id_team": this.teamId }).subscribe((response: any) => {
-      this.teamDetails = response;  // Assegna l'array di dettagli della squadra
+
+    // Aggiorna la richiesta includendo i nuovi parametri
+    const request = {
+      "id_team": this.teamId,
+      "id_lega": this.id_lega,
+      "id_season": this.id_season
+    };
+
+    // Effettua la chiamata al servizio con la nuova richiesta
+    this.partiteService.detailTeam(request).subscribe((response: any) => {
+      this.teamDetails = response;
+
       console.log("dati ricevuti", response);
     });
   }

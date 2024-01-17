@@ -13,9 +13,17 @@ export class GiocaComponent {
 
   betBodySave = {
     "token": "",
-    "id_team": 751,
-    "id_game": 148488
+    "id_team": 0, // dichiarazione iniziale a 0 per poi salvare i dati al click sull'icona
+    "id_game": 0
   };
+
+  maxDisplayedGames: number = 100; // Imposta un valore predefinito
+
+  // Metodo per aggiornare il numero massimo di partite visualizzate
+  updateMaxDisplayedGames(value: number) {
+    this.maxDisplayedGames = value;
+    this.betsData(); // Richiama la funzione per aggiornare i dati con il nuovo numero di partite
+  }
 
   ngOnInit() {
     const token = localStorage.getItem('token');
