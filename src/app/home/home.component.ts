@@ -5,7 +5,7 @@
 */
 
 import { Component } from '@angular/core';
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -52,7 +52,7 @@ export class HomeComponent {
     this.defaultGameSuperLega()
     this.gamesList();
   }
-  constructor(private partiteService: partiteServices,
+  constructor(private partiteService: PartiteServices,
               private router: Router) {}
 
   // Recupera i dati della partita di default per la SuperLega

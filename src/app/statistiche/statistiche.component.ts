@@ -4,7 +4,7 @@
 */
 
 import { Component } from '@angular/core';
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 
 @Component({
   selector: 'app-statistiche',
@@ -177,7 +177,7 @@ export class StatisticheComponent {
     this.standingsLeague();
   }
 
-  constructor(private partiteService: partiteServices) {}
+  constructor(private partiteService: PartiteServices) {}
 
   // Ottiene e visualizza la classifica in base alla lega selezionata
   standingsLeague() {

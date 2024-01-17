@@ -4,7 +4,7 @@
 */
 
 import { Component, OnInit } from '@angular/core';
-import { partiteServices } from '../servizi/partiteService';
+import { PartiteServices } from '../servizi/partiteService';
 
 // Interfaccia per la struttura delle carte
 interface Card {
@@ -73,7 +73,7 @@ subscribeBody = {
     this.updateCoins()
   }
 
-  constructor(private partiteService: partiteServices) {}
+  constructor(private partiteService: PartiteServices) {}
 
   /*
   userSubscribe(){
