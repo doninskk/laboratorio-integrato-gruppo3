@@ -208,17 +208,25 @@ subscribeBody = {
       }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
     }
   }
-
-  allBetsForUsers() {
-    const token = this.getToken();
+  allBetsForUsers() {  // tutte le bet fatte da un utente
+    const token = this.getToken(); // prendo il token salvato nel localStorage
   
     if (token) {
-      this.partiteService.getAllBets(token).subscribe((response: any) => {
-        this.userBets = response;
-        console.log("dati ricevuti", response);
-      });
+      const params = { // lo creo e lo passo come JSON richiesto dalla risposta
+        token: token
+      };
+  
+      this.partiteService.getAllBets(params).subscribe(
+        (response: any) => {
+          this.userBets = response;
+          console.log("dati ricevuti", response);
+        },
+      );
+    } else {
+      console.error("Token non disponibile. L'utente potrebbe non essere autenticato correttamente.");
     }
   }
+  
   
 /*  // Dentro il tuo componente ProfiloComponent
 hasBetOnTeam(teamId: number): boolean {

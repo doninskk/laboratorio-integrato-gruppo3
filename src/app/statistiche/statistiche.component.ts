@@ -18,7 +18,7 @@ export class StatisticheComponent {
 
   // Corpo della richiesta per ottenere i dati della classifica
   bodyClassifica = {
-    "id_season": 2023,
+    "id_season": 2022,
     "id_league": 97,
     "id_group": 3
   };
