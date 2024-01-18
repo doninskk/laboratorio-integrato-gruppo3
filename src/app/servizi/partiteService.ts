@@ -71,4 +71,8 @@ export class PartiteServices {
   getCoins(coins: any) {
     return this.apiService.updateCoins(coins);
   }
+
+  getAllBets(token:any){
+    return this.apiService.getAllUserBets(token);
+  }
 }

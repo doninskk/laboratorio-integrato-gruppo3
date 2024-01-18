@@ -63,6 +63,39 @@
     <div class="row">
       <p>Rivedi le tue scommesse passate</p>
     </div>
+    <div class="container tendine">
+      <!-- Prima row con i 3 menu a tendina -->
+      <div class="row filtri text-center">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="form-group">
+            <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
+            <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select mx-auto">
+              <option value="" disabled selected>Seleziona il campionato</option>
+              <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="weekSelect" class="form-label pt-2">Seleziona la giornata:</label>
+            <select id="weekSelect" [(ngModel)]="betBodyJson.week" name="weekSelect" class="form-select mx-auto">
+              <option value="" disabled selected>Seleziona la giornata</option>
+              <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Seconda row con il pulsante "Cerca" al centro -->
+      <div class="row cerca mt-2">
+        <div class="col-md-4 text-center pb-5">
+          <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
+        </div>
+      </div>
+    </div>
+
+
     <div class="row">
       <!-- inserire qui l'API per le bet vecchie-->
       <div *ngFor="let partita of bets " class="row p-5 align-items-center p-3 text-center justify-content-between">

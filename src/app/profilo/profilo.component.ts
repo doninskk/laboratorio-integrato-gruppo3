@@ -40,6 +40,7 @@ export class ProfiloComponent implements OnInit {
   
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
   private loginInfo: any = {}; // Oggetto per memorizzare le informazioni di login
+  userBets: any = [];
 
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
@@ -56,21 +57,33 @@ subscribeBody = {
   };
 
   betBodyJson = {
-    "week": 15,
+    "week": 17,
     "season": 2023,
-    "id_league": 97
+    "id_league": 88
   };
 
+   // Settimane disponibili per il filtro
+   weeks: number[] = [15,16,17,18,19,20,21,22,23,24,25,26];
+
+   selectedLeague: string = '';
+   leagues = [
+     { name: 'SuperLega', value: 'SuperLega',id:97 },
+     { name: 'A2 Maschile', value: 'A2 Maschile',id:88 },
+     { name: 'A2 Femminile', value: 'A2 Femminile', id:90 },
+     { name: 'A1 Femminile', value: 'A1_Femminile',id:89 }
+   ];
+   
   ngOnInit() {
     // Dati di esempio per la registrazione e il login
     //this.userSubscribe()
     //  recupero il token e le informazioni di login dal localStorage all'avvio del componente
     this.token = localStorage.getItem(this.tokenKey);
     this.loginInfo = JSON.parse(localStorage.getItem('loginInfo') || '{}');
-
+    this.betBodyJson.season = 2023
     this.userLogin();
     this.betFilterForWeeks();
     this.updateCoins()
+    this.allBetsForUsers();
   }
 
   constructor(private partiteService: PartiteServices) {}
@@ -195,4 +208,42 @@ subscribeBody = {
       }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
     }
   }
+
+  allBetsForUsers() {
+    const token = this.getToken();
+  
+    if (token) {
+      this.partiteService.getAllBets(token).subscribe((response: any) => {
+        this.userBets = response;
+        console.log("dati ricevuti", response);
+      });
+    }
+  }
+  
+/*  // Dentro il tuo componente ProfiloComponent
+hasBetOnTeam(teamId: number): boolean {
+  return this.bets.some((bet: any) => bet.id_team === teamId);
+}*/
+
+weekFilterResults() {
+  // Verifica se è stata selezionata una lega
+  const selectedLeagueObj = this.leagues.find(league => league.value === this.selectedLeague);
+
+  // Aggiorna l'id della lega in requestBody se è presente
+  if (selectedLeagueObj && selectedLeagueObj.id) {
+    this.betBodyJson.id_league = selectedLeagueObj.id; // Assicurati che ci sia una proprietà id nell'oggetto league
+  }
+
+  
+
+    // Chiamata al servizio per ottenere i dati in base alla week, id_league e season selezionati
+    this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
+      this.bets = response;
+      console.log("dati ricevuti", response);
+    });
+  }
 }
+
+
+
+  
