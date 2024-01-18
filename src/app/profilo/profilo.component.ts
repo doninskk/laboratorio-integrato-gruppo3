@@ -57,9 +57,9 @@ subscribeBody = {
   };
 
   betBodyJson = {
-    "week": 17,
+    "week": 15,
     "season": 2023,
-    "id_league": 88
+    "id_league": 97
   };
 
    // Settimane disponibili per il filtro
@@ -189,6 +189,8 @@ subscribeBody = {
       // Incrementa le monete e disabilita il pulsante
       this.coinsUpdate.money += 10;
       this.isButtonDisabled = true;
+
+      
   
       // Chiama l'API per aggiornare il saldo utente
       this.partiteService.getCoins(10).subscribe(
