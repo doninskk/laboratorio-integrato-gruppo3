@@ -1,4 +1,30 @@
-## VolleyNet
+# VolleyNet
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Table of Contents
 
@@ -13,6 +39,7 @@
    - [HomeComponent](#HomeComponent)
    - [StatisticheComponent](#StatisticheComponent)
    - [NewsComponent](#NewsComponent)
+   - [ProfiloComponent](#ProfiloComponent)
    - [GiocaComponent](#GiocaComponent)
    - [GameDetailComponent](#GameDetailComponent)
    - [RicercaComponent](#RicercaComponent)
@@ -63,15 +90,18 @@ Figma, Illustrator, Photoshop, Semrush, Canva, Business Manager, Google ADS
 
 Author: Claudia Grassitelli  
 Contact Information: claudia.grassitelli@edu.itspiemonte.it  
-Role: Team Leader, Front-end Developer
+Role: Team Leader, Front-end Developer  
+Commit github: main
 
 Author: Davide Bruno  
 Contact Information: davide.bruno@edu.itspiemonte.it  
-Role: PM Front-end Developer
+Role: PM Front-end Developer  
+Commit github: branch 'davide'
 
 Author: Carlotta Monaco  
 Contact Information: carlotta.monaco@edu.itspiemonte.it  
-Role:
+Role:  
+Commit github: branch 'carly'
 
 Author: Simona Pecoraro  
 Contact Information: simona.pecoraro@edu.itspiemonte.it  
@@ -129,11 +159,11 @@ Mostra i risultati predefiniti delle partite, inclusi i nomi delle squadre, i lo
 
 Utilizza \*ngFor per iterare attraverso l'array risultatiDefaultGame.teams e visualizza le informazioni relative a ciascuna squadra.
 
-Fornisce tre menu a tendina per selezionare il campionato, la stagione e la giornata delle partite., utilizzando \*ngFor per popolare dinamicamente le opzioni nei menu a tendina.
+Abbiamo impostato un filtro, che fornisce tre menu a tendina per selezionare il campionato, la stagione e la giornata delle partite, utilizzando \*ngFor per popolare dinamicamente le opzioni nei menu a tendina.
 
 Un pulsante "Cerca" attiva la funzione weekFilterResults() quando viene premuto.
 
-Utilizza \*ngFor per iterare attraverso l'array risultatiPartite e visualizzare le informazioni di ciascuna partita.
+Inoltre, abbiamo riscontrato [inserisci i problemi di immagini e altro]
 
 Ogni partita include i loghi delle squadre, i nomi delle squadre, i punteggi, l'orario e un pulsante "Dettagli" che reindirizza alla pagina dei dettagli della partita.
 
@@ -162,6 +192,10 @@ La pagina copre argomenti come strategie vincenti, leggende del volley, una semi
 
 - Utilizzo di variabili booleane (isButtonClick, isButtonSecondArticleClick, ecc.) per gestire lo stato degli articoli.
 - Implementazione di metodi (toggleArticle, toggleSecondArticle, ecc.) per cambiare lo stato degli articoli.
+
+### **ProfiloComponent**
+
+
 
 ### **GiocaComponent**
 

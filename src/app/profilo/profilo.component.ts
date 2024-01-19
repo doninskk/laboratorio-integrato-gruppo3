@@ -24,7 +24,7 @@ export class ProfiloComponent implements OnInit {
     cards: Card[] = [ // Array di carte con informazioni sui premi disponibili
     { image: '/assets/biglietto.png', title: 'Sconto Biglietti 10% ', description: 'Ottieni il 10% di sconto su una partita a tua scelta!', prezzo: 500 },
     { image: '/assets/biglietto.png', title: 'Sconto Biglietti 20%', description: 'Ottieni il 20% di sconto su una partita a tua scelta!', prezzo: 1000 },
-    { image: '/assets/biglietto.png', title: 'Sconto Biglietti 40%', description: 'Ottieni il 30% di sconto su una partita a tua scelta!', prezzo: 1800 },
+    { image: '/assets/biglietto.png', title: 'Sconto Biglietti 30%', description: 'Ottieni il 30% di sconto su una partita a tua scelta!', prezzo: 1800 },
     { image: '/assets/biglietto.png', title: 'Sconto Biglietti 40%', description: 'Ottieni il 40% di sconto su una partita a tua scelta!', prezzo: 3000 },
     { image: '/assets/attrezzatura-pallavolo.avif', title: 'Sconto Articoli 10%', description: 'Ottieni il 10% di sconto su una articolo sportivo a tua scelta!', prezzo: 500 },
     { image: '/assets/set-pallavolo.avif', title: 'Sconto Articoli 20%', description: 'Ottieni il 20% di sconto su una articolo sportivo a tua scelta!', prezzo: 1000 },
