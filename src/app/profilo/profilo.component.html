@@ -148,28 +148,28 @@
     <div *ngFor="let bet of userBets " class="row p-5 align-items-center p-3 text-center justify-content-between">
       <h3>{{bet.id_game}}</h3>
       <div class="col-4">
-        <img src="{{ bet.logo_altro }}" class="img-fluid team-logo" alt="logo squadra casa">
+        <img src="{{ bet.logo_scommesso }}" class="img-fluid team-logo" alt="logo squadra casa">
       </div>
       <div class="col-4">
-        <h3>{{bet.name_altro}}</h3>  
+        <h3>{{bet.name_scommesso}}</h3>  
       </div>
 
       <div class="col-4">
-        <i class="bi bi-hand-thumbs-up" ></i>
+        <i class="bi bi-hand-thumbs-up-fill text-success" ></i>
       </div>
 
       <div class="col-4">
         <!--Squadra away -->
-       <img src="{{ bet.logo_scommesso }}" class="img-fluid team-logo" alt="logo squadra trasferta">
+       <img src="{{ bet.logo_altro }}" class="img-fluid team-logo" alt="logo squadra trasferta">
      </div>
 
      <div class="col-4">
-       <h3 class="flex-column pb-5">{{ bet.name_scommesso }}</h3>
+       <h3 class="flex-column pb-5">{{ bet.name_altro }}</h3>
 
      </div>
 
      <div class="col-4">
-       <i class="bi bi-hand-thumbs-up text-success" ></i>
+       <i class="bi bi-hand-thumbs-up " ></i>
      </div>
       
   </div>
