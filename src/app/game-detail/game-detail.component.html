@@ -21,7 +21,7 @@
 <div class="container-fluid align-items-center text-center justify-content-between">
   <div class="row text-center separator pb-4"> 
     <p>Informazioni della partita del giorno:</p>
-    <h3>{{ gameDetail.date }}</h3>
+    <h3>{{ gameDetail.date | date: 'dd/MM/yyyy' }}</h3>
   </div>
   
   <!-- iterazione nell'array dell'oggetto teams -->

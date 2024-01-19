@@ -22,7 +22,7 @@
     <div *ngFor="let partita of bets " class="row p-5 align-items-center p-3 text-center justify-content-between">
       <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
        <div class="col-12 text-center"> 
-        <h3>{{partita.date}}</h3> 
+        <h3>{{partita.date | date: 'dd/MM/yyyy'}}</h3> 
         <p>giornata: {{partita.week}}</p>
       </div>
       <div class="col-4">
