@@ -252,6 +252,14 @@ weekFilterResults() {
       console.log("dati ricevuti", response);
     });
   }
+
+  scrollToBet(idPartita: number) {
+    const element = document.getElementById(`bet-${idPartita}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
+  }
+  
 }
 
 

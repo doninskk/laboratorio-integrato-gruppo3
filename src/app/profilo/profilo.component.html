@@ -135,6 +135,7 @@
         <div class="col-4">
           <i class="bi bi-hand-thumbs-up" ></i>
         </div>
+       <button class="btn btn-primary" (click)="scrollToBet(partita.id_game)">Visualizza Scommessa </button><
         </ng-container>
   
       
@@ -145,7 +146,7 @@
         <h3>tutte le tue bet</h3>
       </div>
 
-    <div *ngFor="let bet of userBets " class="row p-5 align-items-center p-3 text-center justify-content-between">
+    <div *ngFor="let bet of userBets " class="row p-5 align-items-center p-3 text-center justify-content-between"id="{{'bet-' + bet.id_game}}">
       <h3>{{bet.id_game}}</h3>
        <div class="col-4">
         <img src="{{ bet.logo_scommesso }}" class="img-fluid team-logo" alt="logo squadra casa">
