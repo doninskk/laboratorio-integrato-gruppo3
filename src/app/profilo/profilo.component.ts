@@ -252,13 +252,6 @@ weekFilterResults() {
       console.log("dati ricevuti", response);
     });
   }
-
- /*
-isBetPlaced(teamId: number): boolean {
-  // Verifica se l'ID della partita è presente tra le scommesse dell'utente
-  return this.userBets.some((bets: any) => bets.id_team === teamId);
-}*/
-
 }
 
 
