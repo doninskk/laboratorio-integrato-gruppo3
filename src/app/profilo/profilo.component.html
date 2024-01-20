@@ -63,17 +63,50 @@
     <div class="row">
       <p>Rivedi le tue scommesse passate</p>
     </div>
+    <div class="container tendine">
+      <!-- Prima row con i 3 menu a tendina -->
+      <div class="row filtri text-center">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="form-group">
+            <label for="leagueSelect" class="form-label pt-2">Seleziona il campionato:</label>
+            <select id="leagueSelect" [(ngModel)]="selectedLeague" name="leagueSelect" class="form-select mx-auto">
+              <option value="" disabled selected>Seleziona il campionato</option>
+              <option *ngFor="let league of leagues" [value]="league.value">{{ league.name }}</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="weekSelect" class="form-label pt-2">Seleziona la giornata:</label>
+            <select id="weekSelect" [(ngModel)]="betBodyJson.week" name="weekSelect" class="form-select mx-auto">
+              <option value="" disabled selected>Seleziona la giornata</option>
+              <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Seconda row con il pulsante "Cerca" al centro -->
+      <div class="row cerca mt-2">
+        <div class="col-md-4 text-center pb-5">
+          <button class="btn btn-search" (click)="weekFilterResults()">Cerca</button>
+        </div>
+      </div>
+    </div>
+
+
     <div class="row">
       <!-- inserire qui l'API per le bet vecchie-->
       <div *ngFor="let partita of bets " class="row p-5 align-items-center p-3 text-center justify-content-between">
         <ng-container *ngIf="partita?.teams && partita.teams.length >= 2">
          <div class="col-12 text-center"> 
-          <h3>{{partita.date}}</h3> 
+          <h3>{{partita.date| date: 'dd/MM/yyyy'}}</h3> 
           <p>giornata: {{partita.week}}</p>
         </div>
         <div class="col-4">
          <!--Squadra casa -->
-         <img [routerLink]="['/team', partita.teams[0].id_team]" src="{{ partita.teams[0]?.logo }}" class="img-fluid team-logo" alt="logo squadra casa" role="button">
+         <img src="{{ partita.teams[0]?.logo }}" class="img-fluid team-logo" alt="logo squadra casa">
         </div>
         <div class="col-4">
           <h3 class="flex-column">{{ partita.teams[0]?.name }}</h3>
@@ -102,10 +135,44 @@
         <div class="col-4">
           <i class="bi bi-hand-thumbs-up" ></i>
         </div>
+       <button class="btn btn-primary" (click)="scrollToBet(partita.id_game)">Visualizza Scommessa </button>
         </ng-container>
   
-      </div>
+      
     </div>
+
+    <div class="container le-tue-bet pt-4">
+      <div class="row">
+        <h3>tutte le tue bet</h3>
+      </div>
+
+    <div *ngFor="let bet of userBets " class="row p-5 align-items-center p-3 text-center justify-content-between"id="{{'bet-' + bet.id_game}}">
+      <h3>{{bet.id_game}}</h3>
+       <div class="col-4">
+        <img src="{{ bet.logo_scommesso }}" class="img-fluid team-logo" alt="logo squadra casa">
+      </div>
+      <div class="col-4">
+        <h3>{{bet.name_scommesso}}</h3>
+      </div>
+
+      <div class="col-4">
+        <i class="bi bi-hand-thumbs-up-fill text-success" ></i>
+      </div>
+
+      <div class="col-4">
+        <!--Squadra away -->
+       <img src="{{ bet.logo_altro }}" class="img-fluid team-logo" alt="logo squadra trasferta">
+     </div>
+
+     <div class="col-4">
+       <h3 class="flex-column pb-5">{{ bet.name_altro }}</h3>
+
+     </div>
+
+     <div class="col-4">
+       <i class="bi bi-hand-thumbs-up " ></i>
+     </div>
+      
   </div>
 
 

@@ -40,6 +40,8 @@ export class ProfiloComponent implements OnInit {
   
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
   private loginInfo: any = {}; // Oggetto per memorizzare le informazioni di login
+  userBets: any = [];
+  usersStanding: any = []; // array per salvare la classifica degli utenti
 
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
@@ -61,16 +63,29 @@ subscribeBody = {
     "id_league": 97
   };
 
+   // Settimane disponibili per il filtro
+   weeks: number[] = [15,16,17,18,19,20,21,22,23,24,25,26];
+
+   selectedLeague: string = '';
+   leagues = [
+     { name: 'SuperLega', value: 'SuperLega',id:97 },
+     { name: 'A2 Maschile', value: 'A2 Maschile',id:88 },
+     { name: 'A2 Femminile', value: 'A2 Femminile', id:90 },
+     { name: 'A1 Femminile', value: 'A1_Femminile',id:89 }
+   ];
+   
   ngOnInit() {
     // Dati di esempio per la registrazione e il login
     //this.userSubscribe()
     //  recupero il token e le informazioni di login dal localStorage all'avvio del componente
     this.token = localStorage.getItem(this.tokenKey);
     this.loginInfo = JSON.parse(localStorage.getItem('loginInfo') || '{}');
-
+    this.betBodyJson.season = 2023
     this.userLogin();
     this.betFilterForWeeks();
     this.updateCoins()
+    this.allBetsForUsers();
+    this.userRank()
   }
 
   constructor(private partiteService: PartiteServices) {}
@@ -176,6 +191,8 @@ subscribeBody = {
       // Incrementa le monete e disabilita il pulsante
       this.coinsUpdate.money += 10;
       this.isButtonDisabled = true;
+
+      
   
       // Chiama l'API per aggiornare il saldo utente
       this.partiteService.getCoins(10).subscribe(
@@ -195,4 +212,65 @@ subscribeBody = {
       }, 24 * 60 * 60 * 1000); // 24 ore in millisecondi
     }
   }
+  allBetsForUsers() {  // tutte le bet fatte da un utente
+    const token = this.getToken(); // prendo il token salvato nel localStorage
+  
+    if (token) {
+      const params = { // lo creo e lo passo come JSON richiesto dalla risposta
+        token: token
+      };
+  
+      this.partiteService.getAllBets(params).subscribe(
+        (response: any) => {
+          this.userBets = response;
+          console.log("dati ricevuti", response);
+        },
+      );
+    } else {
+      console.error("Token non disponibile. L'utente potrebbe non essere autenticato correttamente.");
+    }
+  }
+  
+  
+/*  // Dentro il tuo componente ProfiloComponent
+hasBetOnTeam(teamId: number): boolean {
+  return this.bets.some((bet: any) => bet.id_team === teamId);
+}*/
+
+weekFilterResults() {
+  // Verifica se è stata selezionata una lega
+  const selectedLeagueObj = this.leagues.find(league => league.value === this.selectedLeague);
+
+  // Aggiorna l'id della lega in requestBody se è presente
+  if (selectedLeagueObj && selectedLeagueObj.id) {
+    this.betBodyJson.id_league = selectedLeagueObj.id; // Assicurati che ci sia una proprietà id nell'oggetto league
+  }
+
+  
+
+    // Chiamata al servizio per ottenere i dati in base alla week, id_league e season selezionati
+    this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {
+      this.bets = response;
+      console.log("dati ricevuti", response);
+    });
+  }
+
+  scrollToBet(idPartita: number) {
+    const element = document.getElementById(`bet-${idPartita}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
+  }
+
+  userRank() {
+    this.partiteService.getUsersPositions().subscribe((response: any) => {
+      this.usersStanding = response;
+      console.log("dati ricevuti", response);
+    });
+  }
+  
 }
+
+
+
+  

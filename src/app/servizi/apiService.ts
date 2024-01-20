@@ -75,4 +75,10 @@ export class ApiService {
   updateCoins(coinsJson:any) {
     return this.http.post('http://localhost:8080/user/updateMoney', coinsJson);
   }
+
+
+    //Ritorna tutte le bet di un utente
+    getAllUserBets(token:any) {
+      return this.http.post('http://localhost:8080/bet/betUtente', token);
+    }
 }
