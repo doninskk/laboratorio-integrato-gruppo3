@@ -8,7 +8,6 @@ import { PartiteServices } from '../servizi/partiteService';
 })
 export class GiocaComponent {
   bets: any = [];
-  users: any = [];
   savedBets: any = [];
 
   betBodySave = {
@@ -33,7 +32,6 @@ export class GiocaComponent {
       this.betBodySave.token = token;
     }
     this.betsData();
-    this.userRank();
     this.savedUserBets();
   }
 
@@ -64,13 +62,6 @@ export class GiocaComponent {
   betsData() {
     this.partiteService.betPageResults().subscribe((response: any) => {
       this.bets = response;
-      console.log("dati ricevuti", response);
-    });
-  }
-
-  userRank() {
-    this.partiteService.getUsersPositions().subscribe((response: any) => {
-      this.users = response;
       console.log("dati ricevuti", response);
     });
   }

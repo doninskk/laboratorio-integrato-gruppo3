@@ -16,10 +16,10 @@ export class StatisticheComponent {
   // Array contenente la classifica delle squadre
   classifica: any=[];
 
-  // Corpo della richiesta per ottenere i dati della classifica
+  // Corpo della richiesta per ottenere i dati della classifica dalla API
   bodyClassifica = {
     "id_season": 2022,
-    "id_league": 97,
+    "id_league": 90,
     "id_group": 3
   };
 
@@ -169,19 +169,40 @@ export class StatisticheComponent {
   selectedLeague: string = '';
   leagues = [
     { name: 'SuperLega', value: 'SuperLega', id: 97 },
-    { name: 'A1 Maschile', value: 'A1_Maschile' },
-    { name: 'A1 Femminile', value: 'A1_Femminile', id: 89 }
+    { name: 'A2 Maschile', value: 'A2_Maschile',id:88 },
+    { name: 'A1 Femminile', value: 'A1_Femminile', id: 89 },
+    { name: 'A2 Femminile', value: 'A2_Femminile',id:90 },
   ];
 
   ngOnInit() {
+    this.selectedLeague = 'SuperLega'; // superLega di default
     this.standingsLeague();
   }
 
   constructor(private partiteService: PartiteServices) {}
-
-  // Ottiene e visualizza la classifica in base alla lega selezionata
   standingsLeague() {
-    // Verifica se la lega selezionata è femminile (id 89) e visualizzo il JSON
+    if (!this.selectedLeague) {
+      // Se la lega non è selezionata, esci senza chiamare l'API
+      return;
+    }
+  
+    let leagueId;
+  
+    // Map per il nome della lega all'id della lega
+    const selectedLeagueObj = this.leagues.find(league => league.value === this.selectedLeague);
+  
+    if (selectedLeagueObj) {
+      leagueId = selectedLeagueObj.id;
+    } else {
+      // Se la lega selezionata non è riconosciuta, esci senza chiamare l'API
+      console.error('Lega non riconosciuta:', this.selectedLeague);
+      return;
+    }
+  
+    // Aggiorna il corpo del JSON richiesto con l'id della lega
+    this.bodyClassifica.id_league = leagueId;
+  
+    // Verifica se la lega selezionata è A1 Femminile e utilizzo il mock 
     if (this.selectedLeague === 'A1_Femminile') {
       this.classifica = this.standingA1Femminile;
     } else {
@@ -192,4 +213,6 @@ export class StatisticheComponent {
       });
     }
   }
+  
+ 
 }
