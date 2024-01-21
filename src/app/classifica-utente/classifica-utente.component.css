@@ -1,0 +1,14 @@
+.titolo-class h2{
+    background-color: #064887;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+    padding: 5px 0 5px 0;
+  }
+
+  .linea{
+    padding: 1rem;
+    border-bottom: 3px groove rgba(6, 73, 135, 0.377);
+    margin-bottom: 8px;
+}
+  
