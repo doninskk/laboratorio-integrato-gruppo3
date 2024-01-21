@@ -9,3 +9,15 @@ body{
     color: whitesmoke;
     padding: 5px 0 5px 0;
 }
+
+.team-logo{
+    max-width: 90px;
+    max-height: 100px;
+    min-width: 80px;
+}
+
+@media (max-width: 767px) {
+    .team-logo{
+      max-width: 60px;
+    }
+  }

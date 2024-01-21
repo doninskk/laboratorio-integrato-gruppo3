@@ -3,7 +3,6 @@
 body {
     display: flex;
     flex-direction: column;
-    padding: 10px;
     box-sizing: border-box;
     font-family: 'Poppins';
 }
@@ -16,22 +15,10 @@ body {
     margin-top: -25px;
 }
 
-.fas.fa-user {
-    margin-right: 8px;
-}
-
 .other-prizes {
     width: 100%;
     text-align: center;
     color: black;
-}
-
-.prizes {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 0 20px 0;
 }
 
 .increment-button {
@@ -53,11 +40,6 @@ body {
 .ottieni:hover{
     background-color: #cc9d0eb8;
 }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
   
   .card-container {
     display: flex;
@@ -75,10 +57,70 @@ body {
     max-width: 280px;
     max-height: 170px;
 }
+
+.team-logo{
+  max-width: 100px;
+}
+
+.cerca{
+  font-size: 16px;
+  background-color: #064887;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  transition: background-color 0.1s ease;
+}
+
+.scommessa{
+  font-size: 16px;
+  background-color: #064887;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  transition: background-color 0.1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottone-scom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.scommessa:hover, .cerca:hover {
+  background-color: #0967be; /* Cambia colore durante l'hover */
+  color: white;
+
+}
+  
+.scommessa:active, .cerca:active,
+.scommessa:focus, .cerca:focus {
+  background-color: #064887;
+  color: #fff;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.bet{
+  padding-bottom: 50px;
+}
   
   @media (max-width: 767px) {
     .card {
       width: calc(50% - 20px); /* Modifica la larghezza su schermi più piccoli */
+    }
+
+    .team-logo{
+      max-width: 70px;
     }
   }
   
