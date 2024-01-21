@@ -13,8 +13,8 @@
 
 <body>
 
-  <div class="container">
-    <div class="row pb-4">
+  <div class="container account">
+    <div class="row titolo-class d-flex text-center">
       <h1> Il mio account </h1>
     </div>
     <div class="row">
@@ -30,9 +30,14 @@
       </div>
       
       <div class="col-4">
-        <a class="other-prizes" [routerLink]="['/gioca']"><i class="fas fa-dice"></i>vuoi ottenere più gettoni? Gioca!</a>
+        <a class="other-prizes" [routerLink]="['/gioca']"><i class="fas fa-dice"></i> vuoi ottenere più gettoni? Gioca!</a>
       </div>
-    
+    </div>
+
+    <div class="row pt-4">
+      <div class="col-12">
+        <a [routerLink]="['/classifica-utente']" class="classifica-utente">Guarda la tua classifica!</a>
+      </div>
     </div>
     <div class="prizes pt-4">
       <h3> Premi </h3>

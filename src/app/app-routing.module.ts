@@ -9,6 +9,7 @@ import { GiocaComponent } from './gioca/gioca.component';
 import { ErrorComponent } from './error/error.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { ClassificaUtenteComponent } from './classifica-utente/classifica-utente.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'gioca', component: GiocaComponent},
   { path: 'team/:id/:id_lega/:id_season', component: TeamDetailComponent },
   { path: 'game/:id', component: GameDetailComponent},
+  { path: 'classifica-utente', component: ClassificaUtenteComponent},
   { path: '**', component: ErrorComponent}, //Wildcard route for a 404 page
 ];
 

@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { ClassificaUtenteComponent } from './classifica-utente/classifica-utente.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     RicercaComponent,
     ErrorComponent,
     TeamDetailComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    ClassificaUtenteComponent
   ],
   imports: [
     BrowserModule,
