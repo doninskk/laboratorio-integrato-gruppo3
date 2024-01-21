@@ -4,24 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classifica Utente</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 </head>
 <body>
 
-    <div class="row titolo-class d-flex text-center"> <!-- qui legenda dei campi della classifica-->
-        <h2>Classifica utenti</h2>
-    </div>
-
-     <div class="row d-flex align-items-center justify-content-center linea">
+        <h2 class="titolo-class">Classifica utenti</h2>
+    
+    <div class="container">
+     <div class="row linea d-flex align-items-center justify-content-center">
         <div class="col-4 text-center">
-            <h3>POS</h3>
-          </div>
-      <div class="col-4 text-center">
-        <h3>UTENTE</h3>
+          <h3>POS</h3>
+        </div>
+
+        <div class="col-4 text-center">
+          <h3>UTENTE</h3>
+        </div>
+
+        <div class="col-4 text-center">
+          <h3> PUNTI </h3>
+        </div>
       </div>
-      <div class="col-4 text-center">
-        <h3> PUNTI </h3>
-      </div>
-    </div>
+
     <div *ngFor="let users of usersStanding let i = index">
         <div class="row d-flex align-items-center justify-content-center linea">
             <div class="col-4 text-center">
@@ -35,6 +40,7 @@
           </div>
         </div>
       </div>
+    </div>
       
 </body>
 </html>
