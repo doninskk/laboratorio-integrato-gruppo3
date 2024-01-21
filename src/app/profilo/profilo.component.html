@@ -13,12 +13,13 @@
 
 <body>
 
-  <div class="container account">
-    <div class="row titolo-class d-flex text-center">
-      <h1> Il mio account </h1>
-    </div>
+  <div class="row titolo-class d-flex text-center">
+    <h2> Il mio account </h2>
+  </div>
+
+  <div class="container">
     <div class="row">
-      
+
       <div class="col-5">
         <i class="bi bi-person pr-5"></i> {{loginBodyJson.mail}} 
       </div>
@@ -48,17 +49,37 @@
 <!-- card -->
   <div class="container">
     <div class="card-container">
-      <div *ngFor="let card of cards" class="card">
+      <div *ngFor="let card of cards; let i = index" class="card">
         <img [src]="card.image" class="img-fluid card-img-top" alt="...">
         <div class="card-body ">
           <h5 class="card-title">{{ card.title }}</h5>
           <p class="card-text">{{ card.description }}</p>
           <p class="card-text">{{ card.prezzo }}</p>
-            <a href="#" class="btn ottieni ">Ottieni</a>
+          <button class="btn ottieni" data-bs-toggle="modal" data-bs-target="#purchaseModal" (click)="purchaseDiscount(i)" [disabled]="!canPurchase(card.prezzo)">
+            Ottieni
+          </button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="purchaseModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="purchaseModalLabel">Prodotto Acquistato</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Hai acquistato lo sconto: {{ selectedDiscount?.title }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   <div class="container le-tue-bet pt-4">
@@ -194,5 +215,3 @@
      </div>
       
   </div>
-
-

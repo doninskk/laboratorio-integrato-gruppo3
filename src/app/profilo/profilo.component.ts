@@ -37,6 +37,7 @@ export class ProfiloComponent implements OnInit {
   userName: string = ""; // Nome utente visualizzato nel profilo
   bets: any = []; // Array per memorizzare le scommesse dell'utente
   coinsUpdate: any = [] // Array per memorizzare l'aggiornamento del saldo monete
+  selectedDiscount: Card | null = null;
   
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
   private loginInfo: any = {}; // Oggetto per memorizzare le informazioni di login
@@ -130,6 +131,24 @@ subscribeBody = {
         this.userName = "";
       }
     );
+  }
+
+  canPurchase(discountPrice: number): boolean {
+    return this.coinsUpdate.money >= discountPrice;
+
+  }
+
+  purchaseDiscount(index: number): void {
+    const selectedDiscount = this.cards[index];
+
+    if (this.canPurchase(selectedDiscount.prezzo)) {
+      this.coinsUpdate.money -= selectedDiscount.prezzo;
+
+      console.log(`Hai acquistato lo sconto: ${selectedDiscount.title}`);
+    } else {
+      this.selectedDiscount = null;
+      console.log("Non hai abbastanza monete per acquistare questo sconto.");
+    }
   }
 
   // Metodo per ottenere le scommesse filtrate per settimane
