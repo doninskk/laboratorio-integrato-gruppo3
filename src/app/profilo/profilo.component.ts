@@ -41,7 +41,6 @@ export class ProfiloComponent implements OnInit {
   private tokenKey: string = 'token'; // Chiave per il token nel localStorage
   private loginInfo: any = {}; // Oggetto per memorizzare le informazioni di login
   userBets: any = [];
-  usersStanding: any = []; // array per salvare la classifica degli utenti
 
   /* fare un form per l'iscrizione e 1 per il login commentato perchè l'utente pippo già esiste
 subscribeBody = {
@@ -85,7 +84,6 @@ subscribeBody = {
     this.betFilterForWeeks();
     this.updateCoins()
     this.allBetsForUsers();
-    this.userRank()
   }
 
   constructor(private partiteService: PartiteServices) {}
@@ -260,13 +258,6 @@ weekFilterResults() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
-  }
-
-  userRank() {
-    this.partiteService.getUsersPositions().subscribe((response: any) => {
-      this.usersStanding = response;
-      console.log("dati ricevuti", response);
-    });
   }
   
 }
