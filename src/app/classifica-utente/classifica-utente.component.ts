@@ -18,12 +18,10 @@ export class ClassificaUtenteComponent {
 
   constructor(private partiteService: PartiteServices) {}
 
-
   userRank() {
     this.partiteService.getUsersPositions().subscribe((response: any) => {
       this.usersStanding = response;
       console.log("dati ricevuti", response);
     });
   }
-
 }
