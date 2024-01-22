@@ -197,8 +197,6 @@ subscribeBody = {
     } else {
       console.error("Token non disponibile. L'utente potrebbe non essere autenticato correttamente.");
     }
-
-    
   }
 
   // Metodo per incrementare le monete dell'utente
@@ -209,8 +207,6 @@ subscribeBody = {
       this.coinsUpdate.money += 10;
       this.isButtonDisabled = true;
 
-      
-  
       // Chiama l'API per aggiornare il saldo utente
       this.partiteService.getCoins(10).subscribe(
         (response: any) => {
@@ -247,12 +243,6 @@ subscribeBody = {
       console.error("Token non disponibile. L'utente potrebbe non essere autenticato correttamente.");
     }
   }
-  
-  
-/*  // Dentro il tuo componente ProfiloComponent
-hasBetOnTeam(teamId: number): boolean {
-  return this.bets.some((bet: any) => bet.id_team === teamId);
-}*/
 
 weekFilterResults() {
   // Verifica se è stata selezionata una lega
@@ -262,8 +252,6 @@ weekFilterResults() {
   if (selectedLeagueObj && selectedLeagueObj.id) {
     this.betBodyJson.id_league = selectedLeagueObj.id; // Assicurati che ci sia una proprietà id nell'oggetto league
   }
-
-  
 
     // Chiamata al servizio per ottenere i dati in base alla week, id_league e season selezionati
     this.partiteService.filterForBets(this.betBodyJson).subscribe((response: any) => {

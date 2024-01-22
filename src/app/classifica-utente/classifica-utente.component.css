@@ -1,5 +1,7 @@
 body{
   font-family: 'Poppins';
+  margin: 0;
+  padding: 0;
 }
 
 .titolo-class{
@@ -11,9 +13,9 @@ body{
 
   }
 
-  .linea{
-    padding: 1rem;
-    border-bottom: 3px groove rgba(6, 73, 135, 0.377);
-    margin-bottom: 8px;
+.linea{
+  padding: 1rem;
+  border-bottom: 3px groove rgba(6, 73, 135, 0.377);
+  margin-bottom: 8px;
 }
-  
+

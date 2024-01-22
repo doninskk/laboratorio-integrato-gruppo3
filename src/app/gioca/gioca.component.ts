@@ -9,6 +9,8 @@ import { PartiteServices } from '../servizi/partiteService';
 export class GiocaComponent {
   bets: any = [];
   savedBets: any = [];
+  betButtonDisabled: { [key: number]: boolean } = {};
+  betsPlaced: { [key: number]: boolean } = {};
 
   betBodySave = {
     "token": "",
@@ -17,6 +19,8 @@ export class GiocaComponent {
   };
 
   maxDisplayedGames: number = 100; // Imposta un valore predefinito
+
+  constructor(private partiteService: PartiteServices) {}
 
   // Metodo per aggiornare il numero massimo di partite visualizzate
   updateMaxDisplayedGames(value: number) {
@@ -35,7 +39,6 @@ export class GiocaComponent {
     this.savedUserBets();
   }
 
-  constructor(private partiteService: PartiteServices) {}
 
   // Al click sull'icona, chiamata questa funzione con i nuovi valori dell'id_team e id_game
   setBetBody(teamId: number, gameId: number) {
@@ -57,6 +60,8 @@ export class GiocaComponent {
         console.error("Errore durante il salvataggio della scommessa", error);
       }
     );
+    this.betButtonDisabled[gameId] = true; // Imposta il bottone a disabilitato dopo il clic
+    this.betsPlaced[gameId] = true; // Segnala che la scommessa è stata effettuata
   }
 
   betsData() {

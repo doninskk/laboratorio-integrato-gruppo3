@@ -16,6 +16,31 @@ body{
     min-width: 80px;
 }
 
+.text-dark {
+  color: black;
+}
+
+.scommetti{
+    font-size: 16px;
+    background-color: #064887;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    transition: background-color 0.1s ease;
+
+  }
+  
+.scommetti:hover {
+  background-color: #0967be; /* Cambia colore durante l'hover */
+  color: white;
+}
+  
+.scommetti:active,
+.scommetti:focus {
+  background-color: #064887;
+  color: #fff;
+}
+
 @media (max-width: 767px) {
     .team-logo{
       max-width: 60px;
