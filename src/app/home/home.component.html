@@ -15,9 +15,11 @@
   
     <h2 class="titolo-class">Risultati</h2>
 
-
 <div class="container-fluid align-items-center text-center justify-content-between">
-  <div class="col-12 text-center separator"> <h3>{{ risultatiDefaultGame.league_name }}</h3></div>
+  <div class="col-12 text-center separator"> 
+    <h3>{{ risultatiDefaultGame.league_name }}</h3>
+    <p>Ultima partita giocata della Superlega:</p>
+  </div>
   
   <!-- iterazione nell'array dell'oggetto teams -->
   <div *ngFor="let team of risultatiDefaultGame.teams">
@@ -41,7 +43,7 @@
     </div>
 
     <div class="col-4 d-flex justify-content-center text-center mt-3"> 
-      <p><i class="bi bi-clock"></i> {{ risultatiDefaultGame.ora?.split(':').slice(0, 2).join(':')  }}</p>
+      <p><i class="bi bi-clock"></i> {{ risultatiDefaultGame.ora?.split(':').slice(0, 2).join(':')  }} </p>
     </div> <!-- fuori dal ngFor -->
 </div>
 
