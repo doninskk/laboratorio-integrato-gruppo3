@@ -140,10 +140,13 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 ## Standard Used
 
 ---
+Front-end:  
+- Variables: camelCase  
+- Files and Folder: kebab-case
 
-Variables: camelCase
-
-Files and Folder: kebab-case
+Back-end:
+- Variables: snake_case
+- Files and Folder: snake_case
 
 # Approach To Solution
 
@@ -434,7 +437,74 @@ Quando la larghezza dello schermo è superiore a 600px:
 - La navbar torna al layout orizzontale, poiché la proprietà flex-direction viene reimpostata su row.
 - La navbar perde il posizionamento fisso e torna al flusso normale del documento.
 - Il margine inferiore del corpo viene ripristinato alla sua impostazione pre-media query.
+  
 
-### **Back-end**
+
+# **Back-end**
+
+## System requirement
+
+1. Xampp:
+-  Il software xampp dovrà essere installato sulla macchina del cliente.
+-  Prima di eseguire l'applicativo bisognerà avviare xampp con i servizi di apache e MySql in eseguzione
+
+2. Database:
+-  Una volta installato xampp e avviati i processi, bisognerà cliccare sul tasto "admin" di MySQL, qui si dovrà creare un nuovo database vuoto chimato "lab_int"
+-  Dopo averlo creato bisognerà cliccare sul tasto "importa", da questa schermata premeremo il tasto "scegli" e selezioneremo il file da noi fornito "lab_int.sql", infine premere il tasto esegui
+
+3. Applicativo:
+- Se la macchina su cui il software dovrà essere eseguito non ha un modo per eseguire il codice in java, si avrà bisogno di installare l'sdk dal sito ufficiale 
+  (https://www.oracle.com/it/java/technologies/downloads/#jdk21-windows)
+- Una volta installato il jdk, bisognerà aprire un prompt dei comandi di windows come powershell ed eseguire i seguenti comandi: 
+   - *cd **nome della cartella***  
+   - *java -jar **nome del file**.jar*
+- Il servizio verrà eseguito sulla porta 8080, quindi nessun processo dovrà essere in esecuzione su quella porta 
+
+4. scheduling:
+- ogni giorno a mezzanotte, l'applicativo farà chiamate ad API sport per aggiornare i dati presenti nel database
+- è quindi necessario che l'applicazione sia in esecuzione durante quel periodo per avere sempre i dati aggiornati
+- l'operazione di aggiornamento potrebbe richiedere alcuni minuti, a causa delle limitazioni di API sport
+
+### Possible future feature
+
+ 1. Players:
+ - All'interno dal database si ha una tabella player, con all'interno dei giocatori fittizi
+ - In futuro, pensiamo di incorporare dati di giocatori veri, relativi ad ogni stagione
+
+ 2. User:
+ - sul database nella tabella user si ha un campo "admin", che servirà per indicare quale utente ha i permessi admin nell'applicativo
+ - Attualmente nessun user è admin e gli admin non hanno servizi in più
+ - Sul database, nella tabella user è anche presente un campo "verificato", in futuro vorremmo incorporare una verifica dell'account tramite mail 
+ - Una volta verificato il campo "verificato" avrà valore true
+
+ 3. Statistiche team
+ - Nel database, nella tabella sono presenti alcune statistiche di alcuni team
+ - Vorremmo aggiungere un servizio per inserire nuove statistiche e aggiornare quelle vecchie
+
+ 4. Vincitore del campionato
+ - Abbiamo predisposti il database e i servizi per permettere all'utente di fare un altro tipo di scomessa
+ - In questa scomessa, l'utente puntava su quale team secondo lui avrebbe vinto una certa lega
+ - I servizi per creare questa scommessa (team_list) sono funzionanti: mancano i controlli periodici per vedere se l'utente ha vinto e l'implementazione con il front-end
+
+ 5. Offerte
+ - Nel database vengono salvate le offerte acquistate dall'utente
+ - Tuttavia le offerte generali non sono salvate da nessuna parte
+ - Le offerte vengono create quando vengono mandate dal client e sono composte solo da una descrizione
+
+ 6. Standing/classifiche:
+ - Nel database sono presenti alcune classifiche di diverse leghe
+ - Molte classifiche non sono disponibili perché non presenti sulle API sport o, se presenti, risultano incomplete
+
+7. Season:
+- Attualmente sono coperte le perdite di tutte le leghe italiane del 2022 e del 2023
+- In futuro, voremmo aggiungere tutte le partite di tutte le stagioni disponibili su API sport
+
+8. Preferred team:
+- Nel database è presente una tabella "prefered_team", con l'intenzione di dare la possibilità all'utente di scegliere i team da mettere nei preferiti, che vorremmo implementare in futuro
+
+9. Country:
+- Nel database, all'interno della tabella contry si ha solo l'Italia
+- Ci sarebbe piaciuto aggiungere più paesi, ma a causa delle limitazioni di API sport ci siamo fermati alle competizioni italiane
+
 
 ### **Digital Strategist**
