@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  // Ottiene i risultati di default delle partite
+  // Ottiene l'ultima partita giocata in SupeLega
   getRisultatiPartiteDefault() {
     return this.http.get('http://localhost:8080/game/default')
   }

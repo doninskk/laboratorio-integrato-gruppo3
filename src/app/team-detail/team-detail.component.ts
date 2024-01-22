@@ -17,8 +17,8 @@ export class TeamDetailComponent {
 
   teamDetails: any[] = []; // Array per memorizzare i dettagli della squadra
   teamId: number | null = null; // Variabile per memorizzare l'ID della squadra
-  id_lega: number | null = null;
-  id_season: number | null = null;
+  id_lega: number | null = null;// variabile per memorizzare id della league selezonata
+  id_season: number | null = null;// variabile per memorizzare la stagione di riferimento
 
   constructor(
     private partiteService: PartiteServices,
@@ -26,7 +26,7 @@ export class TeamDetailComponent {
   ) { }
 
   ngOnInit() {
-    // Estrai i parametri dalla route e assegnali alle variabili del componente
+    // Estrae i parametri dalla route e li assegna alle variabili del componente
     const params = this.route.snapshot.params;
     this.teamId = params['id'] ? +params['id'] : null;
     this.id_lega = params['id_lega'] ? +params['id_lega'] : null;
@@ -44,7 +44,7 @@ export class TeamDetailComponent {
   // Funzione per ottenere i dettagli della squadra
   detailOfTeam() {
 
-    // Aggiorna la richiesta includendo i nuovi parametri
+    // Aggiorna la richiesta includendo i nuovi parametri presi dalla route
     const request = {
       "id_team": this.teamId,
       "id_lega": this.id_lega,

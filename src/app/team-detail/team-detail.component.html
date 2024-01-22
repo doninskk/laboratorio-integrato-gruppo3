@@ -10,10 +10,11 @@
 
 <body>
 
-  <div *ngFor="let team of teamDetails" >
+  <div *ngFor="let team of teamDetails let i = index" >
     <div class="row titolo-team">
       <h3>{{team.name}}</h3>
       <img src="{{ team.logo }}" class="img-fluid logo-squadra" alt="logo squadra">
+      <p>Statistiche stagione: {{ id_season}}</p>
     </div>
     
     <div class="row d-flex justify-content-center">

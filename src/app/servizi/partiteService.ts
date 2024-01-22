@@ -7,7 +7,7 @@ import { ApiService } from './apiService';
 export class PartiteServices {
   constructor(private apiService: ApiService) {}
 
-  // Ottiene i risultati di default delle partite
+  // Ottiene l'ultimo risultato di SuperLega
   getDefault() {
     return this.apiService.getRisultatiPartiteDefault();
   }

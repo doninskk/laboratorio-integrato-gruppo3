@@ -104,7 +104,7 @@ export class HomeComponent {
   
   
 
-  // Mostra i dettagli della partita selezionata
+  // manda l'utente al componenente game-detail e mostra i dettagli della partita selezionata
   showGameDetail(gameId: number) {
     console.log("ID della partita selezionata:", gameId);
     this.selectedGameId = gameId;

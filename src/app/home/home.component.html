@@ -16,7 +16,8 @@
 <div class="container-fluid align-items-center text-center justify-content-between">
   <div class="col-12 text-center separator"> 
     <h3>{{ risultatiDefaultGame.league_name }}</h3>
-    <p>Ultima partita giocata della Superlega:</p>
+    <p>Ultima partita giocata della Superlega: </p>
+      <p class="text-center"> {{ risultatiDefaultGame.data | date: 'dd/MM/yyyy'  }} </p>
   </div>
   
   <!-- iterazione nell'array dell'oggetto teams -->
@@ -96,6 +97,7 @@
        <div class="col-12 text-center"> 
         <h3>{{partita.league_name}}</h3> 
         <p>giornata: {{partita.week}}</p>
+        <p> {{ partita.data | date: 'dd/MM/yyyy'  }} </p>
       </div>
       <div class="col-4">
        <!--Squadra casa -->
@@ -111,7 +113,7 @@
   
       <div class="col-4">
          <!--Squadra away -->
-        <img src="{{ partita?.teams[1]?.logo }}" class="img-fluid team-logo" alt="logo squadra trasferta">
+        <img [routerLink]="['/team', partita.teams[1].id_team, requestBody.id_league,selectedSeason]" src="{{ partita?.teams[1]?.logo }}" class="img-fluid team-logo" alt="logo squadra trasferta" role="button">
       </div>
         
       <div class="col-4">
