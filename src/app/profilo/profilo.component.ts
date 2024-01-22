@@ -66,6 +66,7 @@ subscribeBody = {
    // Settimane disponibili per il filtro
    weeks: number[] = [15,16,17,18,19,20,21,22,23,24,25,26];
 
+   // array per la lega da scegliere nel filtro 
    selectedLeague: string = '';
    leagues = [
      { name: 'SuperLega', value: 'SuperLega',id:97 },
@@ -112,7 +113,7 @@ subscribeBody = {
           // Salva il token e le informazioni di login nel localStorage per salvarle
           localStorage.setItem(this.tokenKey, response.token);
           localStorage.setItem('loginInfo', JSON.stringify(response));
-        } else {
+        } else {  // se il login paswd o userName sono sbagliati non visualizzo 
           console.error("Errore durante il login: login non riuscito");
           this.userName = "";
         }
@@ -120,7 +121,7 @@ subscribeBody = {
       (error: any) => {
         console.error("Errore durante il login", error);
 
-        if (error.status === 401) {
+        if (error.status === 401) {  // gestione errori login paswd in futuro sarà pronta per il componente login
           console.error("Errore: password errata");
         } else {
           console.error("Errore sconosciuto durante il login");
@@ -130,12 +131,12 @@ subscribeBody = {
       }
     );
   }
-
+// funzione per capire se si hanno  abbasatanza crediti o meno per acquistare le offerte nelle card 
   canPurchase(discountPrice: number): boolean {
     return this.coinsUpdate.money >= discountPrice;
 
   }
-
+// funzione per scalare i crediti dell'utente dopo che acquista un offerta se ha abbastanza soldi
   purchaseDiscount(index: number): void {
     const selectedDiscount = this.cards[index];
 
@@ -207,7 +208,7 @@ subscribeBody = {
       this.coinsUpdate.money += 10;
       this.isButtonDisabled = true;
 
-      // Chiama l'API per aggiornare il saldo utente
+      // Chiamata  alll'API per aggiornare il saldo utente
       this.partiteService.getCoins(10).subscribe(
         (response: any) => {
           console.log("Aggiornamento del saldo riuscito", response);
@@ -233,7 +234,7 @@ subscribeBody = {
         token: token
       };
   
-      this.partiteService.getAllBets(params).subscribe(
+      this.partiteService.getAllBets(params).subscribe(  // dopo che ho il token dell'utente eseguo la chiamata
         (response: any) => {
           this.userBets = response;
           console.log("dati ricevuti", response);
@@ -261,8 +262,11 @@ weekFilterResults() {
   }
 
   scrollToBet(idPartita: number) {
+    //getElementById--> Trova l'elemento HTML associato alla scommessa usando l'id della partita
     const element = document.getElementById(`bet-${idPartita}`);
     if (element) {
+      // Se l'elemento è stato trovato, esegue lo scorrimento verso di esso stile ancora HTML
+      // con un effetto di scorrimento fluido (smooth).
       element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
   }
