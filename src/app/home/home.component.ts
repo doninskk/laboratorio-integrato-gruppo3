@@ -39,7 +39,7 @@ export class HomeComponent {
   
 
   // Settimane disponibili per il filtro
-  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14,15,16]; // 14 max SuperLega 16 max  A1 femminile
+  weeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; // 14 max SuperLega 16 max  A1 femminile
 
   // Corpo della richiesta per ottenere i dati delle partite
   requestBody = {
