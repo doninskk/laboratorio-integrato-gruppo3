@@ -158,30 +158,27 @@ Back-end:
 
 La HomeComponent rappresenta la pagina principale del sito.
 
-Mostra i risultati predefiniti delle partite, inclusi i nomi delle squadre, i loghi, i punteggi e l'orario della partita.
+Mostra i risultati predefiniti delle partite, inclusi i nomi delle squadre, i loghi, i punteggi e l'orario e la data della partita.
 
-Utilizza \*ngFor per iterare attraverso l'array risultatiDefaultGame.teams e visualizza le informazioni relative a ciascuna squadra.
+Nella prima parte, abbiamo deciso di riportare l'ultima partita giocata nella superlega.
 
-Abbiamo impostato un filtro, che fornisce tre menu a tendina per selezionare il campionato, la stagione e la giornata delle partite, utilizzando \*ngFor per popolare dinamicamente le opzioni nei menu a tendina.
+Abbiamo poi impostato un filtro, che fornisce tre menu a tendina per selezionare il campionato, la stagione e la giornata delle partite, utilizzando \*ngFor per popolare dinamicamente le opzioni.
 
 Un pulsante "Cerca" attiva la funzione weekFilterResults() quando viene premuto.
 
-Inoltre, abbiamo riscontrato [inserisci i problemi di immagini e altro]
+Inoltre, abbiamo riscontrato difficoltà nel recepire alcuni loghi delle squadre (quali Cisterna, Saturnia Acicastello, Pineto, Aversa e diverse della sezione Femminile per mancanza di dati nelle API).
 
-Ogni partita include i loghi delle squadre, i nomi delle squadre, i punteggi, l'orario e un pulsante "Dettagli" che reindirizza alla pagina dei dettagli della partita.
+Il pulsante "Dettagli" reindirizza alla pagina dei dettagli della partita.
 
 ### **StatisticheComponent**
 
 La StatisticheComponent gestisce la visualizzazione delle classifiche e delle statistiche delle squadre.
 
-Un menu a tendina consente di selezionare il campionato, utilizzando \*ngFor per popolare dinamicamente le opzioni nel menu a tendina.
-
-Un pulsante "Cerca" attiva la funzione standingsLeague() quando viene premuto, che recupera le classifiche del campionato selezionato.
+Abbiamo creato un menu a tendina che consente di selezionare il campionato, in modo da filtrare i diversi campionati, per non far risultare tutto il database insieme all'interno della pagina. Di default, inizialmente mostra la classifica della superlega.
 
 Mostra una legenda con i significati delle abbreviazioni utilizzate nella classifica, come POS (posizione), SQ (nome squadra), PTS (punti), W (match vinto), L (match perso), ecc.
 
-Utilizza \*ngFor per iterare attraverso l'array classifica e visualizzare le informazioni relative a ciascuna squadra.
-Ogni squadra mostra la posizione in classifica, il logo, il nome della squadra, i punti ottenuti, la forma recente e la zona di classifica.
+Per la sezione femminile, abbiamo creato un mock di JSON per mancanza di dati nelle API Sport, in modo da ricevere dati statici visibili all'utente.
 
 ### **NewsComponent**
 
@@ -191,53 +188,75 @@ Ogni card contiene un'immagine, un titolo e un riassunto dell'articolo.
 
 Gli utenti possono cliccare su ogni card per espandere e leggere ulteriori dettagli sull'argomento dell'articolo.
 
-La pagina copre argomenti come strategie vincenti, leggende del volley, una semifinale emozionante e le regole di base del gioco.
-
 - Utilizzo di variabili booleane (isButtonClick, isButtonSecondArticleClick, ecc.) per gestire lo stato degli articoli.
 - Implementazione di metodi (toggleArticle, toggleSecondArticle, ecc.) per cambiare lo stato degli articoli.
 
 ### **ProfiloComponent**
 
+Il componente profilo presenta 3 sezioni:
+- i dati dell'account;
+- le card con i vari sconti acquistabili;
+- la history delle bet giocate.
 
+Sezione account: 
+
+Abbiamo deciso per abbreviare i tempi di lasciare l'account "vale@mail.com" sempre loggato.
+
+I fantacrediti rappresentati sono stati inseriti tramite il database. Presenta un bug per cui se non si passa prima dal componente gioca, i crediti non saranno visualizzati.   
+
+I +10 crediti vengono calcolati nella parte front-end e non vengono riportati nella parte back-end.
+
+Ci sono, inoltre, due collegamenti ai componenti "gioca" e "classifica-utente".
+
+Le card:  
+
+I bottoni ottieni calcolano il prezzo della card e lo comparano ai fantacrediti in possesso nell'account, in modo da diventare disabled in caso il prezzo sia maggiore rispetto al conto.  
+Una volta cliccato, i fantacrediti spesi verranno sottratti al totale.  
+Tutto ciò viene calcolato nella parte front-end e non è collegato al database, dovuto alla mancanza di tempo.
+
+Le bet:
+
+Abbiamo impostato un filtro con due menu a tendina (campionato e giornata), per facilitare la ricerca di una bet specifica. 
+
+Sotto, si vedono le scommesse giocate, riportando la squadra scelta attraverso il "like".
+
+Infine, nonostante la presenza delle API funzionanti fornite dal back-end, per mancanza di tempo non siamo riusciti a implementare un componente dedicato alla registrazione e login dell'utente, che vorremmo aggiungere in futuro.
 
 ### **GiocaComponent**
 
-La GiocaComponent gestisce la pagina dedicata alle scommesse degli utenti. Le principali funzionalità sono:
+La GiocaComponent gestisce la pagina dedicata alle scommesse degli utenti. 
 
-Visualizzazione delle scommesse fatte dagli utenti.
-Possibilità di effettuare nuove scommesse e salvare tali scommesse tramite il servizio partiteServices.
+Vengono riportati 10 futuri game casuali per lega e giornata, dove l'utente potrà selezionare la squadra scelta su cui scommettere, attraverso il bottone check sulla destra, che diventerà disabled una volta cliccato.
+
+Quando il bottone viene cliccato, la funzione setBetBody si attiverà, riportando la bet con la selezione dell'utente sul profilo stesso.
+
+In futuro, vorremmo applicare il costo di 50 fantacrediti delle bet e riportare l'acquisto sul conto dell'utente, inoltre vorremmo aggiungere un filtro per selezionare più precisamente la partita su cui voler scommetere.
 
 ### **GameDetailComponent**
 
-Il componente GameDetail offre una visualizzazione dettagliata dei risultati di una partita, presentando informazioni come data, squadre coinvolte e risultato finale in modo strutturato e accessibile.
+Il componente GameDetail offre una visualizzazione dettagliata dei risultati di una partita, presentando informazioni come data, loghi,  squadre coinvolte, set giocati e risultato finale in modo strutturato e accessibile.
 
 ### **RicercaComponent**
 
 Il componente Ricerca permette agli utenti di cercare squadre e visualizzare squadre popolari.
 
-Un pulsante "Cerca" attiva la funzione search() quando viene premuto. Questa funzione recupera i risultati della ricerca in base alla query inserita.
-
 Viene visualizzata una lista di squadre popolari con collegamenti per accedere alle pagine delle squadre.
+
+Attualmente, non è possibile effettuare una ricerca attraverso la barra, per mancanza di tempo e dati.
 
 ### **TeamDetailComponent**
 
 Il componente Team-Detail fornisce una visualizzazione dettagliata delle informazioni di una squadra, inclusi i risultati ottenuti sia in casa che fuori casa.
 
-Utilizzo del servizio partiteServices per ottenere informazioni dettagliate su una specifica squadra.
-
-Il template utilizza un ciclo \*ngFor per iterare attraverso i dettagli della squadra (teamDetails).
-
-Presenta i risultati ottenuti fuori casa attraverso una seconda card Bootstrap con informazioni simili, ma relative alle partite fuori casa.
+I risultati cambiano in base alla stagione (2022 o 2023), che dipende dal filtro della home.
 
 ### **ApiService**
-
-L'ApiService è un servizio Angular dedicato alla gestione delle chiamate HTTP verso l'API del backend per diverse funzionalità dell'applicazione.
 
 Di seguito, una spiegazione dei metodi principali:
 
 1. getRisultatiPartiteDefault()
 
-- Descrizione: Ottiene i risultati di default delle partite.
+- Descrizione: Ottiene l'ultimo risultato della superlega.
 - Metodo HTTP: GET
 - URL API: 'http://localhost:8080/game/default'
 
@@ -413,31 +432,11 @@ Stiamo adattando il layout in base alla larghezza dello schermo:
 - in versione mobile, la navbar viene posta in basso per migliorare l'usabilità su schermi più piccoli,
 - mentre in versione desktop, torna alla parte superiore del documento per mantenere un aspetto standard.
 
-Il footer è posizionato sopra la navbar in versione mobile per garantire una chiara distinzione tra le due sezioni.
+Il logo nella navbar è cliccabile e riporta alla home.
 
-1. Layout di Base (senza media query):
+### **Classifica Utente**
 
-La navbar è posizionata all'interno dell'header e si estende orizzontalmente.
-
-Il footer è posizionato alla fine del corpo.
-
-2. Media Query per Versione Mobile:
-
-Quando la larghezza dello schermo è inferiore a 600px:
-La navbar diventa una colonna verticale e si estende per tutta la larghezza.
-
-La navbar è posizionata in basso, fissata nella parte inferiore dello schermo.
-
-Il footer ha uno sfondo diverso e viene posizionato sopra la navbar.
-
-3. Media Query per Dispositivi Desktop:
-
-Quando la larghezza dello schermo è superiore a 600px:
-
-- La navbar torna al layout orizzontale, poiché la proprietà flex-direction viene reimpostata su row.
-- La navbar perde il posizionamento fisso e torna al flusso normale del documento.
-- Il margine inferiore del corpo viene ripristinato alla sua impostazione pre-media query.
-  
+Come feature aggiuntiva, abbiamo creato il componente Classifica Utente, che riporta la classifica degli utenti fittizi che si trovano all'interno del database.
 
 
 # **Back-end**
