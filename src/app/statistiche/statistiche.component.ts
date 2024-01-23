@@ -23,146 +23,105 @@ export class StatisticheComponent {
     "id_group": 3
   };
 
-  // Classifica della Serie A Femminile (A1 Femminile)
-  standingA1Femminile: any = [
+  // Classifica della Serie A 2 Femminile da mock dati un po mancati nmell'API sports quindi realizzato un mock
+  standingA2Femminile: any = [
     {
         "position": 1,
-        "team": "Conegliano W",
+        "team": "Perugia W",
         "id": 704,
-        "logo": "https://media.api-sports.io/volley/teams/704.png",
-        "points": 44,
+        "logo": "https://media.api-sports.io/volley/teams/709.png",
+        "points": 49,
         "form": "WWWWW",
-        "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+        "zona": "Promotion - Serie A2 Women (Winners stage: )"
     },
     {
       "position": 2,
-      "team": "Vero Volley W",
-      "id": 3604,
-      "logo": "https://media.api-sports.io/volley/teams/3604.png",
-      "points": 40,
-      "form": "WWWWW",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "team": "Futura Volley Giovani W",
+      "id": 720,
+      "logo": "https://media.api-sports.io/volley/teams/720.png",
+      "points": 45,
+      "form": "LWWLW",
+      "zona": "Promotion - Serie A2 Women (Winners stage: )"
     },
     {
       "position": 3,
-      "team": "Scandicci W",
+      "team": "Messina W",
       "id": 711,
-      "logo": "https://media.api-sports.io/volley/teams/711.png",
-      "points": 38,
-      "form": "WWWWW",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "logo": "https://media.api-sports.io/volley/teams/3518.png",
+      "points": 40,
+      "form": "WLWWW",
+      "zona": "Promotion - Serie A2 Women (Winners stage: )"
     },
 
     {
       "position": 4,
-      "team": "Novara W",
-      "id": 708,
-      "logo": "https://media.api-sports.io/volley/teams/708.png",
-      "points": 33,
-      "form": "WWWLL",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "team": "Talmassons W",
+      "id": 736,
+      "logo": "https://media.api-sports.io/volley/teams/736.png",
+      "points": 34,
+      "form": "LWLWW",
+      "zona": "Promotion - Serie A2 Women (Winners stage: )"
     },
 
     {
       "position": 5,
-      "team": "Chieri 76 W",
+      "team": "Albese W",
       "id": 703,
-      "logo": "https://media.api-sports.io/volley/teams/703.png",
-      "points": 28,
-      "form": "WLWWL",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "logo": "https://media.api-sports.io/volley/teams/715.png",
+      "points": 30,
+      "form": "LWWWW",
+      "zona": "Promotion - Serie A2 Women (Winners stage: )"
     },
 
     {
       "position": 6,
-      "team": "Pinerolo W",
+      "team": "Brescia W",
       "id": 730,
-      "logo": "https://media.api-sports.io/volley/teams/730.png",
-      "points": 21,
-      "form": "LLWLW",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "logo": "https://media.api-sports.io/volley/teams/718.png",
+      "points": 26,
+      "form": "WLLLL",
+      "zona": "Serie A2 Women (Losers stage: )"
     },
 
     {
       "position": 7,
-      "team": "Vallefoglia W",
+      "team": "Bologna W",
       "id": 714,
-      "logo": "https://media.api-sports.io/volley/teams/714.png",
-      "points": 21,
-      "form": "WWLWL",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "logo": "https://media.api-sports.io/volley/teams/3747.png",
+      "points": 19,
+      "form": "LWWLW",
+      "zona": "Serie A2 Women (Losers stage: )"
     },
 
     {
       "position": 8,
-      "team": "Firenze W",
+      "team": "Soverato W",
       "id": 706,
-      "logo": "https://media.api-sports.io/volley/teams/706.png",
-      "points": 19,
-      "form": "WLWLW",
-      "zona": "Promotion - Serie A1 Women (Play Offs: Quarter-finals)"
+      "logo": "https://media.api-sports.io/volley/teams/735.png",
+      "points": 15,
+      "form": "WLLLL",
+      "zona": "Serie A2 Women (Losers stage: )"
     },
 
     {
       "position": 9,
-      "team": "Roma W",
+      "team": "Padova W",
       "id": 710,
-      "logo": "https://media.api-sports.io/volley/teams/710.png",
-      "points": 18,
-      "form": "LLLLW",
-      "zona": "Serie A1 Women (Play Out: )"
+      "logo": "https://media.api-sports.io/volley/teams/3750.png",
+      "points": 11,
+      "form": "WLWLL",
+      "zona": "Serie A2 Women (Losers stage: )"
     },
 
     {
       "position": 10,
-      "team": "UYBA Busto Arsizio W",
+      "team": "Pescara W",
       "id": 713,
-      "logo": "https://media.api-sports.io/volley/teams/713.png",
-      "points": 14,
-      "form": "LLLWW",
-      "zona": "Serie A1 Women (Play Out: )"
-    },
-
-    {
-      "position": 11,
-      "team": "Cuneo W",
-      "id": 705,
-      "logo": "https://media.api-sports.io/volley/teams/705.png",
-      "points": 13,
-      "form": "LWLLL",
-      "zona": "Serie A1 Women (Play Out: )"
-    },
-
-    {
-      "position": 12,
-      "team": "Bergamo W",
-      "id": 701,
-      "logo": "https://media.api-sports.io/volley/teams/701.png",
-      "points": 11,
-      "form": "LWLLL",
-      "zona": "Serie A1 Women (Play Out: )"
-    },
-
-    {
-      "position": 13,
-      "team": "Casalmaggiore W",
-      "id": 702,
-      "logo": "https://media.api-sports.io/volley/teams/702.png",
-      "points": 9,
+      "logo": "https://media.api-sports.io/volley/teams/3751.png",
+      "points": 1,
       "form": "LLLLL",
-      "zona": "Relegation - Serie A2 Women"
-    },
-
-    {
-      "position": 14,
-      "team": "Trentino W",
-      "id": 712,
-      "logo": "https://media.api-sports.io/volley/teams/712.png",
-      "points": 3,
-      "form": "LLLLL",
-      "zona": "Serie A1 Women (Play Out: )"
-    },
-
+      "zona": "Serie A2 Women (Losers stage: )"
+    }
   ];
 
   // Opzioni per la selezione della lega
@@ -203,8 +162,8 @@ export class StatisticheComponent {
     this.bodyClassifica.id_league = leagueId;
   
     // Verifica se la lega selezionata è A1 Femminile e utilizzo il mock 
-    if (this.selectedLeague === 'A1_Femminile') {
-      this.classifica = this.standingA1Femminile;
+    if (this.selectedLeague === 'A2_Femminile') {
+      this.classifica = this.standingA2Femminile;
     } else {
       // Altrimenti, chiamo l'API per ottenere i dati della lega selezionata
       this.partiteService.standings(this.bodyClassifica).subscribe((response: any) => {

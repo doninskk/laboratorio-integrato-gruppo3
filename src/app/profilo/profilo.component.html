@@ -126,6 +126,7 @@
          
           <div class="row d-flex align-items-center text-center justify-content-between"> 
             <h3>{{partita.date| date: 'dd/MM/yyyy'}}</h3> 
+            <p>Lega: {{partita.league_name}}</p>
             <p>giornata: {{partita.week}}</p>
           </div>
 
@@ -184,6 +185,7 @@
 
     <div *ngFor="let bet of userBets " class="row d-flex align-items-center text-center justify-content-between"id="{{'bet-' + bet.id_game}}">
       <p>La tua scommessa: </p>
+      <p>{{bet.league_name}}</p>
        <div class="col-4">
         <img src="{{ bet.logo_scommesso }}" class="img-fluid team-logo" alt="logo squadra casa">
       </div>

@@ -58,7 +58,7 @@ subscribeBody = {
   };
 
   betBodyJson = {
-    "week": 15,
+    "week": 17,
     "season": 2023,
     "id_league": 97
   };
