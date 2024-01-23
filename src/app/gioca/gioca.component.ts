@@ -64,15 +64,15 @@ export class GiocaComponent {
     this.betsPlaced[gameId] = true; // Segnala che la scommessa è stata effettuata
   }
 
-  betsData() {
+  betsData() { // chiamata per ottenere la get delle partite future su cui fare dei pronostici
     this.partiteService.betPageResults().subscribe((response: any) => {
       this.bets = response;
       console.log("dati ricevuti", response);
     });
   }
 
-  savedUserBets() {
-    this.partiteService.getSaveBets(this.betBodySave).subscribe((response: any) => {
+  savedUserBets() { // chiamata per salvare le bet fatte dall'utente
+    this.partiteService.getSaveBets(this.betBodySave).subscribe((response: any) => { // passo betBodySave come parametro che presenta i dati salvati al momento del click sul check button
       this.savedBets = response;
       console.log("dati ricevuti", response);
     });
