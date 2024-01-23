@@ -48,10 +48,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
    - [PartiteService](#PartiteService)
    - [ErrorComponent](#ErrorComponent)
    - [AppComponent](#AppComponent)
+   - [ClassificaUtenteComponent](#classifica-utente)
 
 8. [Back-end](#Back-end)
 
-   - [](#)
+   - [System requirement](#system-requirement)
+   - [Possible future feature](#possible-future-feature)
+   - []
 
 9. [Digital Strategist](#Digital-Strategist)
    - [](#)
@@ -198,7 +201,7 @@ Il componente profilo presenta 3 sezioni:
 - le card con i vari sconti acquistabili;
 - la history delle bet giocate.
 
-Sezione account: 
+**Sezione account:** 
 
 Abbiamo deciso per abbreviare i tempi di lasciare l'account "vale@mail.com" sempre loggato.
 
@@ -208,13 +211,14 @@ I +10 crediti vengono calcolati nella parte front-end e non vengono riportati ne
 
 Ci sono, inoltre, due collegamenti ai componenti "gioca" e "classifica-utente".
 
-Le card:  
+**Le card:**  
 
-I bottoni ottieni calcolano il prezzo della card e lo comparano ai fantacrediti in possesso nell'account, in modo da diventare disabled in caso il prezzo sia maggiore rispetto al conto.  
-Una volta cliccato, i fantacrediti spesi verranno sottratti al totale.  
+I bottoni ottieni calcolano il prezzo della card e lo comparano ai fantacrediti in possesso nell'account, in modo da diventare disabled in caso il prezzo sia maggiore rispetto al conto.
+
+Una volta cliccato, i fantacrediti spesi verranno sottratti al totale e verrà dato un feedback all'utente attraverso il pop up di una modale bootstrap che conferma l'acquisto.  
 Tutto ciò viene calcolato nella parte front-end e non è collegato al database, dovuto alla mancanza di tempo.
 
-Le bet:
+**Le bet:**
 
 Abbiamo impostato un filtro con due menu a tendina (campionato e giornata), per facilitare la ricerca di una bet specifica. 
 
@@ -478,7 +482,7 @@ Come feature aggiuntiva, abbiamo creato il componente Classifica Utente, che rip
 
  3. Statistiche team
  - Nel database, nella tabella sono presenti alcune statistiche di alcuni team
- - Vorremmo aggiungere un servizio per inserire nuove statistiche e aggiornare quelle vecchie
+ - Le statistiche vengono aggiornate ogni lunedì a mezzanotte
 
  4. Vincitore del campionato
  - Abbiamo predisposti il database e i servizi per permettere all'utente di fare un altro tipo di scomessa
