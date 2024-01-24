@@ -57,7 +57,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
    - []
 
 9. [Digital Strategist](#Digital-Strategist)
-   - [](#)
+   - [Navbar](###Navbar)  
+   - [Sezione risultati](###Sezione-risultati)
+   - [Footer](###Footer)  
 
 ## Exercise Requirement
 
@@ -347,7 +349,7 @@ Di seguito, una spiegazione dei principali metodi del servizio:
 
 1. getDefault()
 
-Ottiene i risultati di default delle partite.
+Ottiene l'ultima partita giocata in SuperLega.
 
 Chiama il metodo corrispondente di ApiService.
 
@@ -510,4 +512,40 @@ Come feature aggiuntiva, abbiamo creato il componente Classifica Utente, che rip
 - Ci sarebbe piaciuto aggiungere più paesi, ma a causa delle limitazioni di API sport ci siamo fermati alle competizioni italiane
 
 
-### **Digital Strategist**
+# **Digital Strategist**
+
+## Home Page Structure
+
+
+### Navbar
+
+1. navbar Dekstop:La header contiene una navbar bianca con collegamenti alle pagine: risultati, classifiche, news, gioca, ricerca, profilo. Le sezioni del menù hanno un icona rappresentativa ed il colore (RGB) il colore scelto è lo stesso della palette del logo, rappresenta uno dei colori che rispecchiano la pallavolo, è presente l’icona del logo Volleynet a sinistra.
+
+
+2. Mobile version: Nella versione mobile la navbar è nella **parte inferiore dello schermo** perchè è maggiormente raggiungibile rispetto alla parte superiore, specialmente su dispositivi più grandi. Mettendo la barra di navigazione nella parte bassa, si rende più facile per gli utenti accedere rapidamente alle sezioni principali dell'app.
+Posizionando la barra di navigazione nella parte inferiore, si lascia più spazio visivo nella parte superiore dello schermo per il contenuto principale dell'app.
+Sotto la navbar è presente una line, colore (RBG), il colore e la linea differenzia bene l’inizio della homepage.
+
+### Sezione risultati
+
+
+ sezione risultati: Nella homepage è presente la sezione risultati, con tre box (che agiscono da filtri) in cui si può scegliere **campionato, stagione e giornata.** I tre box colore (RGB) fanno capire all’utente che può effettuare una scelta e selezionare le informazioni desiderate, invece l’utente **tramite il bottone “cerca”, colore (RGB) otterrà i risultati a seconda delle proprie ricerche**, è stato scelto il colore blu della palette per differenziarsi dai tre box precedenti poiché è un colore che richiama l’attenzione.
+I risultati avranno:
+
+1.  campionato esempio (serie A1 Women), 
+
+2. giornata di campionato esempio: (giornata 14), 
+
+3. squadre (nome e logo), orario , data 
+
+4. ed infine un bottone **“dettagli”**, colore (RGB) tramite al colore si differenziano dagli altri testi e come il bottone precedente di “cerca”, l’utente avrà più facilità a capire che cliccando otterrà maggiori dettagli sulla partita giocata. Per ogni squadra è presente il corrispettivo logo della squadra e a destra i risultati della partita giocata. Il bottone “dettagli”, riporterà i dettagli dei set vinti e persi della partita corrispondente.
+
+La dimensione del carattere del campionato e delle squadre è maggiore rispetto all’orario ed alla giornata, perchè sono le informazioni principali. 
+
+### Footer
+
+ Il footer è di colore (RGB) poiché richiama i colori della pallavolo ed è di un colore diferso dalla navbar per differenziarsi. Contiene il logo principale a sinistra, privacy policy e cookie policy, a destra sono presenti le icone di collegamento ai social della webapp, i testi e le app sono di colore bianco per evidenziarsi e dar loro maggior risalto nel footer. 
+
+
+
+
